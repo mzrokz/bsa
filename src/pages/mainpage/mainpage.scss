@@ -1,0 +1,43 @@
+page-mainpage {
+
+  .search {
+    padding: 1vw;
+    width: 7vw;
+    margin-right: 2vw;
+    //margin-top: 2vw;
+    margin-top: 1.5vw;
+    float: right;
+  }
+
+  .bgMainCard {
+    background-repeat: no-repeat;
+   background: url('assets/imgs/icon_bg.png');
+    background-size: cover;
+    background-position: center;
+    height: 33vw;
+    width: 33vw;
+    padding-top: 2vw;
+
+  }
+
+  .subMainCard {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   // height: 20vw;
+    width: 17vw;
+  //  width: 20vw;
+   // margin-left: 3vw;
+    text-align: center;
+  }
+  .sizeOfCard {
+    height: 34vw;
+    width: 34vw;
+  }
+
+  .text{
+    font-size: 3.5vw;
+    padding-top:3vw;
+    //margin-left: 3vw
+  }
+}

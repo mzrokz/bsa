@@ -1,0 +1,7 @@
+{
+  "name": "Ionicsliderproject",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

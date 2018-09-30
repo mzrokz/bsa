@@ -1,0 +1,111 @@
+page-profile {
+  .profileHeader {
+    color: white;
+    text-align: center;
+    font-size: 5vw;
+    padding-top: 4vw;
+  }
+
+  .mainContainer {
+    position: relative;
+    text-align: left;
+    color: black;
+    width: auto;
+    height: auto;
+  }
+
+  .whitecontainer {
+    position: initial;
+    text-align: center;
+    color: black;
+    background-color: white;
+    height: 21vw;
+  }
+
+  .profileImage {
+    border-radius: 50%;
+    width: 28vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 9vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .followersContainer {
+    position: relative;
+    text-align: center;
+    color: black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .followerImage {
+    width: 25vw;
+    position: fixed;
+    top: 14%;
+    bottom: 0;
+    right: 64%;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .followerText {
+    position: fixed;
+    top: 13%;
+    left: 0;
+    bottom: 0;
+    font-size: 3vw;
+    right: 64%;
+    padding: 3.2%;
+    color: #3588A1;
+  }
+
+  .followingImage {
+    width: 25vw;
+    position: fixed;
+    top: 14%;
+    bottom: 0;
+    right: 0;
+    left: 64%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .followingsText {
+    position: fixed;
+    top: 13%;
+    left: 64%;
+    bottom: 0;
+    font-size: 3vw;
+    right: 0;
+    padding: 3.2%;
+    color: #3588A1;
+  }
+  .settingsDiv{
+    background-color: white;
+    border-radius: 1vw;
+    height: 7%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 1%;
+  }
+  .titleHeader{
+    color: dimgrey;
+    font-size: 3vw;
+    padding-left: 5vw;
+  }
+  .followHeader{
+    color: dimgrey;
+    font-size: 3vw;
+    padding-left: 4vw;
+  }
+  .nextBlackIcon{
+    height: 3vw;
+    margin-left: auto;
+  }
+}
+

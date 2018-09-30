@@ -1,0 +1,200 @@
+page-home {
+
+  .tabbar.show-tabbar {
+    bottom: 0px;
+    background-color: #F4F4F4;
+  }
+
+  .tabbar, .tabs-ios, .tabs-md {
+    .tab-button-icon {
+      //background-repeat:no-repeat;
+      background-position: center;
+      height: 20px;
+      width: 30px;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .tabs-md[tabsLayout=icon-hide] .tab-button, .tabs-md[tabsLayout=title-hide] .tab-button, .tabs-md .tab-button.icon-only, .tabs-md .tab-button.has-title-only {
+    padding: 0px;
+  }
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    -webkit-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+    height: 10vw;
+    width: 15vw;
+  }
+
+  .tabs-md .tab-button[aria-selected=false] .tab-button-icon {
+    -webkit-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+    height: 10vw;
+    width: 15vw;;
+  }
+  //IOS Tabs CSS---->
+  .tabs-ios {
+    a[aria-selected=false] {
+      //Off tabs
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url(../assets/imgs/home02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url(../assets/imgs/my-chats01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url(../assets/imgs/add-post.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url(../assets/imgs/notification01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url(../assets/imgs/profile01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    a[aria-selected=true] {
+      span {
+        color: #14B6BB;
+      }
+      //On Tabs
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url(../assets/imgs/home01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url(../assets/imgs/my-chats02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url(../assets/imgs/add-post02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url(../assets/imgs/notification02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url(../assets/imgs/profile02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    height: 10vw;
+    width: 15vw;
+  }
+  .tabs-ios .tab-button[aria-selected=false] .tab-button-icon {
+    height: 10vw;
+    width: 15vw;
+  }
+
+  .tabs-ios .tab-button-icon {
+    margin-top: 0;
+  }
+  .tabbar .tab-button-icon, .tabs-ios .tab-button-icon {
+    height: 48px;
+    width: 100%;
+    margin-bottom: 0;
+
+  }
+  .tabs-md .tab-button-icon {
+    height: 56px;
+    margin-top: 0;
+
+  }
+  .tabs-ios[tabsLayout=title-hide] .tab-button, .tabs-ios .tab-button.icon-only {
+    min-height: 43px;
+    padding: 0;
+  }
+  .tab-button.has-icon.icon-only.disable-hover {
+    // border-right: 1px solid tan;
+  }
+  a#tab-t0-4.tab-button.has-icon.icon-only.disable-hover, a#tab-t1-4.tab-button.has-icon.icon-only.disable-hover {
+    //  border-right: 0px solid tan;
+  }
+  .tabbar .tab-button:nth-child(5), a#tab-t2-4.tab-button.has-icon.icon-only.disable-hover {
+    //  border-right: 0px solid tan;
+  }
+
+  //Android Tabs CSS---->
+  .tabs-md {
+    a[aria-selected=false] {
+      //Off tabs
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url(../assets/imgs/home02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url(../assets/imgs/my-chats01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url(../assets/imgs/add-post.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url(../assets/imgs/notification01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url(../assets/imgs/profile01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    a[aria-selected=true] {
+      //On Tabs
+      span {
+        color: #14B6BB;
+      }
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url(../assets/imgs/home01.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url(../assets/imgs/my-chats02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url(../assets/imgs/add-post02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url(../assets/imgs/notification02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url(../assets/imgs/profile02.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+

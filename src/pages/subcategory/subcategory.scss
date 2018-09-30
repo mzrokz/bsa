@@ -1,0 +1,110 @@
+page-subcategory {
+
+  .bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #EDEDED;
+    height: -webkit-fill-available;
+  }
+  .passContainer {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Container holding the image and the text */
+  .container {
+    margin-top: 10%;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .bgTabCard {
+    background-repeat: no-repeat;
+    background: url(../assets/imgs/mobile_tap_bg.png);
+    background-size: cover;
+    background-position: center;
+    height: 10vw;
+    margin-left: 5vw;
+    width: 40vw;
+
+  }
+  .text {
+    width: 100%;
+    font-size: 4vw;
+    padding-top: 3vw;
+    text-align: center;
+  }
+
+  .textInnerCard {
+    width: 100%;
+    font-size: 5vw;
+    padding-top: 5vw;
+    text-align: center;
+  }
+
+  .sizeOfCard {
+    height: 32vw;
+    //width: auto;
+    width: 44vw;
+  }
+  .bgMainCard {
+    background-repeat: no-repeat;
+   // background: url('assets/imgs/icon_bg.png');
+    background-size: cover;
+    background-position: center;
+    height: 33vw;
+    width: 33vw;
+    //padding-top: 2vw;
+
+  }
+
+  .grid {
+    /* padding: 5px; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .scroll-content {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
+    contain: size style layout;
+     background-color: transparent;
+  }
+
+  [col-6] {
+     padding: 0px;
+  }
+
+  .crossBtn{
+    float: right;
+    margin-right: 3vw;
+    margin-top: 1vw;
+    width: 3vw;
+  }
+
+}

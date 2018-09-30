@@ -1,0 +1,120 @@
+<ion-content>
+
+  <div>
+    <div style="background-color: #3588A1; height: 13vw;">
+
+      <ion-row>
+
+        <ion-col col-3>
+
+          <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
+        </ion-col>
+        <ion-col col-6>
+
+          <div style=" margin-top: 3vw;
+    margin-left: 10vw;
+    color: white;
+    font-size: 5vw;">
+            Subcategory
+
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </div>
+  </div>
+
+  <div class="bg">
+    <div>
+      <ion-slides style=" width: 100%;margin-left: auto;
+    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000">
+
+        <ion-slide>
+          <img src="assets/imgs/banner.png" style="width: 100%;">
+        </ion-slide>
+
+        <ion-slide>
+          <img src="assets/imgs/banner2.png" style="width: 100%;">
+        </ion-slide>
+
+        <ion-slide>
+          <img src="assets/imgs/banner3.png" style="width: 100%;">
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div style="padding-top: 5vw">
+      <div class="bgTabCard">
+        <ion-row>
+          <div class="text"> Mobile Tablet
+            <img src="assets/imgs/cross_icon.png" class="crossBtn">
+          </div>
+        </ion-row>
+      </div>
+    </div>
+
+    <div style="margin-top: 5vw;height: auto;width: 100%">
+
+      <ion-grid style="padding: 0px">
+
+        <ion-row>
+
+          <ion-col col-6>
+            <ion-card class="sizeOfCard">
+              <ion-card-content>
+                <div class="bgMainCard" (click)="openItemPage()">
+                  <div class="textInnerCard">Mobiles</div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+
+          </ion-col>
+
+          <ion-col col-6>
+
+            <ion-card class="sizeOfCard">
+              <ion-card-content>
+                <div class="bgMainCard">
+                  <div class="textInnerCard">Tablets</div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+
+          <ion-col col-6>
+            <ion-card class="sizeOfCard">
+              <ion-card-content>
+                <div class="bgMainCard">
+                  <div class="textInnerCard">Mobiles Tablets</div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+
+          </ion-col>
+
+          <ion-col col-6>
+
+            <ion-card class="sizeOfCard">
+              <ion-card-content>
+                <div class="bgMainCard">
+                  <div class="textInnerCard">Mobile Spare Parts</div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+
+
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+</ion-content>

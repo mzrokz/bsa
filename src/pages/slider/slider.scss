@@ -1,0 +1,52 @@
+page-slider {
+
+
+  .backgroundImages {
+    width: 100%;
+   // margin-top: 25px;
+   // background-size: 100% 100%;
+  }
+  .heading{
+    width: 100%;
+    font-size: 5vw;
+    color: white;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 20vw;
+    margin-right: auto;
+  }
+
+  .heading2{
+    font-size: 4vw;
+    color: white;
+    color: white;
+    margin-left: 12vw;
+    text-align: center;
+    margin-top: 5vw;
+    margin-right: 12vw;
+  }
+
+  .bgColor{
+    background: #3588A1;
+  }
+
+  .bgColorBottom{
+    background: #298094;
+  }
+
+  .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 60%;
+  }
+
+}

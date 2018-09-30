@@ -1,0 +1,53 @@
+<ion-content padding class="bg">
+
+  <ion-row>
+
+    <ion-col col-3>
+
+      <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
+    </ion-col>
+    <ion-col col-9>
+
+      <div style="    margin-top: 2vw;
+    margin-left: 10vw;
+    color: white;
+    font-size: 5vw;">
+        Verification
+
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+
+  <div style="width: 74%;
+    margin-left: auto;
+    margin-top: 10vw;
+    margin-right: auto;">
+    <img src="assets/imgs/sign_up_logo.png">
+
+  </div>
+
+  <div style="font-size: 5vw;color: white;text-align: center;margin-top: 8vw;"><b>Verify your mobile number</b></div>
+
+  <div style="font-size: 4vw;color: white;text-align: center;margin-top: 5vw;">Enter your OTP code here</div>
+
+
+  <div class="passContainer" style="margin-top:5vw">
+    <img src="assets/imgs/bt2.png" style="margin-left: 2%;"/>
+
+    <div class="mobileNumber">
+      <input style="background-color: transparent;border: transparent;font-size: 4vw" type="number" maxlength="4"/>
+    </div>
+
+  </div>
+
+  <div class="passContainer" style="margin-top:10vw">
+    <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
+
+    <div class="phoneNumber" (click)="openMainPage()">
+      Submit
+    </div>
+  </div>
+
+</ion-content>

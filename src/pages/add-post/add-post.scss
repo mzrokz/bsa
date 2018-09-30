@@ -1,0 +1,96 @@
+page-add-post {
+  .addPostHeader{
+    color: white;
+    text-align: center;
+    font-size: 5vw;
+    padding-top: 4vw;
+  }
+  .addPostCameraDiv{
+    height: 27%;
+    background-color: #D6D6D6;
+    border-radius: 1vw;
+    margin: 3%;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .cameraIcon{
+    width: 12vw;
+    margin-top: 16%;
+  }
+  .subcategoryDiv{
+    background-color: white;
+    border-radius: 1vw;
+    height: 7%;
+    margin: 3%;
+  }
+  .titleHeader{
+    color: black;
+    font-size: 3vw;
+  }
+  .nextBlackIcon{
+    height: 3vw;
+    margin-left: auto;
+  }
+  .container{
+    position: relative;
+    text-align: left;
+    color: black;
+    width: auto;
+    background-color: white;
+    height: auto;
+    margin: 3%;
+    border-radius: 1vw;
+  }
+
+  .savecontainer{
+    position: relative;
+    text-align: center;
+    color: black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .saveBluetitle{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 4vw;
+      color: #3588A1;
+  }
+  .saveWhitetitle{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 4vw;
+      color: white;
+  }
+
+  /*set place holder color*/
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    black;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    black;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:     black;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:     black;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:    black;
+  }
+
+  ::placeholder { /* Most modern browsers support this now. */
+    color:     black;
+  }
+}
