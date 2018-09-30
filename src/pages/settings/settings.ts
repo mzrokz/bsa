@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SettingsPage } from '../settings/settings';
 
 /**
- * Generated class for the ProfilePage page.
+ * Generated class for the SettingsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,19 +10,16 @@ import { SettingsPage } from '../settings/settings';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html',
+  selector: 'page-settings',
+  templateUrl: 'settings.html',
 })
-export class ProfilePage {
+export class SettingsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    console.log('ionViewDidLoad SettingsPage');
   }
 
-  gotoSettings() {
-    this.navCtrl.push(SettingsPage);
-  }
 }

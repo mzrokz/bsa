@@ -21,12 +21,12 @@ export class SliderPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SliderPage');
 
-    setTimeout(()=>{
+    setTimeout(() => {
       this.openLogin();
-    },5000);
+    }, 5000);
   }
 
-  openLogin(){
+  openLogin() {
     this.navCtrl.push('LoginPage');
   }
 

@@ -9,7 +9,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {SliderPage} from "../pages/slider/slider";
+import { SliderPage } from "../pages/slider/slider";
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {SliderPage} from "../pages/slider/slider";
     AboutPage,
     ContactPage,
     TabsPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -30,11 +32,12 @@ import {SliderPage} from "../pages/slider/slider";
     AboutPage,
     ContactPage,
     TabsPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

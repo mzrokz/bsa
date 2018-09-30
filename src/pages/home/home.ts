@@ -20,6 +20,7 @@ export class HomePage {
   addposts = 'AddPostPage';
   notifications = 'NotificationsPage';
   profile = 'ProfilePage';
+  settings = 'SettingsPage';
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
