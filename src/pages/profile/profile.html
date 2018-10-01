@@ -21,24 +21,23 @@
         <div class="followerText">
           Followers
         </div>
+        {{profile.FollowerCount}}
       </div>
 
-      <img src="assets/imgs/default.jpg" class="profileImage">
+      <img *ngIf="profile.ProfileImage" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.png'"
+        class="profileImage">
 
       <div class="followersContainer">
         <img src="assets/imgs/followers_btn.png" class="followingImage" />
         <div class="followingsText">
           Followings
         </div>
+        {{profile.FollowingCount}}
       </div>
       <div class="whitecontainer">
-
-        <div style="padding-top: 8%;
-    font-size: 3.5vw;"><b>Lorem ipsum</b></div>
-        <div style="font-size: 3vw;color: grey;">+91 5645646545</div>
+        <div style="padding-top: 8%;font-size: 3.5vw;"><b>{{profile.Name}}</b></div>
+        <div style="font-size: 3vw;color: grey;">{{profile.ContactNo}}</div>
       </div>
-
-
     </div>
   </div>
 
