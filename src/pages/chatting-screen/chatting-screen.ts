@@ -3,19 +3,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-mychatpage',
-  templateUrl: 'mychatpage.html',
+  selector: 'page-chatting-screen',
+  templateUrl: 'chatting-screen.html',
 })
-export class MychatpagePage {
+export class ChattingScreenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MychatpagePage');
+    console.log('ionViewDidLoad ChattingScreenPage');
   }
 
-  backtoPreviousScreen() {
-    this.navCtrl.pop();
-  }
 }
