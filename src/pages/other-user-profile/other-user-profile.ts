@@ -3,19 +3,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-mychatpage',
-  templateUrl: 'mychatpage.html',
+  selector: 'page-other-user-profile',
+  templateUrl: 'other-user-profile.html',
 })
-export class MychatpagePage {
+export class OtherUserProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MychatpagePage');
+    console.log('ionViewDidLoad OtherUserProfilePage');
   }
 
-  backtoPreviousScreen() {
-    this.navCtrl.pop();
-  }
 }
