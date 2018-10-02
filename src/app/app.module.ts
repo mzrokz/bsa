@@ -13,7 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SliderPage } from "../pages/slider/slider";
 import { SettingsPage } from '../pages/settings/settings';
-import { ProfileService } from '../services/profile.service';
+import { UserService } from '../services/user.service';
+import { CommonService } from '../services/common.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProfileService } from '../services/profile.service';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ProfileService
+    UserService,
+    CommonService
   ]
 })
 export class AppModule { }

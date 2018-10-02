@@ -7,8 +7,8 @@
 
 <ion-content style="background-color: #EDEDED">
   <div class="UpperTitle">
-      <img src="assets/imgs/settings/back.png" />
-      Settings
+    <img src="assets/imgs/settings/back.png" />
+    Settings
   </div>
 
   <div style="color: #3588A1; padding: 1.5vh; font-size: 3.2vw;">
@@ -22,7 +22,7 @@
         Country
       </span>
       <span class="nextBlackIcon">
-        India
+        {{settings.country}}
       </span>
     </ion-row>
   </div>
@@ -34,7 +34,7 @@
         City
       </span>
       <span class="nextBlackIcon">
-        Indore
+        {{settings.city}}
       </span>
     </ion-row>
   </div>
@@ -46,7 +46,7 @@
         Location
       </span>
       <span class="nextBlackIcon">
-        Vijay nagar
+        {{settings.location}}
       </span>
     </ion-row>
   </div>
@@ -58,7 +58,7 @@
         Language
       </span>
       <span class="nextBlackIcon">
-        English
+        {{settings.language}}
       </span>
     </ion-row>
   </div>
@@ -72,7 +72,7 @@
 
       <span class="toggle-switch switch-adjust">
         <label class="switch">
-          <input type="checkbox" checked>
+          <input type="checkbox" [checked]="settings.isnotify == 1" (change)="onNotifyChange($event)">
           <span class="slider round"></span>
         </label>
       </span>

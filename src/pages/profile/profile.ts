@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
-import { ProfileService } from '../../services/profile.service';
+import { UserService } from '../../services/user.service';
 
 /**
  * Generated class for the ProfilePage page.
@@ -22,7 +22,7 @@ export class ProfilePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private profileService: ProfileService
+    private userService: UserService
   ) {
   }
 
@@ -32,7 +32,8 @@ export class ProfilePage {
   }
 
   getProfile() {
-    this.profileService.getProfile(118).subscribe(res => {
+    // TODO: Add userId
+    this.userService.getProfile(118).subscribe(res => {
       this.profile = (res as any).data;
     })
 
