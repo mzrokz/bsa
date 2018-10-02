@@ -94,3 +94,125 @@ page-add-post {
     color:     black;
   }
 }
+/*add new css*/
+body {
+  background-color:#ededed;
+    padding: 0;
+    margin: 0;
+
+}
+.container {
+
+    width: 94%;
+    margin: auto;
+
+}
+.add-post {
+  height: 60px;
+    background-color: #308aa1;
+  line-height: 60px;
+
+}
+.back {
+
+    float: left;
+
+}
+.add-text {
+
+    text-align: center;
+    color: #fff;
+
+}
+.back img {
+  padding-top: 23px;
+    width: 35%;
+
+}
+.add-text h3 {
+
+    margin: 0;
+
+}
+.add-photo {
+  padding: 60px 0;
+    background-color: #d6d6d6;
+    text-align: center;
+    color: #fff;
+
+}
+.add-photo img {
+
+    width: 20%;
+
+}
+.add-photo h4 {
+
+    margin: 0;
+
+}
+.select-text {
+
+    float: left;
+
+}
+.select-arrow {
+
+    float: right;
+
+}
+.select-text h5 {
+
+    margin: 0;
+
+}
+.select-catogery {
+  border-radius: 5px;
+    background-color: #fff;
+    color: #434242;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+
+}
+.select-arrow img {
+
+    width: 50%;
+    padding-top: 20px;
+
+}
+.description {
+  height: 120px;
+}
+.save {
+
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: none;
+    border: none;
+    background-color: #e0dfdf;
+  color: #1c6c87;
+  font-size: 20px;
+}
+.icon {
+    float: left;
+  width: 20%;
+}
+.icon-box {
+  text-align:center;
+  background-color:#f4f4f4;
+  height: 56px;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+.icon-box img {
+    width: 45%;
+}
+.icon span {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.post span {
+  color: #1c6c87 ;
+}

@@ -1,3 +1,281 @@
 page-settings {
+  .settingsheader{
+    color: white;
+    text-align: center;
+    font-size: 5vw;
+    padding-top: 4vw;
+  }
 
+  .backWhiteIcon {
+    height: 2.5vh;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  .sectionDiv {
+    background-color: white;
+    border-radius: 1vw;
+    height: 7%;
+    margin: 3%; 
+  }
+
+  .sectionDiv.logout {
+    margin-top: 15%;
+  }
+
+  .listings-block {
+/*    font-size: ;*/
+  }
+
+  .nextBlackIcon{
+    height: 2.5vh;
+    margin-left: auto;
+  }
+
+  .container{
+    position: relative;
+    text-align: left;
+    color: black;
+    width: auto;
+    background-color: white;
+    height: auto;
+    margin: 3%;
+    border-radius: 1vw;
+  }
+
+  .savecontainer{
+    position: relative;
+    text-align: center;
+    color: black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .saveBluetitle{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 4vw;
+      color: #3588A1;
+  }
+  .saveWhitetitle{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 4vw;
+      color: white;
+  }
+
+  /*set place holder color*/
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    black;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    black;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:     black;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:     black;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:    black;
+  }
+
+  ::placeholder { /* Most modern browsers support this now. */
+    color:     black;
+  }
+}
+/*add new css*/
+body {
+  background-color:#ededed;
+    padding: 0;
+    margin: 0;
+
+}
+.container {
+
+    width: 94%;
+    margin: auto;
+
+}
+.add-post {
+  height: 60px;
+    background-color: #308aa1;
+  line-height: 60px;
+
+}
+.back {
+
+    float: left;
+
+}
+.add-text {
+
+    text-align: center;
+    color: #fff;
+
+}
+.back img {
+  padding-top: 23px;
+    width: 35%;
+
+}
+.add-text h3 {
+
+    margin: 0;
+
+}
+.add-photo {
+  padding: 60px 0;
+    background-color: #d6d6d6;
+    text-align: center;
+    color: #fff;
+
+}
+.add-photo img {
+
+    width: 20%;
+
+}
+.add-photo h4 {
+
+    margin: 0;
+
+}
+.select-text {
+
+    float: left;
+
+}
+.select-arrow {
+
+    float: right;
+
+}
+.select-text h5 {
+
+    margin: 0;
+
+}
+.select-catogery {
+  border-radius: 5px;
+    background-color: #fff;
+    color: #434242;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+
+}
+.select-arrow img {
+
+    width: 50%;
+    padding-top: 20px;
+
+}
+.description {
+  height: 120px;
+}
+.save {
+
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: none;
+    border: none;
+    background-color: #e0dfdf;
+  color: #1c6c87;
+  font-size: 20px;
+}
+.icon {
+    float: left;
+  width: 20%;
+}
+.icon-box {
+  text-align:center;
+  background-color:#f4f4f4;
+  height: 56px;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+.icon-box img {
+    width: 45%;
+}
+.icon span {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.post span {
+  color: #1c6c87 ;
+}
+
+ion-row.row {
+  padding: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
