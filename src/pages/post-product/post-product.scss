@@ -97,7 +97,10 @@ page-post-product {
     }
 
     .post-by {
-        display: table;
+        display: flex;
+        align-items: center;
+        margin-top: -0.5rem;
+        padding: 0.2rem;
     }
 
     .profile-picture {
@@ -107,8 +110,6 @@ page-post-product {
     }
 
     .user-name {
-        display: table-cell;
-        vertical-align: middle;
         padding-left: 1rem;
     }
 
