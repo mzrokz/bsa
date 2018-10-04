@@ -12,7 +12,7 @@ export class PostProductPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PostProductPage');
+    console.log('ionViewDidLoad PostProductPage2');
   }
 
 }
