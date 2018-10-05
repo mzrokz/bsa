@@ -28,8 +28,25 @@ page-other-user-profile {
   }
 
   .whitecontainer {
+    display: block;
+    color: #fff;
     text-align: center;
+    margin: 0 auto;
+    margin-top: 3rem;
   }
+
+  .whitecontainer .user-name, .whitecontainer .user-contact {
+    font-size:4.5vw;
+    padding: 0.2rem 0;
+  }
+
+    button.follow-button {
+        background-color: #fff;
+        color: #3588A1;
+        margin: 1rem 0;
+        padding: 1rem 4rem;
+        border-radius: 5rem;
+    }
 
   .profileImage {
     border-radius: 50%;
