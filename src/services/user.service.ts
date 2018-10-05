@@ -19,7 +19,6 @@ export class UserService {
     }
 
     updateSettings(settings) {
-        debugger;
         let params = this.commonService.prepareFormData(settings);
         return this.http.post<any>(this.commonService.baseUrl + 'update-setting.php', params);
     }

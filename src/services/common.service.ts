@@ -34,7 +34,6 @@ export class CommonService {
     prepareFormData(payload) {
         let params = new HttpParams();
         Object.keys(payload).forEach(f => {
-            debugger;
             params = params.append(f, payload[f]);
         })
         return params;

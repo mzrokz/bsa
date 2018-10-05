@@ -78,15 +78,15 @@ import { VerificationPage } from '../pages/verification/verification';
           { component: ItemsubcategoryPage, name: 'ItemsubcategoryPage', segment: 'item-sub-category' },
           { component: ItemsubcatgprdctselectedPage, name: 'ItemsubcatgprdctselectedPage', segment: 'itemsubcatgprdctselected' },
           { component: LoginPage, name: 'LoginPage', segment: 'login' },
-          { component: MainpagePage, name: 'MainpagePage', segment: 'main-page' },
-          { component: MychatpagePage, name: 'MychatpagePage', segment: 'my-chat-page' },
+          { component: MainpagePage, name: 'MainpagePage', segment: 'main' },
+          { component: MychatpagePage, name: 'MychatpagePage', segment: 'my-chat' },
           { component: NotificationsPage, name: 'NotificationsPage', segment: 'notifications' },
           { component: OtherUserProfilePage, name: 'OtherUserProfilePage', segment: 'other-user-profile' },
           { component: PostProductPage, name: 'PostProductPage', segment: 'post-product' },
-          { component: ProfilePage, name: 'ProfilePage', segment: 'profile-page' },
-          { component: SliderPage, name: 'SliderPage', segment: 'slider-page' },
+          { component: ProfilePage, name: 'ProfilePage', segment: 'profile' },
+          { component: SliderPage, name: 'SliderPage', segment: 'slider' },
           { component: SubcategoryPage, name: 'SubcategoryPage', segment: 'sub-category' },
-          { component: VerificationPage, name: 'VerificationPage', segment: 'verificationPage' }
+          { component: VerificationPage, name: 'VerificationPage', segment: 'verification' }
         ]
       }
     )

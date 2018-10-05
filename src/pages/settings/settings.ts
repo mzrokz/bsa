@@ -60,8 +60,12 @@ export class SettingsPage {
   }
 
   openEditSettings() {
-    debugger;
-    let settingsModal = this.modalCtrl.create(SettingsModalPage, { settings: this.settings });
+    let settings = {};
+    Object.assign(settings, this.settings)
+    let settingsModal = this.modalCtrl.create(SettingsModalPage, { settings: settings });
+    settingsModal.onDidDismiss(data => {
+      this.getSettings();
+    });
     settingsModal.present();
   }
 
