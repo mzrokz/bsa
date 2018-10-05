@@ -28,7 +28,11 @@ export class OtherUserProfilePage {
       if (res.status == 200) {
         this.user = res.data;
       }
-    })
+    });
+  }
+
+  goBack() {
+    this.navCtrl.pop();
   }
 
 }

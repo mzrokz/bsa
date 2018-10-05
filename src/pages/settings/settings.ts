@@ -69,4 +69,7 @@ export class SettingsPage {
     settingsModal.present();
   }
 
+  goBack() {
+    this.navCtrl.pop();
+  }
 }
