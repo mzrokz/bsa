@@ -22,4 +22,9 @@ export class UserService {
         let params = this.commonService.prepareFormData(settings);
         return this.http.post<any>(this.commonService.baseUrl + 'update-setting.php', params);
     }
+
+    getOtherUserProfile(userId) {
+        let params = this.commonService.prepareFormData({ user_id: userId });
+        return this.http.post<any>(this.commonService.baseUrl + 'get-other-user-profile.php', params);
+    }
 }

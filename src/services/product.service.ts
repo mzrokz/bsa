@@ -13,6 +13,6 @@ export class ProductService {
 
     getPostProducts(userId) {
         let payload = this.commonService.prepareFormData({ user_id: userId });
-        return this.http.post<any>('http://4auctions.net/api/post-product.php', payload);
+        return this.http.post<any>(this.commonService.baseUrl + 'post-product.php', payload);
     }
 }
