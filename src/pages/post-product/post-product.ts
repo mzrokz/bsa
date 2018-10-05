@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'page-post-product',
@@ -7,11 +8,28 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PostProductPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public products: [] = [];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private productService: ProductService
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostProductPage2');
+    this.getProducts();
   }
 
+
+  getProducts() {
+    //TODO: update userId
+    this.productService.getPostProducts(19).subscribe(res => {
+      debugger;
+      if (res.status == 200) {
+        this.products = res.data;
+      }
+    });
+  }
 }

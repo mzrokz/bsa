@@ -5,85 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-content style="background-color: #EDEDED">
-  <div class="UpperTitle">
-    <img src="assets/imgs/settings/back.png"/>
-      Post Product
-  </div>
-    <div class="wrapper">
-      <div class="box milky-white">
-        <img src="assets/imgs/mobile.jpg" width="100%" />
-        <div class="box-content">
-	        <h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
-	        <span class="product-points">Sony Experia Z3</span><br>
-	        <span class="product-points">7 Month ago</span>
-	        <div class="post price">
-	          <h4 class="product-title">5,000 $</h4>
-	          <img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
-	          <h4 class="product-title digit">3</h4>
-	        </div>
-	        <hr>
-	        <div class="post-by">
-	          <img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
-	          <span class="product-points user-name">Tony Boswell</span>
-	        </div>
-    	</div>
-      </div>
-
-      <div class="box milky-white">
-        <img src="assets/imgs/mobile.jpg" width="100%" />
-        <div class="box-content">
-	        <h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
-	        <span class="product-points">Sony Experia Z3</span><br>
-	        <span class="product-points">7 Month ago</span>
-	        <div class="post price">
-	          <h4 class="product-title">5,000 $</h4>
-	          <img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
-	          <h4 class="product-title digit">3</h4>
-	        </div>
-	        <hr>
-	        <div class="post-by">
-	          <img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
-	          <span class="product-points user-name">Tony Boswell</span>
-	        </div>
-    	</div>
-      </div>
-
-      <div class="box milky-white">
-        <img src="assets/imgs/mobile.jpg" width="100%" />
-        <div class="box-content">
-	        <h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
-	        <span class="product-points">Sony Experia Z3</span><br>
-	        <span class="product-points">7 Month ago</span>
-	        <div class="post price">
-	          <h4 class="product-title">5,000 $</h4>
-	          <img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
-	          <h4 class="product-title digit">3</h4>
-	        </div>
-	        <hr>
-	        <div class="post-by">
-	          <img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
-	          <span class="product-points user-name">Tony Boswell</span>
-	        </div>
-    	</div>
-      </div>
-
-      <div class="box milky-white">
-        <img src="assets/imgs/mobile.jpg" width="100%" />
-        <div class="box-content">
-	        <h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
-	        <span class="product-points">Sony Experia Z3</span><br>
-	        <span class="product-points">7 Month ago</span>
-	        <div class="post price">
-	          <h4 class="product-title">5,000 $</h4>
-	          <img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
-	          <h4 class="product-title digit">3</h4>
-	        </div>
-	        <hr>
-	        <div class="post-by">
-	          <img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
-	          <span class="product-points user-name">Tony Boswell</span>
-	        </div>
-    	</div>
-      </div>
-    </div>
+	<div class="UpperTitle">
+		<img src="assets/imgs/settings/back.png" />
+		Post Product
+	</div>
+	<div class="wrapper">
+		<div class="box milky-white" *ngFor="let prod of products">
+			<img [src]="prod.product_image" width="100%" />
+			<div class="box-content">
+				<h4 class="product-title">{{prod.product_name}}</h4>
+				<span class="product-points">{{prod.product_description}}</span><br>
+				<span class="product-points">{{prod.create_date | date:'dd MM YY'}}</span>
+				<div class="post price">
+					<h4 class="product-title">{{prod.price}} KD</h4>
+					<img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+					<h4 class="product-title digit">{{prod.count}}</h4>
+				</div>
+				<hr>
+				<div class="post-by">
+					<img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
+					<span class="product-points user-name">{{prod.created_by}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </ion-content>

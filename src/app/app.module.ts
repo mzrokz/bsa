@@ -31,6 +31,7 @@ import { PostProductPage } from '../pages/post-product/post-product';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubcategoryPage } from '../pages/subcategory/subcategory';
 import { VerificationPage } from '../pages/verification/verification';
+import { ProductService } from '../services/product.service';
 
 
 
@@ -121,7 +122,8 @@ import { VerificationPage } from '../pages/verification/verification';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserService,
-    CommonService
+    CommonService,
+    ProductService
   ]
 })
 export class AppModule { }
