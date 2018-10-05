@@ -1,4 +1,4 @@
-import { IonicPage, Platform, NavParams, ViewController } from "ionic-angular";
+import { Platform, NavParams, ViewController } from "ionic-angular";
 import { Component } from "@angular/core";
 
 

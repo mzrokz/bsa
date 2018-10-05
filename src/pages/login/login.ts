@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -8,7 +8,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -22,8 +21,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-
-  goToVerification(){
+  goToVerification() {
     this.navCtrl.push('VerificationPage');
 
   }
