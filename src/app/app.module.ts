@@ -12,9 +12,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SliderPage } from "../pages/slider/slider";
-import { SettingsPage } from '../pages/settings/settings';
 import { UserService } from '../services/user.service';
 import { CommonService } from '../services/common.service';
+import { SettingsPage } from '../pages/settings/settings';
+import { SettingsModalPage } from '../pages/settings/settings-modal';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,22 @@ import { CommonService } from '../services/common.service';
     AboutPage,
     ContactPage,
     TabsPage,
-    SettingsPage
+    SettingsPage,
+    SettingsModalPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      statusbarPadding: true,
+    },
+      {
+        links: [
+          { component: SettingsPage, name: 'SettingsPage', segment: 'settings' },
+          { component: SettingsModalPage, name: 'SettingsModalPage', segment: 'settings-modal' },
+        ]
+      }
+    )
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +48,8 @@ import { CommonService } from '../services/common.service';
     AboutPage,
     ContactPage,
     TabsPage,
-    SettingsPage
+    SettingsPage,
+    SettingsModalPage
   ],
   providers: [
     StatusBar,

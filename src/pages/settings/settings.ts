@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
+import { SettingsModalPage } from './settings-modal';
 
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-@IonicPage()
 @Component({
   selector: 'page-settings',
-  templateUrl: 'settings.html',
+  templateUrl: 'settings.html'
 })
 export class SettingsPage {
 
@@ -23,7 +17,8 @@ export class SettingsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private userService: UserService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    public modalCtrl: ModalController
   ) {
   }
 
@@ -62,6 +57,12 @@ export class SettingsPage {
       console.log(error);
       this.commonService.hideLoader();
     });
+  }
+
+  openEditSettings() {
+    debugger;
+    let settingsModal = this.modalCtrl.create(SettingsModalPage, { settings: this.settings });
+    settingsModal.present();
   }
 
 }

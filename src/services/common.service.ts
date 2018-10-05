@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoadingController, Loading } from 'ionic-angular';
+import { HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -28,5 +29,14 @@ export class CommonService {
 
     hideLoader() {
         this.loader.dismiss();
+    }
+
+    prepareFormData(payload) {
+        let params = new HttpParams();
+        Object.keys(payload).forEach(f => {
+            debugger;
+            params = params.append(f, payload[f]);
+        })
+        return params;
     }
 }
