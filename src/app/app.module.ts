@@ -133,7 +133,6 @@ import { SignupPage } from '../pages/signup/signup';
     CommonService,
     ProductService,
     Toast,
-    Storage,
     WebServicesProvider
   ]
 })
