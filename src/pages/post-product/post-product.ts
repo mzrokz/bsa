@@ -8,7 +8,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class PostProductPage {
 
-  public products: [] = [];
+  public products: any = [];
 
   constructor(
     public navCtrl: NavController,

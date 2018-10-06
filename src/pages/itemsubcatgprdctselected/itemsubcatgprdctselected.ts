@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {WebServicesProvider} from "../../providers/web-services/web-services";
+import {Constant} from "../../providers/Constant";
 
 /**
  * Generated class for the ItemsubcatgprdctselectedPage page.
@@ -8,22 +10,69 @@ import { NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-itemsubcatgprdctselected',
   templateUrl: 'itemsubcatgprdctselected.html',
 })
 export class ItemsubcatgprdctselectedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  category_id: any;
+  dataFromPrevious: any;
+  subCategoryName: any;
+  rootCategoryName: any;
+  itemChildCategoryResponse: any = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public webservice: WebServicesProvider, public loader: Constant) {
+
+    this.dataFromPrevious = this.navParams.data.data;
+   // console.log("this.dataFromPrevious ", JSON.stringify(this.dataFromPrevious));
+
+    this.category_id = this.dataFromPrevious.category_id;
+    this.rootCategoryName = this.navParams.data.rootCategoryName;
+    this.subCategoryName = this.dataFromPrevious.category_name;
+
   }
 
+  openProductDetailPage(data) {
+    this.navCtrl.push('ProductdetailscreenPage',{data:data})
+  }
 
   backtoPreviousScreen() {
     this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ItemsubcatgprdctselectedPage');
+  //  console.log('ionViewDidLoad ItemsubcatgprdctselectedPage');
+    this.callGetItemChildCategoryApi();
   }
+
+
+  callGetItemChildCategoryApi() {
+    if (this.category_id != null) {
+      this.loader.showLoader();
+      this.webservice.getItemChildCategory(this.category_id)
+        .then(responce => {
+          this.loader.hideLoader();
+          let resp: any = {};
+          resp = JSON.stringify(responce);
+          let data = JSON.parse(resp);
+          if (data.status === '200') {
+            let dataOnlyHere = JSON.stringify(data.data);
+            this.itemChildCategoryResponse = JSON.parse(dataOnlyHere);
+           // console.log("this.itemChildCategoryResponse !!!!!!!!! " + JSON.stringify(this.itemChildCategoryResponse));
+          }
+        }).catch(err => {
+        this.loader.hideLoader();
+
+        let err1: any = err;
+        let error = JSON.parse(JSON.stringify(err1));
+        console.log('error with status', JSON.stringify(error));
+
+      });
+    }
+  }
+
 
 }

@@ -26,7 +26,7 @@
     </ion-row>
   </div>
   <div>
-    <ion-slides style=" width: 100%;margin-left: auto;
+    <ion-slides #mySlides style="width: 100%;margin-left: auto;
     margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000">
 
       <ion-slide>
@@ -46,69 +46,81 @@
   <p style="font-size: 4.5vw;
     text-align: center">CATEGORY </p>
 
-  <div >
+  <div *ngIf="rootCategoryResponse.length > 0" style="width: 90%;margin-left: auto;">
     <!--style="margin-left: 2vw"-->
-
     <ion-row style="width: auto">
-      <ion-slides slidesPerView="3">
-        <ion-slide (click)="openSubCategoryScreen()">
+    <div *ngFor="let data of rootCategoryResponse;let i=index" (click)="openSubCategoryScreen(data)">
+
+      <div class="bgMainCard">
+        <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
+        <div class="text">{{data.category_name}}</div>
+      </div>
+
+
+    </div>
+    </ion-row>
+
+    <!--<ion-row style="width: auto">-->
+    <!--  <ion-slides #categorySlides slidesPerView="3" *ngIf="rootCategoryResponse.length > 0">
+
+        <ion-slide  *ngFor="let data of rootCategoryResponse;let i=index" (click)="openSubCategoryScreen()">
 
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
-            <div class="text">Car and bikes</div>
+            <div class="text">{{data.category_name}}</div>
           </div>
 
         </ion-slide>
-
+&lt;!&ndash;
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/mobile-tablet.png" class="subMainCard"/>
             <div class="text">Mobile and Tablets</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/video-games.png" class="subMainCard"/>
             <div class="text">View games</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
-        </ion-slide>
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
+        </ion-slide>&ndash;&gt;
 
-      </ion-slides>
-    </ion-row>
+      </ion-slides>-->
+  <!--  </ion-row>-->
 
   </div>
-
+<!--
   <p style="font-size: 4.5vw;
     text-align: center;margin-top: 0vw">CATEGORY </p>
 
@@ -116,58 +128,58 @@
     <ion-row style="width: auto">
       <ion-slides slidesPerView="3" >
         <ion-slide >
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/mens-fashion.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/mobile-tablet.png" class="subMainCard"/>
             <div class="text">Mobile and Tablets</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/video-games.png" class="subMainCard"/>
             <div class="text">View games</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
       </ion-slides>
@@ -182,64 +194,64 @@
     <ion-row style="width: auto">
       <ion-slides slidesPerView="3">
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/furniture.png" class="subMainCard"/>
             <div class="text">Furniture</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/mobile-tablet.png" class="subMainCard"/>
             <div class="text">Mobile and Tablets</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/video-games.png" class="subMainCard"/>
             <div class="text">View games</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
 
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
         <ion-slide>
-          <!-- <ion-card class="sizeOfCard">
-             <ion-card-content>-->
+          &lt;!&ndash; <ion-card class="sizeOfCard">
+             <ion-card-content>&ndash;&gt;
           <div class="bgMainCard">
             <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
             <div class="text">Car and bikes</div>
           </div>
-          <!--    </ion-card-content>
-            </ion-card>-->
+          &lt;!&ndash;    </ion-card-content>
+            </ion-card>&ndash;&gt;
         </ion-slide>
 
       </ion-slides>
     </ion-row>
 
-  </div>
+  </div>-->
 
 </ion-content>
 

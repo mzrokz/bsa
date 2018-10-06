@@ -10,24 +10,43 @@ page-mainpage {
   }
 
   .bgMainCard {
+    /* background-repeat: no-repeat;
+    background: url('assets/imgs/icon_bg.png');
+     background-size: cover;
+     background-position: center;
+     height: 33vw;
+     width: 30vw;
+    // width: 33vw;
+     padding-top: 2vw;*/
+
+    /*new css*/
     background-repeat: no-repeat;
-   background: url('assets/imgs/icon_bg.png');
+    background: url(assets/imgs/icon_bg.png);
     background-size: cover;
     background-position: center;
-    height: 33vw;
-    width: 33vw;
+    height: 30vw;
+    width: 30vw;
     padding-top: 2vw;
 
   }
 
   .subMainCard {
+    /* background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     // height: 20vw;
+     width: 17vw;
+     //  width: 20vw;
+     // margin-left: 3vw;
+     text-align: center;*/
+
+    /*new css*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-   // height: 20vw;
     width: 17vw;
-  //  width: 20vw;
-   // margin-left: 3vw;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
   .sizeOfCard {
@@ -35,9 +54,16 @@ page-mainpage {
     width: 34vw;
   }
 
-  .text{
-    font-size: 3.5vw;
-    padding-top:3vw;
+  .text {
+    /*font-size: 3.5vw;
+    padding-top:3vw;*/
     //margin-left: 3vw
+
+    /*new css*/
+    font-size: 3vw;
+    padding-top: 2vw; /* width: auto; */
+    /* margin-left: auto; */
+    margin-right: 11vw;
+    text-align: center;
   }
 }

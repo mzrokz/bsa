@@ -33,7 +33,11 @@ import { SubcategoryPage } from '../pages/subcategory/subcategory';
 import { VerificationPage } from '../pages/verification/verification';
 import { ProductService } from '../services/product.service';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { Toast } from "@ionic-native/toast";
 
+import { WebServicesProvider } from '../providers/web-services/web-services';
+import { Constant } from "../providers/Constant";
 
 @NgModule({
   declarations: [
@@ -63,6 +67,7 @@ import { ProductService } from '../services/product.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       statusbarPadding: true,
     },
@@ -123,7 +128,11 @@ import { ProductService } from '../services/product.service';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserService,
     CommonService,
-    ProductService
+    ProductService,
+    Toast,
+    Storage,
+    WebServicesProvider,
+    Constant
   ]
 })
 export class AppModule { }
