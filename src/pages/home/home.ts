@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Tabs } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -8,7 +8,6 @@ import {IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -21,30 +20,30 @@ export class HomePage {
   addposts = 'AddPostPage';
   notifications = 'NotificationsPage';
   profile = 'ProfilePage';
-  private  tabSelectedIndex : number=0;
+  private tabSelectedIndex: number = 0;
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    if (this.navParams.data){
-      if (this.navParams.data.page=='mainPage'){
+    if (this.navParams.data) {
+      if (this.navParams.data.page == 'mainPage') {
         this.home = 'MainpagePage';
-      }else if (this.navParams.data.page=='myChat'){
+      } else if (this.navParams.data.page == 'myChat') {
         this.mychats = 'MychatpagePage';
-      }else if (this.navParams.data.page=='addPost'){
+      } else if (this.navParams.data.page == 'addPost') {
         this.addposts = 'AddPostPage';
-      }else if (this.navParams.data.page=='notifications'){
+      } else if (this.navParams.data.page == 'notifications') {
         this.notifications = 'NotificationsPage';
-      }else if (this.navParams.data.page=='profile'){
+      } else if (this.navParams.data.page == 'profile') {
         this.profile = 'ProfilePage';
       }
-      this.tabSelectedIndex=this.navParams.data.tab;
+      this.tabSelectedIndex = this.navParams.data.tab;
     }
 
   }
 
   ionViewDidLoad() {
-   // console.log('ionViewDidLoad HomePage');
+    // console.log('ionViewDidLoad HomePage');
   }
 
 }

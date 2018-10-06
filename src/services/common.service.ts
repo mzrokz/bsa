@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading, AlertController } from 'ionic-angular';
 import { HttpParams } from '@angular/common/http';
+import { Toast } from '@ionic-native/toast';
 
 
 @Injectable()
@@ -10,7 +11,9 @@ export class CommonService {
     public loader: Loading;
     private loaderContent: string = "Please wait...";
     constructor(
-        public loadingCtrl: LoadingController
+        public loadingCtrl: LoadingController,
+        public alertCtrl: AlertController,
+        private toast: Toast
     ) {
 
     }
@@ -37,5 +40,20 @@ export class CommonService {
             params = params.append(f, payload[f]);
         })
         return params;
+    }
+
+    showPopUp(title: string, msg: string) {
+        const alert = this.alertCtrl.create({
+            title: title,
+            subTitle: msg,
+            buttons: ['Ok']
+        });
+        alert.present();
+    }
+
+    //Toast Method
+    showToast(msg: string) {
+        this.toast.show(msg, 'short', 'bottom').subscribe(toast => {
+        });
     }
 }

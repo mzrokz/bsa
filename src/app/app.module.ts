@@ -36,8 +36,8 @@ import { ProductService } from '../services/product.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { Toast } from "@ionic-native/toast";
 
-import { WebServicesProvider } from '../providers/web-services/web-services';
-import { Constant } from "../providers/Constant";
+import { WebServicesProvider } from '../services/web.service';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import { Constant } from "../providers/Constant";
     TabsPage,
     VerificationPage,
     SettingsPage,
-    SettingsModalPage
+    SettingsModalPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -92,6 +93,7 @@ import { Constant } from "../providers/Constant";
           { component: ProfilePage, name: 'ProfilePage', segment: 'profile' },
           { component: SliderPage, name: 'SliderPage', segment: 'slider' },
           { component: SubcategoryPage, name: 'SubcategoryPage', segment: 'sub-category' },
+          { component: SignupPage, name: 'SignupPage', segment: 'signup' },
           { component: VerificationPage, name: 'VerificationPage', segment: 'verification' }
         ]
       }
@@ -120,7 +122,8 @@ import { Constant } from "../providers/Constant";
     TabsPage,
     VerificationPage,
     SettingsPage,
-    SettingsModalPage
+    SettingsModalPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
@@ -131,8 +134,7 @@ import { Constant } from "../providers/Constant";
     ProductService,
     Toast,
     Storage,
-    WebServicesProvider,
-    Constant
+    WebServicesProvider
   ]
 })
 export class AppModule { }

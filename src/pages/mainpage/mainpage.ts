@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { WebServicesProvider } from "../../providers/web-services/web-services";
-import { Constant } from "../../providers/Constant";
+import { NavController, NavParams, Slides } from 'ionic-angular';
+import { WebServicesProvider } from "../../services/web.service";
 import { Storage } from "@ionic/storage";
+import { CommonService } from '../../services/common.service';
 
 /**
  * Generated class for the MainpagePage page.
@@ -11,7 +11,6 @@ import { Storage } from "@ionic/storage";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-mainpage',
   templateUrl: 'mainpage.html',
@@ -25,7 +24,7 @@ export class MainpagePage {
   rootCategoryResponse: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public webservice: WebServicesProvider,
-    public loader: Constant, public storage: Storage) {
+    public commonService: CommonService, public storage: Storage) {
 
   }
 
@@ -43,10 +42,9 @@ export class MainpagePage {
   }
 
   callGetRootCategoryApi() {
-    this.loader.showLoader();
+    this.commonService.showLoader();
     this.webservice.getRootCategory().subscribe(responce => {
-      debugger;
-      this.loader.hideLoader();
+      this.commonService.hideLoader();
       let resp: any = {};
       resp = JSON.stringify(responce);
       let data = JSON.parse(resp);
@@ -55,7 +53,7 @@ export class MainpagePage {
         this.rootCategoryResponse = JSON.parse(dataOnlyHere);
       }
     }, (err) => {
-      this.loader.hideLoader();
+      this.commonService.hideLoader();
 
       let err1: any = err;
       let error = JSON.parse(JSON.stringify(err1));
