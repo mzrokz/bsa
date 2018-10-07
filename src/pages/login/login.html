@@ -13,18 +13,23 @@
 
       <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
     </ion-col>
-    <ion-col col-9>
+    <ion-col col-6>
 
-      <div style="margin-top: 2vw;margin-left: 14vw;color: white;font-size: 5vw;">
-        Sign Up
+      <div style="    margin-top: 2vw;
+    margin-left: 14vw;
+    color: white;
+    font-size: 5vw;">
+        Login
+
       </div>
     </ion-col>
 
   </ion-row>
 
-  <div style="font-size: 4vw;color: white;float: right" (click)="moveToMainScreen()"> 
-    SKIP LOGIN
+  <div style="font-size: 4vw;color: white;float: right" (click)="moveToMainScreen()"> SKIP LOGIN
+
   </div>
+
 
   <div style="width: 74%;
     margin-left: auto;
@@ -41,19 +46,22 @@
           Phone number
         </div>-->
 
-    <div class="mobileNumber">
-      <input placeholder="Phone number"
+    <div class="phoneNumber">
+      <input placeholder="Phone number" [(ngModel)]="phoneNumber"
              style="background-color: transparent;border: transparent;font-size: 4vw;color: #3588A1;text-align: center;"
              type="number"/>
     </div>
 
   </div>
-
-  <!-- <div class="passContainer" style="margin-top:5vw">
+<!--
+   <div class="passContainer" style="margin-top:5vw">
      <img src="assets/imgs/bt2.png" style="margin-left: 2%;"/>
 
-     <div class="mobileNumber">
-       Email address
+     <div class="emailAddress">
+
+       <input placeholder="Email address" [(ngModel)]="email"
+              style="background-color: transparent;border: transparent;font-size: 4vw;color: white;text-align: center;"
+              type="email"/>
      </div>
 
    </div>-->
@@ -63,11 +71,11 @@
     <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
 
     <div class="phoneNumber" (click)="goToVerification()">
-      Sign Up
+      Login
     </div>
   </div>
 
 
-  <p class="alreadyHave"> Already have an Account? Login</p>
+  <p class="alreadyHave" (click)="openSignUp()"> Don't have an Account? Register</p>
 
 </ion-content>

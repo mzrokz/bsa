@@ -1,0 +1,338 @@
+<ion-content style="background-color: #EDEDED">
+
+  <div>
+    <div style="background-color: #62AEC6">
+
+      <ion-row>
+
+        <ion-col col-3>
+
+          <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
+        </ion-col>
+
+        <ion-col col-6>
+
+          <div class="centreText">
+            Product Detail
+          </div>
+
+        </ion-col>
+        <ion-col col-3>
+
+        </ion-col>
+
+      </ion-row>
+    </div>
+  </div>
+
+  <div>
+    <ion-slides #mySlides style="width: 100%;margin-left: auto;
+    margin-right: auto;height: 100%" pager>
+
+      <!--*ngFor="let data of productDetailResponse; let i = index"-->
+      <ion-slide>
+        <ion-row>
+
+          <img *ngIf="productDetailResponse.image_uri != undefined || productDetailResponse.image_uri != '' "
+               src="{{productDetailResponse.image_uri}}" style="height: 50vw;width: 100%"
+               onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
+
+          <ion-row *ngIf="productDetailResponse.count && productDetailResponse.count != '' ">
+            <div style="margin-top: -6vw; margin-left: 3vw; width: 9vw;">
+              <img src="assets/imgs/gallery_img_trans.png"
+                   style=" width: 4vw;height: 4vw;float: left;">
+              <div style="color: white;font-size: 3vw;margin-left: 2vw"> {{productDetailResponse.count}}</div>
+            </div>
+          </ion-row>
+
+        </ion-row>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+  <ion-card style="height: 22vw">
+
+    <ion-card-content>
+      <div>
+        <!-- <h3>//todo need to uncomment
+           <b class="description">{{productDetailResponse.product_description}}</b>
+         </h3>-->
+        <h3 class="description">
+          <b>{{productDetailResponse.product_name}}</b>
+        </h3>
+
+        <h3 class="description">
+          Sony Xperia z
+        </h3>
+
+        <p style="margin: 0 0 2px;
+    font-size: 1.2rem !important;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #222;">
+          {{productDetailResponse.create_date}}
+        </p>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card style="height: 45vw;margin-top: 4vw">
+
+    <ion-card-content>
+      <div>
+
+        <ion-row>
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              Brand
+            </h3>
+          </ion-col>
+
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              Name
+            </h3>
+          </ion-col>
+          <div class="line"></div>
+        </ion-row>
+      </div>
+
+      <div style="margin-top: 3vw">
+
+        <ion-row>
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              Model
+            </h3>
+          </ion-col>
+
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              Xperia Z
+            </h3>
+          </ion-col>
+          <div class="line"></div>
+        </ion-row>
+      </div>
+
+      <div style="margin-top: 3vw">
+
+        <ion-row>
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              Price
+            </h3>
+          </ion-col>
+
+          <ion-col col-6>
+            <h3 class="detailTitle">
+              5000 $
+            </h3>
+          </ion-col>
+          <div class="line"></div>
+        </ion-row>
+      </div>
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+  <ion-card style="margin-top: 4vw">
+    <ion-card-content>
+      <div>
+        <p style="margin: 0 0 2px;
+    font-size: 1.2rem !important;
+    font-weight: normal;
+    line-height: 1.2 !important;
+    color: #222;">
+          {{productDetailResponse.product_description}}
+        </p>
+
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="height: 12vw;margin-top: 4vw">
+    <ion-card-content>
+      <div>
+        <ion-row>
+
+          <ion-col col-4>
+            <ion-row>
+              <img src="assets/imgs/share_image.png" style="width: 4vw;height: 4vw;">
+              <p style="margin-left: 4vw;margin-top: -1vw;font-size: 1.2rem !important;">Share</p>
+            </ion-row>
+          </ion-col>
+
+          <ion-col col-8>
+            <ion-row style="float: right;margin-top: -0.8vw">
+              <img src="assets/imgs/facebook_icon.png" style="width: 5vw;height: 5vw;float: right;">
+              <img src="assets/imgs/twitter_icon.png" style="width: 5vw;height: 5vw;margin-left: 2vw;float: right;">
+              <img src="assets/imgs/whatsapp_icon.png" style="width: 5vw;height: 5vw;margin-left: 2vw;float: right;">
+            </ion-row>
+
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="height: 20vw;margin-top: 4vw">
+    <ion-card-content>
+      <div>
+        <ion-row>
+          <ion-col col-2>
+            <img src="assets/imgs/default.jpg" style="width: 12vw;height: 12vw">
+          </ion-col>
+
+          <ion-col col-6 style="padding-left: 4vw">
+            <div style="font-size: 1.2rem;margin-top: 1vw"><b>Lorem Ipsum</b></div>
+            <div style="font-size: 1rem">7878787878</div>
+          </ion-col>
+          <ion-col col-4>
+            <img src="assets/imgs/next_grey.png" style="width: 2vw;
+    float: right;
+    height: 4vw;
+    margin-top: 3vw;">
+          </ion-col>
+        </ion-row>
+
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <div>
+    <ion-row>
+      <img src="assets/imgs/banner2.png" class="relatedPhones">
+      <img src="assets/imgs/banner2.png" class="relatedPhones">
+      <img src="assets/imgs/banner2.png" class="relatedPhones">
+
+    </ion-row>
+  </div>
+
+  <div style="margin-left: 3vw;margin-right: 3vw;">
+    <ion-row>
+      <p style="color: black;">COMMENTS</p>
+      <p style="color: black;margin-left: auto" *ngIf="listOfComments.length == 1">{{listOfComments.length}} Comment</p>
+      <p style="color: black;margin-left: auto"
+         *ngIf="listOfComments.length == 0 || listOfComments.length > 1">{{listOfComments.length}} Comments</p>
+    </ion-row>
+  </div>
+
+  <ion-card style="margin-top: 2vw" *ngFor="let data of listOfComments">
+    <ion-card-content>
+      <div>
+        <ion-row>
+          <ion-col col-2>
+            <img src="assets/imgs/default.jpg" style="width: 10vw;height: 10vw">
+          </ion-col>
+          <ion-col col-7>
+            <div>
+              <span>{{data.author}}</span>
+              <p style="font-size: 3vw;width: auto">{{data.content}}</p>
+
+            </div>
+          </ion-col>
+          <ion-col col-3 style="float: right;text-align: right">
+            <p style="font-size: 3vw">26/8/2018</p>
+          </ion-col>
+        </ion-row>
+        <div style="color: #3588A1;
+    font-size: 3vw;
+    width: auto;
+    text-align: right;">5000 $
+        </div>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div style=" width: 100%;
+    background-color: lightgrey;
+    height: 1px;margin-top: 6vw;"></div>
+
+  <ion-card>
+    <ion-card-content>
+      <!-- <textarea placeholder="Comments"
+              style="background-color: transparent;border: transparent;
+              font-size: 4vw;color: black;width: 100%"
+                 type="text"></textarea>-->
+
+      <textarea rows="4" cols="50" wrap="soft" placeholder="Comments" [(ngModel)]="comments" style="background-color: transparent;
+    border-color: transparent;
+    color: black;
+    width: -webkit-fill-available;
+    font-size: 3vw;"></textarea>
+
+
+      <!-- <div class="setBorders">
+         <ion-textarea class="height" rows="8"
+                       name="descripton" [(ngModel)]="comments" type="text"
+                       formControlName = "description"
+                       id="messageInputBox" (input)="change()" required></ion-textarea>
+       </div>-->
+    </ion-card-content>
+  </ion-card>
+
+
+  <div style="text-align: right;float: right" (click)="addComment()">
+    <div class="sendBtn">
+      <div style="font-size: 4vw;color: white">SEND</div>
+    </div>
+  </div>
+
+
+  <div style="margin-top: 20vw">
+    <div style="background-color: #62AEC6; height: 15vw;text-align: center">
+      <ion-row>
+
+        <ion-col col-5>
+          <ion-row>
+
+            <a href="tel:7898984984" style="text-align: center;
+    width: 100%;
+    color: transparent;">
+              <div style="text-align: center;width: 100%;margin-top: 4vw">
+                <img src="assets/imgs/call_icon_transparent.png" style="width: 4vw;height: 4vw;">
+                <span style="font-size: 4vw;color: white;margin-left: 2vw">CALL</span>
+              </div>
+            </a>
+
+
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-2 style="text-align: -webkit-center;margin-top: auto;">
+          <div style="height:7vw;width: 1px;background-color: white "></div>
+        </ion-col>
+
+        <ion-col col-5>
+
+          <div style="text-align: center;width: 100%;margin-top: 4vw" (click)="openMyChat()">
+            <img src="assets/imgs/chat_icon_transparent.png" style="width: 4vw;height: 4vw;">
+            <span style="font-size: 4vw;color: white;margin-left: 2vw">CHAT</span>
+          </div>
+
+        </ion-col>
+
+      </ion-row>
+
+    </div>
+
+  </div>
+
+</ion-content>
+
+
+
