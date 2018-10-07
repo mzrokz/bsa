@@ -49,7 +49,8 @@ export class VerificationPage {
 
     this.commonService.showLoader();
     this.webservice.postVerifyOtp(this.dataFromPrevious.phone, this.otp, this.dataFromPrevious.type)
-      .then(succ => {
+      .subscribe(succ => {
+        debugger;
         this.commonService.hideLoader();
         let resp: any = {};
         resp = JSON.stringify(succ);
@@ -62,9 +63,9 @@ export class VerificationPage {
         } else if (data.status === '403') {
           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
-      }).catch(err => {
-        this.commonService.hideLoader()
-      });
+      },(err )=> {
+      this.commonService.hideLoader()
+    });
 
   }
 

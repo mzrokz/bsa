@@ -38,6 +38,7 @@ import { Toast } from "@ionic-native/toast";
 
 import { WebServicesProvider } from '../services/web.service';
 import { SignupPage } from '../pages/signup/signup';
+import {ProductdetailscreenPage} from "../pages/productdetailscreen/productdetailscreen";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SignupPage } from '../pages/signup/signup';
     VerificationPage,
     SettingsPage,
     SettingsModalPage,
-    SignupPage
+    SignupPage,
+    ProductdetailscreenPage
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,8 @@ import { SignupPage } from '../pages/signup/signup';
           { component: SliderPage, name: 'SliderPage', segment: 'slider' },
           { component: SubcategoryPage, name: 'SubcategoryPage', segment: 'sub-category' },
           { component: SignupPage, name: 'SignupPage', segment: 'signup' },
-          { component: VerificationPage, name: 'VerificationPage', segment: 'verification' }
+          { component: VerificationPage, name: 'VerificationPage', segment: 'verification' },
+          { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' }
         ]
       }
     )
@@ -123,7 +126,8 @@ import { SignupPage } from '../pages/signup/signup';
     VerificationPage,
     SettingsPage,
     SettingsModalPage,
-    SignupPage
+    SignupPage,
+    ProductdetailscreenPage
   ],
   providers: [
     StatusBar,

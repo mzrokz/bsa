@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { WebServicesProvider } from "../../providers/web-services/web-services";
-import { Constant } from "../../providers/Constant";
 import { Storage } from "@ionic/storage";
+import {WebServicesProvider} from "../../services/web.service";
+import {CommonService} from "../../services/common.service";
 
 /**
  * Generated class for the ProductdetailscreenPage page.
@@ -28,7 +28,7 @@ export class ProductdetailscreenPage {
   listOfComments: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public webservice: WebServicesProvider, public loader: Constant, public storage: Storage) {
+    public webservice: WebServicesProvider, public loader: CommonService, public storage: Storage) {
     this.dataFromPrevious = this.navParams.data.data;
     // console.log("this.dataFromPrevious ", JSON.stringify(this.dataFromPrevious));
 
@@ -57,21 +57,24 @@ export class ProductdetailscreenPage {
   }
 
   callGetProductDetailApi() {
+    debugger;
     if (this.product_id != null) {
       this.loader.showLoader();
       this.webservice.getProductDetailData(this.product_id)
-        .then(responce => {
+        .subscribe(responce => {
+          debugger;
           this.loader.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(responce);
           let data = JSON.parse(resp);
           if (data.status === '200') {
+            debugger;
             let dataOnlyHere = JSON.stringify(data.data);
             this.productDetailResponse = JSON.parse(dataOnlyHere);
             // console.log("this.productDetailResponse !!!!!!!!! " + JSON.stringify(this.productDetailResponse));
             this.callPostListCommentApi();
           }
-        }).catch(err => {
+        },(err) => {
           this.loader.hideLoader();
 
           let err1: any = err;
@@ -115,7 +118,7 @@ export class ProductdetailscreenPage {
     if (this.product_id != null && this.user_id != null && this.comments != null) {
       this.loader.showLoader();
       this.webservice.postAddComment(this.product_id, this.user_id, this.comments)
-        .then(response => {
+        .subscribe(response => {
           this.loader.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(response);
@@ -125,7 +128,7 @@ export class ProductdetailscreenPage {
             this.comments = '';
             this.callPostListCommentApi();
           }
-        }).catch(err => {
+        },(err) => {
           this.loader.hideLoader();
 
           let err1: any = err;

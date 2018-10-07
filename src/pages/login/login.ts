@@ -48,11 +48,9 @@ export class LoginPage {
     }
     this.commonService.showLoader();
     this.webservice.postUserLogin(this.phoneNumber)
-      .then(succ => {
+      .subscribe(data => {
+        debugger;
         this.commonService.hideLoader();
-        let resp: any = {};
-        resp = JSON.stringify(succ);
-        let data = JSON.parse(resp);
         // console.log("data: " + JSON.stringify(data));
         if (data.status === '200') {
           this.navCtrl.push('VerificationPage', { data: data });
@@ -60,9 +58,9 @@ export class LoginPage {
         } else if (data.status === '403') {
           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
-      }).catch(err => {
-        this.commonService.hideLoader()
-      });
+      },(err) => {
+      this.commonService.hideLoader()
+    });
 
   }
 

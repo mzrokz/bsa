@@ -87,16 +87,7 @@ export class WebServicesProvider {
     body.append('type', type);
     let options = { headers: headers };
 
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.verifyOtp, body, options)
-        .subscribe(res => {
-          let resp: any = res;
-          let body = resp._body;
-          resolve(JSON.parse(body));
-        }, (err) => {
-          reject(err);
-        });
-    });
+   return this.http.post(this.apiUrl + this.verifyOtp, body, options);
   }
 
   postUserLogin(phone) {
@@ -112,17 +103,8 @@ export class WebServicesProvider {
     body.append('phone', phone);
 
     let options = { headers: headers };
+    return this.http.post<any>(this.apiUrl + this.login, body, options);
 
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.login, body, options)
-        .subscribe(res => {
-          let resp: any = res;
-          let body = resp._body;
-          resolve(JSON.parse(body));
-        }, (err) => {
-          reject(err);
-        });
-    });
   }
 
   postAddComment(list_id, user_id, comment_content) {
@@ -140,17 +122,7 @@ export class WebServicesProvider {
     body.append('comment_content', comment_content);
 
     let options = { headers: headers };
-
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.addComment, body, options)
-        .subscribe(res => {
-          let resp: any = res;
-          let body = resp._body;
-          resolve(JSON.parse(body));
-        }, (err) => {
-          reject(err);
-        });
-    });
+  return  this.http.post(this.apiUrl + this.addComment, body, options);
   }
 
   postListComments(list_id) {
@@ -216,17 +188,12 @@ export class WebServicesProvider {
   }
 
   getProductDetailData(product_id) {
-    let header = new HttpHeaders;
-    header.append('Content-Type', 'application/json');
-    // header.append('Authorization', token);
-    let options = { headers: header };
+    // let header = new HttpHeaders;
+    // header.append('Content-Type', 'application/json');
+    // // header.append('Authorization', token);
+    // let options = { headers: header };
 
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + this.productDetailList + product_id, options)
-        .subscribe(data => {
-          resolve(data);
-        });
-    });
+    return this.http.get(this.apiUrl + this.productDetailList + product_id);
   }
 
 
