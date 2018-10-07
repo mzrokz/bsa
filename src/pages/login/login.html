@@ -8,15 +8,10 @@
 <ion-content padding class="bg">
 
   <ion-row>
-
-    <ion-col col-3>
-
-      <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
-    </ion-col>
-    <ion-col col-6>
+    <ion-col col-12>
 
       <div style="    margin-top: 2vw;
-    margin-left: 14vw;
+    margin-left: 40vw;
     color: white;
     font-size: 5vw;">
         Login
@@ -40,20 +35,19 @@
   </div>
 
   <div class="passContainer" style="margin-top:13vw">
-    <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
+    <img src="assets/imgs/bt1.png" style="margin-left: 2%;" />
     <!--
         <div class="phoneNumber">
           Phone number
         </div>-->
 
     <div class="phoneNumber">
-      <input placeholder="Phone number" [(ngModel)]="phoneNumber"
-             style="background-color: transparent;border: transparent;font-size: 4vw;color: #3588A1;text-align: center;"
-             type="number"/>
+      <input placeholder="Phone number" [(ngModel)]="phoneNumber" style="background-color: transparent;border: transparent;font-size: 4vw;color: #3588A1;text-align: center;"
+        type="number" />
     </div>
 
   </div>
-<!--
+  <!--
    <div class="passContainer" style="margin-top:5vw">
      <img src="assets/imgs/bt2.png" style="margin-left: 2%;"/>
 
@@ -68,7 +62,7 @@
 
 
   <div class="passContainer" style="margin-top:5vw">
-    <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
+    <img src="assets/imgs/bt1.png" style="margin-left: 2%;" />
 
     <div class="phoneNumber" (click)="goToVerification()">
       Login

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, App } from 'ionic-angular';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
 import { SettingsModalPage } from './settings-modal';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class SettingsPage {
     public navParams: NavParams,
     private userService: UserService,
     private commonService: CommonService,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public app: App
   ) {
   }
 
@@ -71,5 +73,10 @@ export class SettingsPage {
 
   goBack() {
     this.navCtrl.pop();
+  }
+
+  logout() {
+    var nav = this.app.getRootNav();
+    nav.setRoot(LoginPage);
   }
 }
