@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import {WebServicesProvider} from "../../services/web.service";
-import {CommonService} from "../../services/common.service";
+import { WebServicesProvider } from "../../services/web.service";
+import { CommonService } from "../../services/common.service";
 
 /**
  * Generated class for the ProductdetailscreenPage page.
@@ -74,7 +74,7 @@ export class ProductdetailscreenPage {
             // console.log("this.productDetailResponse !!!!!!!!! " + JSON.stringify(this.productDetailResponse));
             this.callPostListCommentApi();
           }
-        },(err) => {
+        }, (err) => {
           this.loader.hideLoader();
 
           let err1: any = err;
@@ -128,7 +128,7 @@ export class ProductdetailscreenPage {
             this.comments = '';
             this.callPostListCommentApi();
           }
-        },(err) => {
+        }, (err) => {
           this.loader.hideLoader();
 
           let err1: any = err;

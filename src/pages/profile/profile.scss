@@ -6,6 +6,22 @@ page-profile {
     padding-top: 4vw;
   }
 
+  /*        Add post header*/
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
+
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
+
   .mainContainer {
     position: relative;
     text-align: left;
@@ -25,6 +41,7 @@ page-profile {
   .profileImage {
     border-radius: 50%;
     width: 28vw;
+    height: 28vw;
     position: absolute;
     top: 0;
     left: 0;

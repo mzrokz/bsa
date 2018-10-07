@@ -27,4 +27,9 @@ export class UserService {
         let params = this.commonService.prepareFormData({ user_id: userId });
         return this.http.post<any>(this.commonService.baseUrl + 'get-other-user-profile.php', params);
     }
+
+    followUser(users) {
+        let payload = this.commonService.prepareFormData(users);
+        return this.http.post<any>(this.commonService.baseUrl + 'add-follow-user.php', payload);
+    }
 }
