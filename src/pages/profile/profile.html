@@ -7,10 +7,10 @@
 <ion-content style="background-color: #EDEDED">
 
   <div style="background-color: #3588A1;margin-bottom: 2%">
-  <div class="UpperTitle">
-    <img src="assets/imgs/settings/back.png"/>
+    <div class="UpperTitle">
+      <img src="assets/imgs/settings/back.png" />
       Profile
-  </div>
+    </div>
 
     <div class="mainContainer">
       <div style="background-color: #3588A1;height: 30vw">
@@ -18,22 +18,14 @@
       </div>
 
       <div class="followersContainer">
-        <img src="assets/imgs/followersbtn.png" class="followerImage" />
-        <div class="followerText">
-          Followers
-        </div>
-        {{profile.FollowerCount}}
+        <button class="follow-btn">Followers</button>
       </div>
 
-      <img *ngIf="profile.ProfileImage" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.png'" 
+      <img *ngIf="profile.ProfileImage" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.png'"
         class="profileImage">
 
       <div class="followersContainer">
-        <img src="assets/imgs/followersbtn.png" class="followingImage" />
-        <div class="followingsText">
-          Followings
-        </div>
-        {{profile.FollowingCount}}
+        <button class="following-btn">Followings</button>
       </div>
       <div class="whitecontainer">
         <div style="padding-top: 8%;font-size: 3.5vw;"><b>{{profile.Name}}</b></div>

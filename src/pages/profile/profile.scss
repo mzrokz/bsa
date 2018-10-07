@@ -51,14 +51,6 @@ page-profile {
     margin-left: auto;
     margin-right: auto;
   }
-  .followersContainer {
-    position: relative;
-    text-align: center;
-    color: black;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .followerImage {
     width: 25vw;
@@ -71,17 +63,6 @@ page-profile {
     margin-right: auto;
   }
 
-  .followerText {
-    position: fixed;
-    top: 13%;
-    left: 0;
-    bottom: 0;
-    font-size: 3vw;
-    right: 64%;
-    padding: 3.2%;
-    color: #3588A1;
-  }
-
   .followingImage {
     width: 25vw;
     position: fixed;
@@ -92,16 +73,33 @@ page-profile {
     margin-left: auto;
     margin-right: auto;
   }
-  .followingsText {
-    position: fixed;
-    top: 13%;
-    left: 64%;
-    bottom: 0;
-    font-size: 3vw;
-    right: 0;
-    padding: 3.2%;
-    color: #3588A1;
-  }
+
+.followersContainer {
+    display: contents;
+}
+
+button.follow-btn {
+    position: absolute;
+    top: 4rem;
+    left: 1.2rem;
+    background-color: #fff;
+    float: right;
+    margin: 0 auto;
+    padding: 1.2rem 1.8rem;
+    border-radius: 5rem;
+}
+
+button.following-btn {
+    position: absolute;
+    top: 4rem;
+    right: 1.2rem;
+    background-color: #fff;
+    float: right;
+    margin: 0 auto;
+    padding: 1.2rem 1.8rem;
+    border-radius: 5rem;
+}
+
   .settingsDiv{
     background-color: white;
     border-radius: 1vw;
