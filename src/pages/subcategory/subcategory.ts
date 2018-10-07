@@ -48,7 +48,7 @@ export class SubcategoryPage {
     if (this.parent_id != null) {
       this.commonService.showLoader();
       this.webservice.getChildCategory(this.parent_id)
-        .then(responce => {
+        .subscribe(responce => {
           this.commonService.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(responce);
@@ -60,7 +60,7 @@ export class SubcategoryPage {
             // console.log("this.childCategoryResponse !!!!!!!!! " + JSON.stringify(this.childCategoryResponse));
           }
 
-        }).catch(err => {
+        }, (err) => {
           this.commonService.hideLoader();
 
           let err1: any = err;

@@ -57,18 +57,15 @@ export class ProductdetailscreenPage {
   }
 
   callGetProductDetailApi() {
-    debugger;
     if (this.product_id != null) {
       this.loader.showLoader();
       this.webservice.getProductDetailData(this.product_id)
         .subscribe(responce => {
-          debugger;
           this.loader.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(responce);
           let data = JSON.parse(resp);
           if (data.status === '200') {
-            debugger;
             let dataOnlyHere = JSON.stringify(data.data);
             this.productDetailResponse = JSON.parse(dataOnlyHere);
             // console.log("this.productDetailResponse !!!!!!!!! " + JSON.stringify(this.productDetailResponse));
@@ -89,7 +86,7 @@ export class ProductdetailscreenPage {
     if (this.product_id != null) {
       this.loader.showLoader();
       this.webservice.postListComments(this.product_id)
-        .then(responce => {
+        .subscribe(responce => {
           this.loader.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(responce);
@@ -99,7 +96,7 @@ export class ProductdetailscreenPage {
             this.listOfComments = JSON.parse(dataOfList);
             //console.log("this.listOfComments !!!!!!!!! " + JSON.stringify(this.listOfComments));
           }
-        }).catch(err => {
+        }, (err) => {
           this.loader.hideLoader();
           let err1: any = err;
           let error = JSON.parse(JSON.stringify(err1));

@@ -62,16 +62,7 @@ export class WebServicesProvider {
     body.append('phone', phone);
     let options = { headers: headers };
 
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.signUp, body, options)
-        .subscribe(res => {
-          let resp: any = res;
-          let body = resp._body;
-          resolve(JSON.parse(body));
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.post(this.apiUrl + this.signUp, body, options);
   }
 
   postVerifyOtp(phone, otp, type) {
@@ -87,7 +78,7 @@ export class WebServicesProvider {
     body.append('type', type);
     let options = { headers: headers };
 
-   return this.http.post(this.apiUrl + this.verifyOtp, body, options);
+    return this.http.post(this.apiUrl + this.verifyOtp, body, options);
   }
 
   postUserLogin(phone) {
@@ -122,7 +113,7 @@ export class WebServicesProvider {
     body.append('comment_content', comment_content);
 
     let options = { headers: headers };
-  return  this.http.post(this.apiUrl + this.addComment, body, options);
+    return this.http.post(this.apiUrl + this.addComment, body, options);
   }
 
   postListComments(list_id) {
@@ -139,16 +130,7 @@ export class WebServicesProvider {
 
     let options = { headers: headers };
 
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.listComments, body, options)
-        .subscribe(res => {
-          let resp: any = res;
-          let body = resp._body;
-          resolve(JSON.parse(body));
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.post(this.apiUrl + this.listComments, body, options);
   }
 
   getRootCategory() {
@@ -165,12 +147,7 @@ export class WebServicesProvider {
     // header.append('Authorization', token);
     let options = { headers: header };
 
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + this.childCategory + parent_id, options)
-        .subscribe(data => {
-          resolve(data);
-        });
-    });
+    return this.http.get(this.apiUrl + this.childCategory + parent_id, options);
   }
 
   getItemChildCategory(category_id) {
@@ -179,12 +156,7 @@ export class WebServicesProvider {
     // header.append('Authorization', token);
     let options = { headers: header };
 
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + this.listProductByCategory + category_id, options)
-        .subscribe(data => {
-          resolve(data);
-        });
-    });
+    return this.http.get(this.apiUrl + this.listProductByCategory + category_id, options);
   }
 
   getProductDetailData(product_id) {

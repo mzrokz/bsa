@@ -50,7 +50,6 @@ export class VerificationPage {
     this.commonService.showLoader();
     this.webservice.postVerifyOtp(this.dataFromPrevious.phone, this.otp, this.dataFromPrevious.type)
       .subscribe(succ => {
-        debugger;
         this.commonService.hideLoader();
         let resp: any = {};
         resp = JSON.stringify(succ);

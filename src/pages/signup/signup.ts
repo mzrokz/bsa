@@ -34,7 +34,7 @@ export class SignupPage {
     }
     this.commonService.showLoader();
     this.webservice.postUserSignUp(this.phoneNumber)
-      .then(succ => {
+      .subscribe(succ => {
         this.commonService.hideLoader();
         let resp: any = {};
         resp = JSON.stringify(succ);
@@ -47,7 +47,7 @@ export class SignupPage {
           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
 
-      }).catch(err => {
+      }, (err) => {
         this.commonService.hideLoader()
       });
 

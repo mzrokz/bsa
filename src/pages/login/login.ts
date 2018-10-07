@@ -49,7 +49,6 @@ export class LoginPage {
     this.commonService.showLoader();
     this.webservice.postUserLogin(this.phoneNumber)
       .subscribe(data => {
-        debugger;
         this.commonService.hideLoader();
         // console.log("data: " + JSON.stringify(data));
         if (data.status === '200') {
