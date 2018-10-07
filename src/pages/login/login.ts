@@ -66,7 +66,7 @@ export class LoginPage {
 
 
   moveToMainScreen() {
-    this.navCtrl.push('MainpagePage');
+    this.navCtrl.push('HomePage');
 
   }
 
