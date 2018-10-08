@@ -56,7 +56,7 @@ export class ItemsubcatgprdctselectedPage {
     if (this.category_id != null) {
       this.commonService.showLoader();
       this.webservice.getItemChildCategory(this.category_id)
-        .then(responce => {
+        .subscribe(responce => {
           this.commonService.hideLoader();
           let resp: any = {};
           resp = JSON.stringify(responce);
@@ -66,9 +66,8 @@ export class ItemsubcatgprdctselectedPage {
             this.itemChildCategoryResponse = JSON.parse(dataOnlyHere);
             // console.log("this.itemChildCategoryResponse !!!!!!!!! " + JSON.stringify(this.itemChildCategoryResponse));
           }
-        }).catch(err => {
+        }, (err) => {
           this.commonService.hideLoader();
-
           let err1: any = err;
           let error = JSON.parse(JSON.stringify(err1));
           console.log('error with status', JSON.stringify(error));

@@ -1,6 +1,5 @@
 page-other-user-profile {
-
-/*        Add post header*/
+    /*        Add post header*/
     .UpperTitle {
         text-align: center;
         padding: 20px 0;
@@ -16,115 +15,132 @@ page-other-user-profile {
         width: 6vw;
     }
 
+    .mainContainer {
+        background-color: #3588A1;
+        position: relative;
+        text-align: left;
+        color: black;
+        width: auto;
+        height: auto;
+    }
 
+    .whitecontainer {
+        display: block;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 3rem;
+    }
 
-  .mainContainer {
-    background-color: #3588A1;
-    position: relative;
-    text-align: left;
-    color: black;
-    width: auto;
-    height: auto;
-  }
+    .whitecontainer .user-name, .whitecontainer .user-contact {
+        font-size: 4.5vw;
+        padding: 0.2rem 0;
+    }
 
-  .whitecontainer {
-    text-align: center;
-  }
+    button.follow-button {
+        background-color: #fff;
+        color: #3588A1;
+        margin: 1rem 0;
+        padding: 1rem 4rem;
+        border-radius: 5rem;
+    }
 
-  .profileImage {
-    border-radius: 50%;
-    width: 28vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-top: 9vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .followersContainer {
-    position: relative;
-    text-align: center;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .profileImage {
+        border-radius: 50%;
+        width: 28vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 9vw;
+        margin-left: auto;
+        margin-right: auto;
+        height: 13rem;
+    }
 
-  .followerImage {
-    width: 25vw;
-    position: fixed;
-    top: 14%;
-    bottom: 0;
-    right: 64%;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .followersContainer {
+        position: relative;
+        text-align: center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-  .followerText {
-    position: absolute;
-    top: 0.2rem;
-    left: 3%;
-    padding: 3.2%;
-    color: #fff;
-    font-size: 4vw;
-  }
+    .followerImage {
+        width: 25vw;
+        position: fixed;
+        top: 14%;
+        bottom: 0;
+        right: 64%;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-  .followingImage {
-    width: 25vw;
-    position: fixed;
-    top: 14%;
-    bottom: 0;
-    right: 0;
-    left: 64%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .followingsText {
-    position: absolute;
-    top: 0.4rem;
-    right: 1%;
-    padding: 3.2%;
-    color: #fff;
-  }
+    .followerText {
+        position: absolute;
+        top: 0.2rem;
+        left: 3%;
+        padding: 3.2%;
+        color: #fff;
+        font-size: 4vw;
+    }
 
+    .followingImage {
+        width: 25vw;
+        position: fixed;
+        top: 14%;
+        bottom: 0;
+        right: 0;
+        left: 64%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .followingsText {
+        position: absolute;
+        top: 0.4rem;
+        right: 1%;
+        padding: 3.2%;
+        color: #fff;
+        font-size: 4vw;
+    }
 
-/*        IF the browser does NOT support the  CSS Grid Layout specification
-        We rely on the use of the CSS Flexbox standard instead*/
+    /*        IF the browser does NOT support the  CSS Grid Layout specification
+            We rely on the use of the CSS Flexbox standard instead*/
     .wrapper {
         display: flex;
         flex-wrap: wrap;
     }
 
-
-/*        IF the browser DOES support the CSS Grid Layout specification
-        then the following rules are applied instead*/
+    /*        IF the browser DOES support the CSS Grid Layout specification
+            then the following rules are applied instead*/
     .wrapper {
         margin: 1.5rem 2rem;
         display: grid;
-/*        Define a 15 pixel gap between each grid track*/
+
+        /*        Define a 15 pixel gap between each grid track*/
         grid-gap: 15px;
-/*        Define a rule, that will be repeated for each grid column, where
-        the grid track is set to a minimum width of 300 pixels and a maximum
-        width of the available space within the grid container (via the fr or
-        fraction unit)*/
 
-/*        The auto-fill value allows as many grid tracks to be fitted into the 
-        width of the grid container as possible*/
+        /*        Define a rule, that will be repeated for each grid column, where
+                the grid track is set to a minimum width of 300 pixels and a maximum
+                width of the available space within the grid container (via the fr or
+                fraction unit)*/
+
+        /*        The auto-fill value allows as many grid tracks to be fitted into the 
+                width of the grid container as possible*/
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-
     }
 
-
-/*        Define the style rules for each panel within the grid container*/
+    /*        Define the style rules for each panel within the grid container*/
     .box {
         border-radius: 5px;
         margin-left: 0px;
         margin-right: 0px;
-/*        Add a flex rule for browsers not supporting the
-        CSS Grid Layout spec*/
+
+        /*        Add a flex rule for browsers not supporting the
+                CSS Grid Layout spec*/
         flex: 1 1 300px;
     }
 
@@ -157,8 +173,8 @@ page-other-user-profile {
     }
 
     .gallery-icon {
-    width: 4.5vw;
-    margin-left: 19vw;
+        width: 4.5vw;
+        margin-left: 19vw;
     }
 
     .price .digit {
@@ -196,5 +212,4 @@ page-other-user-profile {
         width: 4.5vw;
         margin-left: 4vw;
     }
-
 }

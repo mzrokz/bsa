@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="mainContainer">
-		<div style="height: 30vw"></div>
+		<div style="height: 30vw; margin-top: -1.5rem;"></div>
 
 		<div class="followersContainer">
 			<div class="followerText">
@@ -33,14 +33,14 @@
 		</div>
 
 		<div class="whitecontainer">
-			<div style="padding-top: 8%;font-size: 3.5vw;"><b>{{user.Name}}</b></div>
-			<div style="font-size: 3vw;color: grey;">{{user.ContactNo}}</div>
-			<button class="follow-button">Follow</button>
+			<div class="user-name">{{user.Name}}</div>
+			<div class="user-contact">{{user.ContactNo}}</div>
+			<button class="follow-button" (click)="followUser()">{{ isFollowing ? 'Unfollow' : 'Follow' }}</button>
 		</div>
 	</div>
 
 
-	<div class="wrapper">
+	<!-- <div class="wrapper">
 		<div class="box milky-white">
 			<img src="assets/imgs/mobile.jpg" width="100%" />
 			<div class="box-content">
@@ -120,5 +120,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </ion-content>

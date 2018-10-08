@@ -26,7 +26,6 @@ export class PostProductPage {
   getProducts() {
     //TODO: update userId
     this.productService.getPostProducts(19).subscribe(res => {
-      debugger;
       if (res.status == 200) {
         this.products = res.data;
       }

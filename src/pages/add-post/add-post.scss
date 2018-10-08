@@ -1,137 +1,153 @@
 page-add-post {
-/* Add post header */
-  .UpperTitle {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #3588A1;
-    font-size: 5vw;
-    color: #fff;
-    position: relative;
-  }
+    /* Add post header */
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
 
-  .UpperTitle img { 
-    position: absolute;
-    left: 15px;
-    width: 6vw;
-  }
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
 
-  .addPostCameraDiv{
-    height: 18%;
-    background-color: #D6D6D6;
-    border-radius: 1vw;
-    margin: 2rem 3%;
-    padding: 32px;
-    position: relative;
-    text-align: center;
-    color: white;
-  }
+    .addPostCameraDiv {
+        height: 18%;
+        background-color: #D6D6D6;
+        border-radius: 1vw;
+        margin: 2rem 3%;
+        padding: 32px;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
 
-  .cameraIcon{
-    width: 12vw;
-  }
+    .cameraIcon {
+        width: 12vw;
+    }
 
-  .subcategoryDiv{
-    background-color: white;
-    border-radius: 1vw;
-    height: 7%;
-    margin: 3%;
-  }
-  .titleHeader{
-    color: black;
-    font-size: 3vw;
-  }
-  .nextBlackIcon{
-    height: 3vw;
-    margin-left: auto;
-  }
-  .container{
-    position: relative;
-    text-align: left;
-    color: black;
-    width: auto;
-    background-color: white;
-    height: auto;
-    margin: 3%;
-    border-radius: 1vw;
-  }
+    .postImage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-  .savecontainer{
-    position: relative;
-    text-align: center;
-    color: black;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .subcategoryDiv {
+        background-color: white;
+        border-radius: 1vw;
+        height: 7%;
+        margin: 3%;
+    }
 
-  .saveBluetitle{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 4vw;
-    color: #3588A1;
-  }
-  .saveWhitetitle{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 4vw;
-    color: white;
-  }
+    .titleHeader {
+        color: black;
+        font-size: 3vw;
+    }
 
-  .icon {
-    float: left;
-    width: 20%;
-  }
+    .nextBlackIcon {
+        height: 3vw;
+        margin-left: auto;
+    }
 
-  .icon-box {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-    height: 8vh;
-    padding: 0.5rem 0;
-  }
+    .container {
+        position: relative;
+        text-align: left;
+        color: black;
+        width: auto;
+        background-color: white;
+        height: auto;
+        margin: 3%;
+        border-radius: 1vw;
+    }
 
-  .icon-box img {
-    width: 35%;
-  }
+    .savecontainer {
+        position: relative;
+        text-align: center;
+        color: black;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-  .icon span {
-    color: #b3b3b3;
-    font-size: 3vw;
-  }
+    .saveBluetitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 4vw;
+        color: #3588A1;
+    }
 
-  .post span {
-    color: #000;
-  }
+    .saveWhitetitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 4vw;
+        color: white;
+    }
 
-  /*set place holder color*/
-  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    black;
-  }
-  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    black;
-    opacity:  1;
-  }
-  ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:     black;
-    opacity:  1;
-  }
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:     black;
-  }
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color:    black;
-  }
+    .icon {
+        float: left;
+        width: 20%;
+    }
 
-  ::placeholder { /* Most modern browsers support this now. */
-    color:     black;
-  }
+    .icon-box {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        background-color: #f4f4f4;
+        height: 8vh;
+        padding: 0.5rem 0;
+    }
+
+    .icon-box img {
+        width: 35%;
+    }
+
+    .icon span {
+        color: #b3b3b3;
+        font-size: 3vw;
+    }
+
+    .post span {
+        color: #000;
+    }
+
+    /*set place holder color*/
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: black;
+    }
+
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: black;
+        opacity: 1;
+    }
+
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: black;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: black;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: black;
+    }
+
+    ::placeholder { /* Most modern browsers support this now. */
+        color: black;
+    }
 }

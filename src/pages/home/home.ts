@@ -20,7 +20,7 @@ export class HomePage {
   addposts = 'AddPostPage';
   notifications = 'NotificationsPage';
   profile = 'ProfilePage';
-  private tabSelectedIndex: number = 0;
+  tabSelectedIndex: number = 0;
 
 
 

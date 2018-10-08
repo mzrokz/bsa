@@ -38,7 +38,10 @@ import { Toast } from "@ionic-native/toast";
 
 import { WebServicesProvider } from '../services/web.service';
 import { SignupPage } from '../pages/signup/signup';
-import {ProductdetailscreenPage} from "../pages/productdetailscreen/productdetailscreen";
+import { ProductdetailscreenPage } from "../pages/productdetailscreen/productdetailscreen";
+
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -137,7 +140,9 @@ import {ProductdetailscreenPage} from "../pages/productdetailscreen/productdetai
     CommonService,
     ProductService,
     Toast,
-    WebServicesProvider
+    WebServicesProvider,
+    FileTransfer,
+    FileTransferObject
   ]
 })
 export class AppModule { }
