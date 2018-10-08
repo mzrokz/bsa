@@ -57,14 +57,14 @@ export class VerificationPage {
         console.log("data: " + JSON.stringify(data));
         if (data.status === '200') {
           // console.log("data called in if : ");
-          this.storage.set('userData', data.data);
+          this.storage.set('userData', JSON.stringify(data.data));
           this.navCtrl.push('HomePage');
         } else if (data.status === '403') {
           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
-      },(err )=> {
-      this.commonService.hideLoader()
-    });
+      }, (err) => {
+        this.commonService.hideLoader()
+      });
 
   }
 

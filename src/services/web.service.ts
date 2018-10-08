@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // import { Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CommonService } from './common.service';
 
 /*
   Generated class for the WebServicesProvider provider.
@@ -12,7 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class WebServicesProvider {
 
-  public apiUrl = 'http://4auctions.net/api/'; //local server
+  public apiUrl;
 
   // signUp = 'signup.php?phone=';
   signUp = 'signup.php';
@@ -27,8 +28,12 @@ export class WebServicesProvider {
   verifyOtp = 'verify-otp.php';
 
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    private commonService: CommonService
+  ) {
     console.log('Hello WebServicesProvider Provider');
+    this.apiUrl = this.commonService.baseUrl;
   }
 
   /*  postUserSignUp(data) {
@@ -147,7 +152,7 @@ export class WebServicesProvider {
     // header.append('Authorization', token);
     let options = { headers: header };
 
-    return this.http.get(this.apiUrl + this.childCategory + parent_id, options);
+    return this.http.get<any>(this.apiUrl + this.childCategory + parent_id, options);
   }
 
   getItemChildCategory(category_id) {
@@ -168,5 +173,8 @@ export class WebServicesProvider {
     return this.http.get(this.apiUrl + this.productDetailList + product_id);
   }
 
+  getAllCategory() {
+    return this.http.get<any>(this.apiUrl + "all-category.php");
+  }
 
 }
