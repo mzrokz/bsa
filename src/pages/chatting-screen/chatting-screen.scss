@@ -2,15 +2,15 @@ page-chatting-screen {
 
 /*        Add post header*/
     .UpperTitle {
-	    width: 100%;
-	    position: fixed;
-	    background-color: #3588A1;
-	    margin: 0 auto;
-	    padding: 20px 0;
-	    overflow: hidden;
-	    text-align: center;
-	    font-size: 5vw;
-	    color: #fff;
+        width: 100%;
+        position: fixed;
+        background-color: #3588A1;
+        margin: 0 auto;
+        padding: 20px 0;
+        overflow: hidden;
+        text-align: center;
+        font-size: 5vw;
+        color: #fff;
     }
 
     .UpperTitle img {
@@ -20,17 +20,18 @@ page-chatting-screen {
     }
 
     .UpperTitle span {
-	  	position: absolute;
-	    margin: 0 auto;
-	    padding-top: 1%;
-	    padding-left: 22%;
-	    font-size: 4vw;
+        position: absolute;
+        margin: 0 auto;
+        padding-top: 1%;
+        padding-left: 22%;
+        font-size: 4vw;
     }
 
 .chat-area {
-	height: 90%;
+    height: 80%;
+    overflow-y: scroll;
     margin: 0 auto;
-    margin-top: 6.3rem;
+    margin-top: 8.5rem;
     padding: 0 2rem;
 }
 
@@ -57,7 +58,7 @@ page-chatting-screen {
 }
 
 /* Style images */
-.container img {
+.container img, .section-left img {
     float: left;
     max-width: 60px;
     width: 100%;
@@ -66,7 +67,7 @@ page-chatting-screen {
 }
 
 /* Style the right image */
-.container img.right {
+.container img.right, .section-right img {
     float: right;
     margin-left: 20px;
     margin-right:0;
@@ -82,6 +83,182 @@ page-chatting-screen {
 .time-left {
     float: left;
     color: #999;
+}
+
+.container.message-type {
+    border: 0;
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.chat-msg.row {
+    background-color: #ddd;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 1.3rem 2rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 5vw;
+    color: #fff;
+}
+
+.right-inner-addon {
+    display: contents;
+}
+
+span.add-icon img, a.emo-link img, span.send-icon img {
+    width: 8vw;
+    height: 8vw;
+}
+
+.chat-msg .col-2.left {
+    position: relative;
+    right: 0.85rem;
+    top: 0.65rem;
+}
+
+.chat-msg .col-2.right {
+    position: relative;
+    left: 0.85rem;
+    top: 0.65rem;
+}
+
+input#srch-term {
+    width: 60%;
+    float: left;
+    background-color: #fff;
+    color: #000;
+    border: 0;
+    border-radius: 0.75rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0 auto;
+    margin-right: -0.3rem;
+    padding: 1rem 1rem;
+}
+
+a.emo-link {
+    width: 20%;
+    float: left;
+    background-color: #fff;
+    color: #000;
+    border-radius: 0.75rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin: 0 auto;
+    padding: 0.4rem 1rem;
+}
+
+
+/* Separator with Day */
+
+.w-separator.type_default {
+    margin: 1rem 13.6rem;
+}
+
+.w-separator-h {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: inherit;
+    border-color: inherit!important;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.w-separator-h:before {
+    right: 100%;
+    margin-right: .6em;
+}
+
+.w-separator-h:after {
+    left: 100%;
+    margin-left: .6em;
+}
+
+.w-separator-h:before, .w-separator-h:after {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 50%;
+    height: 0;
+    width: 12rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: #ccc;
+}
+
+.w-separator-text {
+    display: inline-block;
+    vertical-align: top;
+    line-height: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+
+.direct-chat-msg {
+    margin-bottom: 2rem;
+}
+
+.direct-chat-msg, .direct-chat-text {
+    display: block;
+}
+
+.direct-chat-img {
+    border-radius: 50%;
+    float: left;
+    width: 4rem;
+    height: 4rem;
+}
+
+.right .direct-chat-img {
+    float: right;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.direct-chat-text {
+    background: #ddd;
+    //border: 0.0625rem solid #ccc;
+    color: #fff;
+}
+
+.right .direct-chat-text {
+    background: #3588A1;
+    //border: 0.0625rem solid #404a53;
+    color: #fff;
+}
+
+.direct-chat-text {
+    border-radius: 1rem;
+    position: relative;
+    padding: 0.1rem 1.625rem;
+    padding-bottom: 2.4rem;
+    margin: 0.3125rem 0 0 5rem;
+}
+
+.right .direct-chat-text {
+    margin-right: 5rem;
+    margin-left: 0;
+}
+
+.direct-chat-msg.message-type .direct-chat-text {
+    background: transparent;
+    color: #555;
+    border-radius: 0;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0rem;
+    padding-left: 11rem;
 }
 
 }
