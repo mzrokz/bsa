@@ -1,5 +1,5 @@
 <ion-content>
-  <div style="background-color: #3588A1; height: 13vw;">
+  <div style="background-color: #62AEC6; height: 13vw;">
 
     <ion-row>
 
@@ -20,26 +20,27 @@
 
       <ion-col col-3>
 
-        <img src="assets/imgs/serch_icon.png" class="search">
+        <img src="assets/imgs/serch_icon.png" class="search" (click)="openSearchScreen()">
       </ion-col>
 
     </ion-row>
   </div>
+
   <div>
     <ion-slides #mySlides style="width: 100%;margin-left: auto;
-    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000">
+    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000" *ngIf="sliderImageDataModal && sliderImageDataModal.length" >
 
-      <ion-slide>
-        <img src="assets/imgs/banner.png" style="width: 100%;">
+      <ion-slide *ngFor="let sliders of sliderImageDataModal">
+        <img src="{{sliders}}" style="width: 100%;">
       </ion-slide>
 
-      <ion-slide>
+      <!--<ion-slide>
         <img src="assets/imgs/banner2.png" style="width: 100%;">
       </ion-slide>
 
       <ion-slide>
         <img src="assets/imgs/banner3.png" style="width: 100%;">
-      </ion-slide>
+      </ion-slide>-->
     </ion-slides>
   </div>
 

@@ -64,7 +64,7 @@ export class ItemsubcatgprdctselectedPage {
           if (data.status === '200') {
             let dataOnlyHere = JSON.stringify(data.data);
             this.itemChildCategoryResponse = JSON.parse(dataOnlyHere);
-            // console.log("this.itemChildCategoryResponse !!!!!!!!! " + JSON.stringify(this.itemChildCategoryResponse));
+            //console.log("this.itemChildCategoryResponse !!!!!!!!! " + JSON.stringify(this.itemChildCategoryResponse));
           }
         }, (err) => {
           this.commonService.hideLoader();
@@ -78,3 +78,5 @@ export class ItemsubcatgprdctselectedPage {
 
 
 }
+
+

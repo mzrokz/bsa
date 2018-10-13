@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WebServicesProvider } from "../../services/web.service";
 import { CommonService } from '../../services/common.service';
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the SubcategoryPage page.
@@ -20,19 +21,30 @@ export class SubcategoryPage {
   dataFromPrevious: any;
   rootCategoryName: any;
   childCategoryResponse: any = [];
+  sliderImageDataModal: any = [];
+  auth_token:any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public webservice: WebServicesProvider, public commonService: CommonService) {
+    public webservice: WebServicesProvider, public commonService: CommonService, public storage: Storage) {
 
     this.dataFromPrevious = this.navParams.data.data;
     //  console.log("this.dataFromPrevious ",JSON.stringify(this.dataFromPrevious));
     this.parent_id = this.dataFromPrevious.category_id;
     this.rootCategoryName = this.dataFromPrevious.category_name;
 
+
+    this.storage.get('auth_token').then(auth_token => {
+      this.auth_token = auth_token;
+      console.log('Auth token : ' + this.auth_token);
+    });
+
   }
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad SubcategoryPage');
+    this.callGetSliderImageDataApi();
+
     this.callGetChildCategoryApi();
   }
 
@@ -69,6 +81,26 @@ export class SubcategoryPage {
 
         });
     }
+  }
 
+  callGetSliderImageDataApi() {
+    this.commonService.showLoader();
+    this.webservice.getHomeSliderImages(this.auth_token).subscribe(responce => {
+      this.commonService.hideLoader();
+      let resp: any = {};
+      resp = JSON.stringify(responce);
+      let data = JSON.parse(resp);
+      if (data.status === '200') {
+        let dataOnlyHere = JSON.stringify(data.data);
+        this.sliderImageDataModal = JSON.parse(dataOnlyHere);
+      }
+    }, (err) => {
+      this.commonService.hideLoader();
+
+      let err1: any = err;
+      let error = JSON.parse(JSON.stringify(err1));
+      console.log('error with status', JSON.stringify(error));
+
+    });
   }
 }

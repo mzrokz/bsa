@@ -42,6 +42,8 @@ import { ProductdetailscreenPage } from "../pages/productdetailscreen/productdet
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import {SocialSharing} from "@ionic-native/social-sharing";
+import {SearchPage} from "../pages/search/search";
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { File } from '@ionic-native/file';
     SettingsPage,
     SettingsModalPage,
     SignupPage,
-    ProductdetailscreenPage
+    ProductdetailscreenPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +103,8 @@ import { File } from '@ionic-native/file';
           { component: SubcategoryPage, name: 'SubcategoryPage', segment: 'sub-category' },
           { component: SignupPage, name: 'SignupPage', segment: 'signup' },
           { component: VerificationPage, name: 'VerificationPage', segment: 'verification' },
-          { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' }
+          { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' },
+          { component:  SearchPage, name: ' SearchPage', segment: 'search-screen' }
         ]
       }
     )
@@ -130,7 +134,8 @@ import { File } from '@ionic-native/file';
     SettingsPage,
     SettingsModalPage,
     SignupPage,
-    ProductdetailscreenPage
+    ProductdetailscreenPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
@@ -142,7 +147,8 @@ import { File } from '@ionic-native/file';
     Toast,
     WebServicesProvider,
     FileTransfer,
-    FileTransferObject
+    FileTransferObject,
+    SocialSharing
   ]
 })
 export class AppModule { }

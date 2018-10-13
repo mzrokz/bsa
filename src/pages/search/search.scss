@@ -1,4 +1,4 @@
-page-itemsubcatgprdctselected {
+page-search {
   .bg {
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,7 +76,7 @@ page-itemsubcatgprdctselected {
 
   .priceText {
     margin-left: 2vw;
-    font-size: 3vw;  
+    font-size: 3vw;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
@@ -175,4 +175,22 @@ page-itemsubcatgprdctselected {
     padding: 0px;
   }
 
+  .searchMain {
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    width: 90%;
+    margin: 5vw;
+  }
+
+  .searchDiv {
+    background-color: #62AEC6;
+    border-radius: 1vw;
+    color: white;
+    font-size: 3vw;
+    padding-top: 2vw;
+    text-align: center;
+  }
 }

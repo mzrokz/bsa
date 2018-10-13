@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { WebServicesProvider } from "../../services/web.service";
-import { Storage } from '@ionic/storage';
-import { CommonService } from '../../services/common.service';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
+import {WebServicesProvider} from "../../services/web.service";
+import {Storage} from '@ionic/storage';
+import {CommonService} from '../../services/common.service';
 
 
 /**
@@ -22,7 +22,7 @@ export class VerificationPage {
   dataFromPrevious: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public commonService: CommonService,
-    public webservice: WebServicesProvider, public storage: Storage) {
+              public webservice: WebServicesProvider, public storage: Storage) {
     this.dataFromPrevious = this.navParams.data.data;
     // console.log("this.dataFromPrevious : " + JSON.stringify(this.dataFromPrevious));
   }
@@ -35,7 +35,7 @@ export class VerificationPage {
     this.navCtrl.pop();
   }
 
-  openMainPage() {
+  openMainPage(authToken) {
     if (!this.validation()) {
       return;
     }
@@ -58,9 +58,14 @@ export class VerificationPage {
         if (data.status === '200') {
           // console.log("data called in if : ");
           this.storage.set('userData', JSON.stringify(data.data));
-          this.navCtrl.push('HomePage');
+          this.storage.set('user_id', data.data.user_id);
+          this.storage.set('auth_token', data.data.auth_token);
+
+          // console.log('Authoken in response : ' + data.data.auth_token);
+
+          this.navCtrl.setRoot('HomePage');
         } else if (data.status === '403') {
-          this.commonService.showToast(data.msg); //todo need to uncomment on build
+           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
       }, (err) => {
         this.commonService.hideLoader()
