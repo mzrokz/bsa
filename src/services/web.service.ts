@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 // import { Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CommonService } from './common.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CommonService} from './common.service';
 
 /*
   Generated class for the WebServicesProvider provider.
@@ -24,8 +24,9 @@ export class WebServicesProvider {
   childCategory = 'child-category.php?parent_id=';
   listProductByCategory = 'category-products.php?category_id=';
   productDetailList = 'product-detail.php?product_id=';
-
   verifyOtp = 'verify-otp.php';
+  homeSlider = 'home-slider.php';
+  search = 'search-product.php';
 
 
   constructor(
@@ -65,7 +66,7 @@ export class WebServicesProvider {
     });
     let body = new FormData();
     body.append('phone', phone);
-    let options = { headers: headers };
+    let options = {headers: headers};
 
     return this.http.post(this.apiUrl + this.signUp, body, options);
   }
@@ -81,7 +82,7 @@ export class WebServicesProvider {
     body.append('phone', phone);
     body.append('otp', otp);
     body.append('type', type);
-    let options = { headers: headers };
+    let options = {headers: headers};
 
     return this.http.post(this.apiUrl + this.verifyOtp, body, options);
   }
@@ -98,51 +99,55 @@ export class WebServicesProvider {
     let body = new FormData();
     body.append('phone', phone);
 
-    let options = { headers: headers };
+    let options = {headers: headers};
+
     return this.http.post<any>(this.apiUrl + this.login, body, options);
 
   }
 
-  postAddComment(list_id, user_id, comment_content) {
+  postAddComment(list_id, user_id, comment_content,price /*auth_token*/) {
     // let body = JSON.stringify(data);
     /*   let header = new Headers;
        header.append('Content-Type', 'application/json');*/
 
     let headers = new HttpHeaders({
       'NDAPI-Key': 'XXXXXXXXX',
-      'NDAPI-Host': 'XXXXXXXXX'
+      'NDAPI-Host': 'XXXXXXXXX',
+     // 'auth_token': auth_token
     });
     let body = new FormData();
     body.append('list_id', list_id);
     body.append('user_id', user_id);
     body.append('comment_content', comment_content);
+    body.append('price', price);
 
-    let options = { headers: headers };
+    let options = {headers: headers};
     return this.http.post(this.apiUrl + this.addComment, body, options);
   }
 
-  postListComments(list_id) {
+  postListComments(list_id)/*auth_token*/ {
     // let body = JSON.stringify(data);
     /*   let header = new Headers;
        header.append('Content-Type', 'application/json');*/
 
     let headers = new HttpHeaders({
       'NDAPI-Key': 'XXXXXXXXX',
-      'NDAPI-Host': 'XXXXXXXXX'
+      'NDAPI-Host': 'XXXXXXXXX',
+     // 'auth_token': auth_token
     });
     let body = new FormData();
     body.append('list_id', list_id);
 
-    let options = { headers: headers };
+    let options = {headers: headers};
 
     return this.http.post(this.apiUrl + this.listComments, body, options);
   }
 
-  getRootCategory() {
+  getRootCategory(auth_token) {
     let header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
-    // header.append('Authorization', token);
-    let options = { headers: header };
+    header.append('auth_token', auth_token);
+    let options = {headers: header};
     return this.http.get<any>(this.apiUrl + this.homeRootCategory, options);
   }
 
@@ -150,7 +155,7 @@ export class WebServicesProvider {
     let header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
     // header.append('Authorization', token);
-    let options = { headers: header };
+    let options = {headers: header};
 
     return this.http.get<any>(this.apiUrl + this.childCategory + parent_id, options);
   }
@@ -159,7 +164,7 @@ export class WebServicesProvider {
     let header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
     // header.append('Authorization', token);
-    let options = { headers: header };
+    let options = {headers: header};
 
     return this.http.get(this.apiUrl + this.listProductByCategory + category_id, options);
   }
@@ -171,6 +176,28 @@ export class WebServicesProvider {
     // let options = { headers: header };
 
     return this.http.get(this.apiUrl + this.productDetailList + product_id);
+  }
+
+  getHomeSliderImages(auth_token) {
+    let header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    header.append('auth_token', auth_token);
+    let options = {headers: header};
+    return this.http.get<any>(this.apiUrl + this.homeSlider, options);
+
+    //  return this.http.get(this.apiUrl + this.homeSlider );
+  }
+  getSearchApi(search) {
+    let headers = new HttpHeaders({
+      'NDAPI-Key': 'XXXXXXXXX',
+      'NDAPI-Host': 'XXXXXXXXX'
+    });
+    let body = new FormData();
+    body.append('search', search);
+    let options = {headers: headers};
+
+    return this.http.post(this.apiUrl + this.search, body, options);
+
   }
 
   getAllCategory() {

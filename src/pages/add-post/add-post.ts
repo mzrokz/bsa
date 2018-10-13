@@ -56,11 +56,6 @@ export class AddPostPage {
     this.post = {
       files: []
     };
-    this.post.categoryId = null;
-    this.post.subcategoryId = null;
-    this.post.title = null;
-    this.post.description = null;
-    this.post.mobile = null;
   }
 
   getAllCatrgories() {
@@ -76,18 +71,16 @@ export class AddPostPage {
   }
 
   getAllSubCatrgories(categoryId) {
-    if (categoryId) {
-      this.commonService.showLoader();
-      this.webService.getChildCategory(categoryId).subscribe(res => {
-        if (res.status == 200) {
-          this.subCategories = res.data;
-          this.commonService.hideLoader();
-        }
-      }, (err) => {
+    this.commonService.showLoader();
+    this.webService.getChildCategory(categoryId).subscribe(res => {
+      if (res.status == 200) {
+        this.subCategories = res.data;
         this.commonService.hideLoader();
-        console.error(err);
-      });
-    }
+      }
+    }, (err) => {
+      this.commonService.hideLoader();
+      console.error(err);
+    })
   }
 
   addPost() {
@@ -113,22 +106,39 @@ export class AddPostPage {
     }
 
     this.commonService.showLoader();
+    // this.productService.addProduct(this.post)
+    //   .then((data) => {
+    //     console.log(data);
+    //     let resp = JSON.parse(data.response);
+    //     if (resp.status == 200) {
+    //       this.commonService.showToast("Product Uploaded Successfully");
+    //     } else {
+    //       this.commonService.showToast("Some error occurred");
+    //     }
+    //     this.commonService.hideLoader();
+    //   }, (err) => {
+    //     console.error(err);
+    //     this.commonService.hideLoader();
+    //   });
+
     this.productService.addProduct(this.post)
-      .then((data) => {
+      .subscribe((data) => {
+        debugger;
         console.log(data);
-        if (data) {
+        if (data.status == 200) {
           this.commonService.showToast("Product Uploaded Successfully");
         } else {
           this.commonService.showToast("Some error occurred");
         }
         this.commonService.hideLoader();
-        this.preparePostObject();
       }, (err) => {
         console.error(err);
         this.commonService.hideLoader();
-        this.preparePostObject();
       });
+
   }
+
+
 
 
   getPhoto() {
@@ -152,6 +162,4 @@ export class AddPostPage {
       }
     }, (err) => { });
   }
-
-
 }

@@ -26,20 +26,21 @@
 
   <div>
     <div>
-      <ion-slides style=" width: 100%;margin-left: auto;
-    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000">
+      <ion-slides #mySlides style="width: 100%;margin-left: auto;
+    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000"
+                  *ngIf="sliderImageDataModal && sliderImageDataModal.length" >
 
-        <ion-slide>
-          <img src="assets/imgs/banner.png" style="width: 100%;">
+        <ion-slide *ngFor="let sliders of sliderImageDataModal">
+          <img src="{{sliders}}" style="width: 100%;">
         </ion-slide>
 
-        <ion-slide>
+        <!--<ion-slide>
           <img src="assets/imgs/banner2.png" style="width: 100%;">
         </ion-slide>
 
         <ion-slide>
           <img src="assets/imgs/banner3.png" style="width: 100%;">
-        </ion-slide>
+        </ion-slide>-->
       </ion-slides>
     </div>
 

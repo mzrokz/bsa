@@ -1,3 +1,4 @@
+<script src="../verification/verification.ts"></script>
 <ion-content style="background-color: #EDEDED">
 
   <div>
@@ -27,43 +28,76 @@
 
   <div>
     <ion-slides #mySlides style="width: 100%;margin-left: auto;
-    margin-right: auto;height: 100%" pager>
+    margin-right: auto;height: 100%" pager
+                *ngIf="productDetailResponse.slider_images && productDetailResponse.slider_images.length > 0">
 
       <!--*ngFor="let data of productDetailResponse; let i = index"-->
-      <ion-slide>
-        <ion-row>
+      <ion-slide *ngFor="let banner of productDetailResponse.slider_images">
+        <!--
+                <ion-row>
+        -->
 
-          <img *ngIf="productDetailResponse.image_uri != undefined || productDetailResponse.image_uri != '' "
-               src="{{productDetailResponse.image_uri}}" style="height: 50vw;width: 100%"
-               onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
+        <img *ngIf="banner.src != undefined || banner.src != '' "
+             src="{{banner.src}}" style="height: 70vw;width: 100%;position: relative;text-align: center"
+             onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
 
-          <ion-row *ngIf="productDetailResponse.count && productDetailResponse.count != '' ">
-            <div style="margin-top: -6vw; margin-left: 3vw; width: 9vw;">
-              <img src="assets/imgs/gallery_img_trans.png"
-                   style=" width: 4vw;height: 4vw;float: left;">
-              <div style="color: white;font-size: 3vw;margin-left: 2vw"> {{productDetailResponse.count}}</div>
-            </div>
-          </ion-row>
 
+        <ion-row *ngIf="productDetailResponse.image_count && productDetailResponse.image_count != undefined " class="imageCountRow">
+          <div class="imageCount">
+            <img src="assets/imgs/gallery_img_trans.png"
+                 style=" width: 4vw;height: 4vw;float: left;">
+            <div style="color: white;font-size: 3vw;margin-left: 2vw"> {{productDetailResponse.image_count}}</div>
+          </div>
         </ion-row>
+
+        <!--
+                </ion-row>
+        -->
       </ion-slide>
 
     </ion-slides>
+
+    <div *ngIf="productDetailResponse.slider_images && (productDetailResponse.slider_images.length == 0)
+    ||  productDetailResponse.slider_images == '' ">
+
+      <ion-slides #mySlides style="width: 100%;margin-left: auto;
+    margin-right: auto;height: 100%" pager>
+
+        <!--*ngFor="let data of productDetailResponse; let i = index"-->
+        <ion-slide>
+          <img *ngIf="productDetailResponse.image_uri != undefined || productDetailResponse.image_uri != '' "
+               src="{{productDetailResponse.image_uri}}" style="height: 70vw;width: 100%;position: relative;text-align: center"
+               onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
+
+
+          <ion-row *ngIf="productDetailResponse.image_count && productDetailResponse.image_count != undefined " class="imageCountRow">
+            <div class="imageCount">
+              <img src="assets/imgs/gallery_img_trans.png"
+                   style=" width: 4vw;height: 4vw;float: left;">
+              <div style="color: white;font-size: 3vw;margin-left: 2vw"> {{productDetailResponse.image_count}}</div>
+            </div>
+          </ion-row>
+
+        </ion-slide>
+
+      </ion-slides>
+
+
+    </div>
+
   </div>
 
   <ion-card style="height: 22vw">
 
     <ion-card-content>
       <div>
-        <!-- <h3>//todo need to uncomment
-           <b class="description">{{productDetailResponse.product_description}}</b>
-         </h3>-->
+
         <h3 class="description">
           <b>{{productDetailResponse.product_name}}</b>
         </h3>
 
         <h3 class="description">
-          Sony Xperia z
+          {{productDetailResponse.brand_name}} {{productDetailResponse.model_name}}
         </h3>
 
         <p style="margin: 0 0 2px;
@@ -71,7 +105,7 @@
     font-weight: normal;
     line-height: 1.5;
     color: #222;">
-          {{productDetailResponse.create_date}}
+          {{productDetailResponse.created_date}}
         </p>
 
       </div>
@@ -94,7 +128,7 @@
 
           <ion-col col-6>
             <h3 class="detailTitle">
-              Name
+              {{productDetailResponse.brand_name}}
             </h3>
           </ion-col>
           <div class="line"></div>
@@ -112,8 +146,7 @@
 
           <ion-col col-6>
             <h3 class="detailTitle">
-              Xperia Z
-            </h3>
+              {{productDetailResponse.model_name}} </h3>
           </ion-col>
           <div class="line"></div>
         </ion-row>
@@ -130,7 +163,7 @@
 
           <ion-col col-6>
             <h3 class="detailTitle">
-              5000 $
+              {{productDetailResponse.price}} $
             </h3>
           </ion-col>
           <div class="line"></div>
@@ -174,7 +207,7 @@
             <ion-row style="float: right;margin-top: -0.8vw">
               <img src="assets/imgs/facebook_icon.png" style="width: 5vw;height: 5vw;float: right;">
               <img src="assets/imgs/twitter_icon.png" style="width: 5vw;height: 5vw;margin-left: 2vw;float: right;">
-              <img src="assets/imgs/whatsapp_icon.png" style="width: 5vw;height: 5vw;margin-left: 2vw;float: right;">
+              <img src="assets/imgs/whatsapp_icon.png" style="width: 5vw;height: 5vw;margin-left: 2vw;float: right;" (click)="shareViaWhatsApp()">
             </ion-row>
 
           </ion-col>
@@ -195,8 +228,8 @@
           </ion-col>
 
           <ion-col col-6 style="padding-left: 4vw">
-            <div style="font-size: 1.2rem;margin-top: 1vw"><b>Lorem Ipsum</b></div>
-            <div style="font-size: 1rem">7878787878</div>
+            <div style="font-size: 1.2rem;margin-top: 1vw"><b>{{productDetailResponse.created_by}}</b></div>
+            <div style="font-size: 1rem">{{productDetailResponse.contact_no}}</div>
           </ion-col>
           <ion-col col-4>
             <img src="assets/imgs/next_grey.png" style="width: 2vw;
@@ -212,21 +245,28 @@
   </ion-card>
 
 
-  <div>
-    <ion-row>
-      <img src="assets/imgs/banner2.png" class="relatedPhones">
-      <img src="assets/imgs/banner2.png" class="relatedPhones">
-      <img src="assets/imgs/banner2.png" class="relatedPhones">
+  <div><!--related_products-->
+    <ion-slides #mySlides slidesPerView="3" *ngIf="relatedProductsArray && relatedProductsArray.length > 0" style="width: 100%;margin-left: auto;
+    margin-right: auto;height: 100%">
+      <ion-slide *ngFor="let relatedData of relatedProductsArray">
 
-    </ion-row>
+        <img *ngIf="relatedData.product_image != undefined || relatedData.product_image != '' "
+             src="{{relatedData.product_image}}" class="relatedPhones"
+             onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
+        <!-- <img src="assets/imgs/banner2.png" class="relatedPhones">
+         <img src="assets/imgs/banner2.png" class="relatedPhones">
+         <img src="assets/imgs/banner2.png" class="relatedPhones">-->
+      </ion-slide>
+
+    </ion-slides>
   </div>
 
   <div style="margin-left: 3vw;margin-right: 3vw;">
     <ion-row>
       <p style="color: black;">COMMENTS</p>
-      <p style="color: black;margin-left: auto" *ngIf="listOfComments.length == 1">{{listOfComments.length}} Comment</p>
+      <p style="color: black;margin-left: auto" *ngIf="listOfComments && listOfComments.length == 1">{{listOfComments.length}} Comment</p>
       <p style="color: black;margin-left: auto"
-         *ngIf="listOfComments.length == 0 || listOfComments.length > 1">{{listOfComments.length}} Comments</p>
+         *ngIf="listOfComments && listOfComments.length == 0 || listOfComments.length > 1">{{listOfComments.length}} Comments</p>
     </ion-row>
   </div>
 
@@ -235,7 +275,10 @@
       <div>
         <ion-row>
           <ion-col col-2>
-            <img src="assets/imgs/default.jpg" style="width: 10vw;height: 10vw">
+
+            <img *ngIf="data.user_image != undefined || data.user_image != '' "
+                 src="{{data.user_image}}" style="width: 10vw;height: 10vw"
+                 onerror="this.src='assets/imgs/default.jpg'; ">
           </ion-col>
           <ion-col col-7>
             <div>
@@ -245,13 +288,13 @@
             </div>
           </ion-col>
           <ion-col col-3 style="float: right;text-align: right">
-            <p style="font-size: 3vw">26/8/2018</p>
+            <p style="font-size: 3vw">{{data.post_date}}</p>
           </ion-col>
         </ion-row>
-        <div style="color: #3588A1;
+        <div *ngIf="data.price && data.price != '' " style="color: #3588A1;
     font-size: 3vw;
     width: auto;
-    text-align: right;">5000 $
+    text-align: right;margin-right: 1vw">{{data.price}} $
         </div>
       </div>
 
@@ -300,7 +343,7 @@
         <ion-col col-5>
           <ion-row>
 
-            <a href="tel:7898984984" style="text-align: center;
+            <a href="tel:{{productDetailResponse.contact_no}}" style="text-align: center;
     width: 100%;
     color: transparent;">
               <div style="text-align: center;width: 100%;margin-top: 4vw">
@@ -308,7 +351,6 @@
                 <span style="font-size: 4vw;color: white;margin-left: 2vw">CALL</span>
               </div>
             </a>
-
 
           </ion-row>
         </ion-col>
@@ -333,6 +375,3 @@
   </div>
 
 </ion-content>
-
-
-

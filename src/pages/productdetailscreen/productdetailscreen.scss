@@ -81,11 +81,33 @@ page-productdetailscreen {
     padding: 2vw;
     border-radius: 3vw;
     margin: auto;
+    text-align: center;
   }
 
   .detailTitle{
     font-size: 1.3rem;
     color: black;
+  }
+
+  .imageCount{
+    /* margin-top: -6vw; */
+    margin-left: 3vw;
+    width: 11vw;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.7;
+    border-radius: 1vw;
+    padding: 0.7%;
+  }
+
+  .imageCountRow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: 3vw;
+    height: fit-content;
   }
 
 }

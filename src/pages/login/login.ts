@@ -52,8 +52,9 @@ export class LoginPage {
         this.commonService.hideLoader();
         // console.log("data: " + JSON.stringify(data));
         if (data.status === '200') {
+          this.commonService.showToast(data.otp);
           this.navCtrl.push('VerificationPage', { data: data });
-          this.commonService.showToast(data.otp); //todo need to uncomment on build
+          //todo need to uncomment on build
         } else if (data.status === '403') {
           this.commonService.showToast(data.msg); //todo need to uncomment on build
         }
