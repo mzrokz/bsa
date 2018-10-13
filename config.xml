@@ -3,7 +3,7 @@
     <name>4auctionsapp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.2:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -89,6 +89,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
     <plugin name="com-badrit-base64" spec="^0.2.0" />
-    <allow-navigation href="http://192.168.1.2:8100" sessionid="db490198" />
     <engine name="android" spec="7.0.0" />
 </widget>
