@@ -1,14 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from './common.service';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class UserService {
 
     constructor(
         private http: HttpClient,
-        private commonService: CommonService
+        private commonService: CommonService,
+        private storage: Storage
     ) { }
+
+    getCurrentUser() {
+        return new Promise<any>((resolve, reject) => {
+            this.storage.get('userData').then(data => {
+                let currentUser = JSON.parse(data);
+                if (currentUser) {
+                    resolve(currentUser);
+                } else {
+                    reject("User not found");
+                }
+            }).catch(err => {
+                reject(err);
+            });
+        })
+    }
 
     getProfile(userId) {
         return this.http.get<any>(this.commonService.baseUrl + 'profile.php?user_id=' + userId);

@@ -26,12 +26,16 @@ export class SettingsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
-    this.getSettings();
+    this.userService.getCurrentUser().then(user => {
+      this.getSettings(user.user_id);
+    }).catch(err => {
+      this.commonService.hideLoader();
+    });
   }
 
-  getSettings() {
+  getSettings(userId) {
     this.commonService.showLoader();
-    this.userService.getSettings(118).subscribe(res => {
+    this.userService.getSettings(userId).subscribe(res => {
       if (res.status == 200) {
         this.settings = res.data;
       }

@@ -41,7 +41,7 @@ export class ProductdetailscreenPage {
     this.subCategoryName = this.dataFromPrevious.category_name;
     /*
         this.storage.get('userData').then(data => {
-
+S
           this.user_id = JSON.parse(data.user_id);
 
          // this.auth_token = JSON.parse(data.auth_token);

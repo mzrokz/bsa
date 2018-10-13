@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Tabs } from 'ionic-angular';
+import { UserService } from '../../services/user.service';
 
 /**
  * Generated class for the HomePage page.
@@ -22,9 +23,13 @@ export class HomePage {
   profile = 'ProfilePage';
   tabSelectedIndex: number = 0;
 
+  isLoggedIn: boolean = false;
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userService: UserService
+  ) {
     if (this.navParams.data) {
       if (this.navParams.data.page == 'mainPage') {
         this.home = 'MainpagePage';
@@ -40,6 +45,11 @@ export class HomePage {
       this.tabSelectedIndex = this.navParams.data.tab;
     }
 
+    this.userService.getCurrentUser().then(user => {
+      this.isLoggedIn = true;
+    }).catch(err => {
+      this.isLoggedIn = false;
+    });
   }
 
   ionViewDidLoad() {
