@@ -13,7 +13,6 @@ import { LoginPage } from '../login/login';
 export class SettingsPage {
 
   settings: any = {};
-  currentUser: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -28,7 +27,6 @@ export class SettingsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
     this.userService.getCurrentUser().then(user => {
-      this.currentUser = user;
       this.getSettings(user.user_id);
     }).catch(err => {
       this.commonService.hideLoader();
@@ -72,7 +70,7 @@ export class SettingsPage {
     Object.assign(settings, this.settings)
     let settingsModal = this.modalCtrl.create(SettingsModalPage, { settings: settings });
     settingsModal.onDidDismiss(data => {
-      this.getSettings(this.currentUser.user_id);
+      this.getSettings();
     });
     settingsModal.present();
   }
