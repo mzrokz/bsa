@@ -19,7 +19,7 @@
   </div>
 
   <ng-container *ngFor="let chat of chats">
-    <div style="margin-top: 3vw">
+    <div style="margin-top: 3vw" (click)="gotoChatDetail(chat)">
       <ion-row>
         <ion-col col-4>
           <img [src]="(chat.image && chat.image !='') ? chat.image: 'assets/imgs/default_profile.png'" style="width: 70%;float: right;margin-right: 4vw">

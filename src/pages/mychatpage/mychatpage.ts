@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ChatService } from '../../services/chat.service';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
+import { ChattingScreenPage } from '../chatting-screen/chatting-screen';
 
 @Component({
   selector: 'page-mychatpage',
@@ -36,10 +37,14 @@ export class MychatpagePage {
 
   getChats() {
     this.chatService.getChats(this.currentUser.user_id).subscribe(data => {
-      debugger;
       if (data.status == 200) {
         this.chats = data.chat_users;
       }
     });
+  }
+
+  gotoChatDetail(chat) {
+    debugger;
+    this.navCtrl.push(ChattingScreenPage, { recepientId: chat.user_id });
   }
 }
