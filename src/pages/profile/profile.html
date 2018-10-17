@@ -21,8 +21,7 @@
         <button class="follow-btn">Followers</button>
       </div>
 
-      <img *ngIf="profile.ProfileImage" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.png'"
-        class="profileImage">
+      <img [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.jpg'" class="profileImage">
 
       <div class="followersContainer">
         <button class="following-btn">Followings</button>
@@ -110,7 +109,7 @@
       </span>
       <div style="margin-left: auto;">
         <ion-row>
-          <div style="margin-right: 3vw;color: dimgrey">0</div>
+          <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowerCount}}</div>
           <img src="assets/imgs/next_grey.png" style="height: 3vw;margin-top: 1vw;">
         </ion-row>
       </div>
@@ -126,7 +125,7 @@
       </span>
       <div style="margin-left: auto;">
         <ion-row>
-          <div style="margin-right: 3vw;color: dimgrey">0</div>
+          <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowingCount}}</div>
           <img src="assets/imgs/next_grey.png" style="height: 3vw;margin-top: 1vw;">
         </ion-row>
       </div>

@@ -7,6 +7,7 @@ import { CommonService } from '../../services/common.service';
 import { WebServicesProvider } from '../../services/web.service';
 import { ProductService } from '../../services/product.service';
 import { Storage } from '@ionic/storage';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'page-add-post',
@@ -34,13 +35,14 @@ export class AddPostPage {
     private commonService: CommonService,
     private webService: WebServicesProvider,
     private productService: ProductService,
-    private storage: Storage
+    private storage: Storage,
+    private userService: UserService
 
   ) {
     this.preparePostObject();
-    this.storage.get('userData').then(data => {
-      this.currentUser = JSON.parse(data);
-    });
+    this.userService.getCurrentUser().then(user => {
+      this.currentUser = user;
+    })
   }
 
   ionViewDidLoad() {

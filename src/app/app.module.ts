@@ -45,6 +45,9 @@ import { File } from '@ionic-native/file';
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {SearchPage} from "../pages/search/search";
 import {FilterModalPage} from "../pages/filter-modal/filter-modal";
+import { SocialSharing } from "@ionic-native/social-sharing";
+import { SearchPage } from "../pages/search/search";
+import { ChatService } from '../services/chat.service';
 
 @NgModule({
   declarations: [
@@ -96,7 +99,7 @@ import {FilterModalPage} from "../pages/filter-modal/filter-modal";
           { component: ItemsubcatgprdctselectedPage, name: 'ItemsubcatgprdctselectedPage', segment: 'itemsubcatgprdctselected' },
           { component: LoginPage, name: 'LoginPage', segment: 'login' },
           { component: MainpagePage, name: 'MainpagePage', segment: 'main' },
-          { component: MychatpagePage, name: 'MychatpagePage', segment: 'my-chat' },
+          { component: MychatpagePage, name: 'MychatpagePage', segment: 'chat' },
           { component: NotificationsPage, name: 'NotificationsPage', segment: 'notifications' },
           { component: OtherUserProfilePage, name: 'OtherUserProfilePage', segment: 'other-user-profile' },
           { component: PostProductPage, name: 'PostProductPage', segment: 'post-product' },
@@ -152,7 +155,8 @@ import {FilterModalPage} from "../pages/filter-modal/filter-modal";
     WebServicesProvider,
     FileTransfer,
     FileTransferObject,
-    SocialSharing
+    SocialSharing,
+    ChatService
   ]
 })
 export class AppModule { }

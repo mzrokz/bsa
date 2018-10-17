@@ -53,7 +53,7 @@ export class CommonService {
 
     //Toast Method
     showToast(msg: string) {
-        this.toast.show(msg, 'short', 'bottom').subscribe(toast => {
-        });
+        // this.toast.show(msg, 'short', 'bottom').subscribe(toast => {
+        // });
     }
 }

@@ -23,9 +23,9 @@ export class OtherUserProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OtherUserProfilePage');
-    this.storage.get('userData').then(data => {
-      this.currentUser = JSON.parse(data);
-    });
+    this.userService.getCurrentUser().then(user => {
+      this.currentUser = user;
+    })
     this.getProfile();
   }
 
@@ -50,7 +50,7 @@ export class OtherUserProfilePage {
         other_user_id: this.user.id
       }
       this.userService.followUser(data).subscribe(res => {
-
+        debugger;
       })
     }
   }

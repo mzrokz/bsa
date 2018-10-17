@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { UserService } from '../../services/user.service';
+import { CommonService } from '../../services/common.service';
 
 /**
  * Generated class for the ProfilePage page.
@@ -21,20 +22,30 @@ export class ProfilePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private userService: UserService
+    private userService: UserService,
+    private commonService: CommonService
   ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-    this.getProfile();
+    this.commonService.showLoader();
+    this.userService.getCurrentUser().then(user => {
+      this.getProfile(user.user_id);
+    }).catch(err => {
+      this.commonService.showToast("Please log in to view Profile");
+      this.commonService.hideLoader();
+    });
   }
 
-  getProfile() {
-    // TODO: Add userId
-    this.userService.getProfile(118).subscribe(res => {
+  getProfile(userId) {
+    this.userService.getProfile(userId).subscribe(res => {
+      debugger;
       this.profile = (res as any).data;
-    })
+      this.commonService.hideLoader();
+    }, err => {
+      this.commonService.hideLoader();
+    });
 
   }
 
