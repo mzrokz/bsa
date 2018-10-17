@@ -18,6 +18,9 @@ import { CommonService } from '../../services/common.service';
 export class SignupPage {
 
   phoneNumber: number;
+  countryCode: number;
+  numberMerge: number;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, public commonService: CommonService,
     public webservice: WebServicesProvider) {
@@ -32,6 +35,9 @@ export class SignupPage {
     if (!this.validation()) {
       return;
     }
+
+    this.numberMerge=this.countryCode+this.phoneNumber;
+    console.log("numberMerge: " + this.numberMerge);
     this.commonService.showLoader();
     this.webservice.postUserSignUp(this.phoneNumber)
       .subscribe(succ => {
@@ -69,6 +75,12 @@ export class SignupPage {
   }
 
   validation(): boolean {
+
+    if (!this.countryCode || (this.countryCode && this.countryCode === 0)) {
+      this.commonService.showPopUp('Alert', 'Please enter your country code');
+      return false;
+    }
+
     if (!this.phoneNumber || (this.phoneNumber && this.phoneNumber === 0)) {
       this.commonService.showPopUp('Alert', 'Please enter phone number');
       return false;

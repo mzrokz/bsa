@@ -13,80 +13,54 @@
     </div>
   </div>
 
-  <div >
-    <div>
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <img src="assets/imgs/default.jpg" class="profilePic">
-            <p class="name">Lorem ipsum</p>
-          </ion-row>
-          <div class="text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-            make a type specimen book.
-          </div>
-        </ion-card-content>
-      </ion-card>
+  <div>
+    <div *ngIf="notificationListDataModal && notificationListDataModal.length > 0">
+      <div *ngFor="let data of notificationListDataModal">
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
 
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <img src="assets/imgs/default.jpg" class="profilePic">
-            <p class="name">Lorem ipsum</p>
-          </ion-row>
-          <div class="text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </div>
-        </ion-card-content>
-      </ion-card>
+              <ion-col col-2>
 
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <img src="assets/imgs/default.jpg" class="profilePic">
-            <p class="name">Lorem ipsum</p>
-          </ion-row>
-          <div class="text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's
-            standard dummy text ever since the 1500s.
-          </div>
-        </ion-card-content>
-      </ion-card>
+                <img src="{{data.ProfileImage}}" class="profilePic"
+                     onerror="this.src='assets/imgs/default_gallery.jpg'; ">
 
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <img src="assets/imgs/default.jpg" class="profilePic">
-            <p class="name">Lorem ipsum</p>
-          </ion-row>
-          <div class="text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-            make a type specimen book.
-          </div>
-        </ion-card-content>
-      </ion-card>
+              </ion-col>
+              <ion-col col-10>
+                <span class="name">{{data.Name}}</span><br>
+                <div class="text">
+                  {{data.msg}}
+                </div>
+                <div style="float: right">
+                  <ion-row>
+                    <p style="font-size: 3vw"> {{data.date}}</p>
+                    <p style="font-size: 3vw;margin-left: 2vw"> {{data.time}}</p>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+
+          </ion-card-content>
+        </ion-card>
+
+        <!--<ion-card>
+          <ion-card-content>
+            <ion-row>
+              <img src="assets/imgs/default.jpg" class="profilePic">
+              <p class="name">Lorem ipsum</p>
+            </ion-row>
+            <div class="text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </div>
+          </ion-card-content>
+        </ion-card>-->
 
 
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <img src="assets/imgs/default.jpg" class="profilePic">
-            <p class="name">Lorem ipsum</p>
-          </ion-row>
-          <div class="text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-            make a type specimen book.
-          </div>
-        </ion-card-content>
-      </ion-card>
+      </div>
     </div>
+
+    <p *ngIf="notificationListDataModal && notificationListDataModal.length === 0">
+      You have no notification yet.</p>
   </div>
 </ion-content>
 

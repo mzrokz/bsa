@@ -27,6 +27,16 @@ page-login {
 
   .phoneNumber {
     position: absolute;
+    top: 2vw;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* padding: 4%; */
+    color: #62AEC6;
+  }
+
+  .loginBtn{
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
@@ -34,7 +44,6 @@ page-login {
     padding: 4%;
     color: #62AEC6;
   }
-
   .emailAddress {
     position: absolute;
     top: 0;
@@ -85,5 +94,13 @@ page-login {
     font-size: 5vw;
     text-align: center;
   }
+
+  .countryCode{
+    background-color: transparent;
+    border: transparent;
+    font-size: 4vw;
+    color: #3588A1;
+    width: 16vw;
+    padding-left: 5vw;}
 
 }

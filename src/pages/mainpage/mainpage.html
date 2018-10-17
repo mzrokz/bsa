@@ -28,10 +28,11 @@
 
   <div>
     <ion-slides #mySlides style="width: 100%;margin-left: auto;
-    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000" *ngIf="sliderImageDataModal && sliderImageDataModal.length" >
+    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000"
+                *ngIf="sliderImageDataModal && sliderImageDataModal.length" >
 
       <ion-slide *ngFor="let sliders of sliderImageDataModal">
-        <img src="{{sliders}}" style="width: 100%;">
+        <img src="{{sliders}}" style="width: 100%;" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
       </ion-slide>
 
       <!--<ion-slide>
@@ -53,7 +54,7 @@
     <div *ngFor="let data of rootCategoryResponse;let i=index" (click)="openSubCategoryScreen(data)">
 
       <div class="bgMainCard">
-        <img src="assets/imgs/car-and-bikes.png" class="subMainCard"/>
+        <img src="{{data.cat_image}}" onerror="this.src='assets/imgs/default_gallery.jpg'; " class="subMainCard"/>
         <div class="text">{{data.category_name}}</div>
       </div>
 

@@ -173,4 +173,24 @@ export class ProductdetailscreenPage {
     });
   }
 
+  shareViaTwitter() {
+    this.socialSharing.shareViaTwitter('I am Sharing this image', this.productDetailResponse.image_uri, '').then(() => {
+      // Success!
+      alert('Success');
+    }).catch((err) => {
+      // Error!
+      alert(err);
+    });
+  }
+
+  shareViaFb() {
+    this.socialSharing.shareViaFacebook('I am Sharing this image', this.productDetailResponse.image_uri, '').then(() => {
+      // Success!
+      alert('Success');
+    }).catch((err) => {
+      // Error!
+      alert(err);
+    });
+  }
+
 }

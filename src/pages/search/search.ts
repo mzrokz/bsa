@@ -42,7 +42,7 @@ export class SearchPage {
 
     if(this.search && this.search != ''){
       this.commonService.showLoader();
-      this.webservice.getSearchApi(this.search)
+      this.webservice.postSearchApi(this.search)
         .subscribe(responce => {
 
           if(responce){

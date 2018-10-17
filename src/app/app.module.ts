@@ -44,6 +44,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file';
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {SearchPage} from "../pages/search/search";
+import {FilterModalPage} from "../pages/filter-modal/filter-modal";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {SearchPage} from "../pages/search/search";
     SettingsModalPage,
     SignupPage,
     ProductdetailscreenPage,
-    SearchPage
+    SearchPage,
+    FilterModalPage
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,8 @@ import {SearchPage} from "../pages/search/search";
           { component: SignupPage, name: 'SignupPage', segment: 'signup' },
           { component: VerificationPage, name: 'VerificationPage', segment: 'verification' },
           { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' },
-          { component:  SearchPage, name: ' SearchPage', segment: 'search-screen' }
+          { component:  SearchPage, name: ' SearchPage', segment: 'search-screen' },
+          { component:  FilterModalPage, name: ' FilterModalPage', segment: 'filter-modal' }
         ]
       }
     )
@@ -135,7 +138,8 @@ import {SearchPage} from "../pages/search/search";
     SettingsModalPage,
     SignupPage,
     ProductdetailscreenPage,
-    SearchPage
+    SearchPage,
+    FilterModalPage
   ],
   providers: [
     StatusBar,

@@ -27,6 +27,8 @@ export class WebServicesProvider {
   verifyOtp = 'verify-otp.php';
   homeSlider = 'home-slider.php';
   search = 'search-product.php';
+  notificationList = 'get-notification.php';
+  filter = 'filter-products.php';
 
 
   constructor(
@@ -187,7 +189,29 @@ export class WebServicesProvider {
 
     //  return this.http.get(this.apiUrl + this.homeSlider );
   }
-  getSearchApi(search) {
+
+  getNotificationListApi(auth_token,user_id) {
+    /*let header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    header.append('auth_token', auth_token);
+    let options = {headers: header};
+    return this.http.get<any>(this.apiUrl + this.notificationList + user_id,options);*/
+
+    let headers = new HttpHeaders({
+      'NDAPI-Key': 'XXXXXXXXX',
+      'NDAPI-Host': 'XXXXXXXXX'
+    });
+    let body = new FormData();
+    body.append('user_id', user_id);
+    let options = {headers: headers};
+
+    return this.http.post(this.apiUrl + this.notificationList, body, options);
+
+// return this.http.get(this.apiUrl + this.notificationList );
+  }
+
+
+  postSearchApi(search) {
     let headers = new HttpHeaders({
       'NDAPI-Key': 'XXXXXXXXX',
       'NDAPI-Host': 'XXXXXXXXX'
@@ -195,8 +219,22 @@ export class WebServicesProvider {
     let body = new FormData();
     body.append('search', search);
     let options = {headers: headers};
-
     return this.http.post(this.apiUrl + this.search, body, options);
+
+  }
+
+  postFilterApi(category_id,filter_by,filter_order) {
+    let headers = new HttpHeaders({
+      'NDAPI-Key': 'XXXXXXXXX',
+      'NDAPI-Host': 'XXXXXXXXX'
+    });
+    let body = new FormData();
+    body.append('category_id', category_id);
+    body.append('filter_by', filter_by);
+    body.append('filter_order', filter_order);
+    let options = {headers: headers};
+
+    return this.http.post(this.apiUrl + this.filter, body, options);
 
   }
 
