@@ -44,7 +44,6 @@ export class MychatpagePage {
   }
 
   gotoChatDetail(chat) {
-    debugger;
     this.navCtrl.push(ChattingScreenPage, { recepientId: chat.user_id });
   }
 }

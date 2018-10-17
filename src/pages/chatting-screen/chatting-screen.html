@@ -12,172 +12,41 @@
 	</div>
 
 	<ion-row class="chat-area">
-		<!-- <div class="section-right">
-	<img src="/assets/imgs/user.jpg" alt="Avatar">
-	<div class="container">
-	  <p>Hey !! How are you doing? I really like your product photos so much.</p>
-	  <span class="time-right">11:23 AM</span>
-	</div>
-</div>
+		<ion-col>
+			<ng-container *ngFor="let chat of chats">
+				<div class="direct-chat-msg" [ngClass]="chat.direction">
+					<img class="direct-chat-img" [src]="(chat.userImg && chat.userImg != '') ? chat.userImg : '/assets/imgs/default.jpg'">
+					<div class="direct-chat-text">
+						<p>{{chat.msg}}</p>
+						<span style="float:right;color:#999">{{chat.time}}</span>
+					</div>
+				</div>
+			</ng-container>
+		</ion-col>
 
-<div class="section-right">
-	<img src="/assets/imgs/avatar_g2.jpg" alt="Avatar" class="right">
-	<div class="container darker">
-		<p>Hello Ramsey. Thank you for the nice compliment.</p>
-		<span class="time-right">11:25 AM</span>
-	</div>
-</div>
 
-<div class="section-right">
-	<img src="/assets/imgs/user.jpg" alt="Avatar">
-	<div class="container">
-	  <p>My Pleasure :)</p>
-	  <span class="time-right">01:15 PM</span>
-	</div>
-</div>
-
-<div class="container elab-day">
-  <span class="divider right"></span>
-  <p>TODAY</p>
-  <span class="divider right"></span>
-</div>
-
-<div class="section-right">
-	<img src="/assets/imgs/avatar_g2.jpg" alt="Avatar" class="right">
-	<div class="container darker">
-	  <p>Can you send that photos?</p>
-	  <span class="time-right">08:19 AM</span>
-	</div>
-</div>
-
-<div class="section-right">
-	<img src="/assets/imgs/user.jpg" alt="Avatar">
-	<div class="container">
-	  <p>Sending you now.</p>
-	  <span class="time-right">10:21 AM</span>
-	</div>
-</div>
-
-<div class="section-right">
-	<img src="/assets/imgs/avatar_g2.jpg" alt="Avatar" class="right">
-	<div class="container darker">
-	  <p>Thanks, I just seen those images. I'll get back to you within few minutes.</p>
-	  <span class="time-right">10:30 AM</span>
-	</div>
-</div>
-
-<div class="section-right">
-	<img src="/assets/imgs/user.jpg" alt="Avatar">
-	<div class="container">
-	  <p>Sweet! So, what do you wanna do today?</p>
-	  <span class="time-right">11:02</span>
-	</div>
-</div>
-
-<div class="section-right">
-	<img src="/assets/imgs/avatar_g2.jpg" alt="Avatar" class="right">
-	<div class="container darker">
-	  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-	  <span class="time-right">11:05</span>
-	</div>
-</div>
-
-<div class="container message-type">
-  <p>James is Typing...</p>
-</div> -->
-
-		<div class="direct-chat-msg">
-			<img class="direct-chat-img" src="/assets/imgs/user.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Hey !! How are you doing? I really like your product photos so much.</p>
-				<span style="float:right;color:#999">11:23 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg right">
-			<img class="direct-chat-img" src="/assets/imgs/avatar_g2.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Hello Ramsey. Thank you for the nice compliment.</p>
-				<span style="float:right;color:#999">11:25 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg">
-			<img class="direct-chat-img" src="/assets/imgs/user.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>My Pleasure :)</p>
-				<span style="float:right;color:#999">01:15 PM</span>
-			</div>
-		</div>
-
-		<div class="w-separator type_default">
-			<div class="w-separator-h">
-				<h6 class="w-separator-text">
-					<span>Today</span>
-				</h6>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg">
-			<img class="direct-chat-img" src="/assets/imgs/user.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Can you send that photos?</p>
-				<span style="float:right;color:#999">08:19 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg right">
-			<img class="direct-chat-img" src="/assets/imgs/avatar_g2.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Sending you now.</p>
-				<span style="float:right;color:#999">10:21 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg">
-			<img class="direct-chat-img" src="/assets/imgs/user.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Thanks, I just seen those images. I'll get back to you within few minutes.</p>
-				<span style="float:right;color:#999">10:30 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg right">
-			<img class="direct-chat-img" src="/assets/imgs/avatar_g2.jpg" alt="message user image">
-			<div class="direct-chat-text">
-				<p>Sweet! So, what do you wanna do today?</p>
-				<span style="float:right;color:#999">11:02 AM</span>
-			</div>
-		</div>
-
-		<div class="direct-chat-msg message-type">
+		<!-- <div class="direct-chat-msg message-type">
 			<div class="direct-chat-text">
 				<p>James is Typing...</p>
 			</div>
-		</div>
-
-
-		<!-- <div class="container message-type">
-  <p>James is Typing...</p>
-</div> -->
-
+		</div> -->
 	</ion-row>
 
 	<ion-row class="chat-msg">
 		<div class="input-group">
-			<div class="row">
-				<div class="col-2 right">
+			<div class="row x1">
+				<!-- <div class="col-2 right">
 					<span class="add-icon">
 						<img src="assets/imgs/add.png" alt="">
 					</span>
-				</div>
-				<div class="col-8 right-inner-addon">
-					<input type="text" name="message" id="srch-term" placeholder="Type Message ..." class="type-message">
-					<a href="#" class="emo-link"><img src="assets/imgs/icon.png" alt=""></a>
+				</div> -->
+				<div class="col-10 right-inner-addon">
+					<input type="text" name="message" id="srch-term" placeholder="Type Message ..." class="type-message" [(ngModel)]="chatMsg">
+					<!-- <a href="#" class="emo-link"><img src="assets/imgs/icon.png" alt=""></a> -->
 				</div>
 				<div class="col-2 right">
 					<span class="send-icon">
-						<img src="assets/imgs/send.png" alt="">
+						<img src="assets/imgs/send.png" alt="" (click)="sendMessage()">
 					</span>
 				</div>
 			</div>
