@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from './common.service';
 import { Storage } from '@ionic/storage';
+import { NavController } from 'ionic-angular';
+import { LoginPage } from '../pages/login/login';
 
 @Injectable()
 export class UserService {
@@ -48,5 +50,10 @@ export class UserService {
     followUser(users) {
         let payload = this.commonService.prepareFormData(users);
         return this.http.post<any>(this.commonService.baseUrl + 'add-follow-user.php', payload);
+    }
+
+    logoutUser(nav) {
+        this.storage.clear();
+        nav.setRoot(LoginPage);
     }
 }

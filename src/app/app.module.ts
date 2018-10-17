@@ -40,8 +40,7 @@ import { WebServicesProvider } from '../services/web.service';
 import { SignupPage } from '../pages/signup/signup';
 import { ProductdetailscreenPage } from "../pages/productdetailscreen/productdetailscreen";
 
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { SearchPage } from "../pages/search/search";
 import { FilterModalPage } from "../pages/filter-modal/filter-modal";

@@ -82,7 +82,7 @@ export class SettingsPage {
   }
 
   logout() {
-    var nav = this.app.getRootNav();
-    nav.setRoot(LoginPage);
+    let nav = this.app.getRootNav();
+    this.userService.logoutUser(nav);
   }
 }
