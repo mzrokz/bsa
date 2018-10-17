@@ -42,11 +42,9 @@ import { ProductdetailscreenPage } from "../pages/productdetailscreen/productdet
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-import {SocialSharing} from "@ionic-native/social-sharing";
-import {SearchPage} from "../pages/search/search";
-import {FilterModalPage} from "../pages/filter-modal/filter-modal";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { SearchPage } from "../pages/search/search";
+import { FilterModalPage } from "../pages/filter-modal/filter-modal";
 import { ChatService } from '../services/chat.service';
 
 @NgModule({
@@ -109,8 +107,8 @@ import { ChatService } from '../services/chat.service';
           { component: SignupPage, name: 'SignupPage', segment: 'signup' },
           { component: VerificationPage, name: 'VerificationPage', segment: 'verification' },
           { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' },
-          { component:  SearchPage, name: ' SearchPage', segment: 'search-screen' },
-          { component:  FilterModalPage, name: ' FilterModalPage', segment: 'filter-modal' }
+          { component: SearchPage, name: ' SearchPage', segment: 'search-screen' },
+          { component: FilterModalPage, name: ' FilterModalPage', segment: 'filter-modal' }
         ]
       }
     )
