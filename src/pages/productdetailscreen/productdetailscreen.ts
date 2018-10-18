@@ -158,7 +158,13 @@ S
   }
 
   openMyChat() {
-    //this.navCtrl.push('MychatpagePage',{user_id:this.user_id});
+
+    if (this.productDetailResponse.author_id!=null){
+      this.navCtrl.push('ChattingScreenPage',{recepientId :this.productDetailResponse.author_id});
+
+    }else{
+      this.loader.showToast('Please try to connect on a call,this user is not available on chat!');
+    }
 
     // this.navCtrl.setRoot('HomePage', {tab: 1, page: 'myChat'});
   }
