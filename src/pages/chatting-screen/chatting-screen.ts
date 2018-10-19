@@ -29,7 +29,6 @@ export class ChattingScreenPage {
     private chatService: ChatService
   ) {
     this.otherUserId = this.navParams.get('recepientId');
-    this.otherUserId = 128;
   }
 
   ionViewDidLoad() {

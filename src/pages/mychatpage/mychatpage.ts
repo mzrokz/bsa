@@ -13,6 +13,8 @@ export class MychatpagePage {
 
   public currentUser: any = {};
   public chats = [];
+  public filteredChats = [];
+  userfilter: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -25,6 +27,9 @@ export class MychatpagePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MychatpagePage');
+  }
+
+  ionViewDidEnter() {
     this.userService.getCurrentUser().then(user => {
       this.currentUser = user;
       this.getChats();
@@ -39,11 +44,24 @@ export class MychatpagePage {
     this.chatService.getChats(this.currentUser.user_id).subscribe(data => {
       if (data.status == 200) {
         this.chats = data.chat_users;
+        this.filteredChats = data.chat_users;
       }
     });
   }
 
   gotoChatDetail(chat) {
     this.navCtrl.push(ChattingScreenPage, { recepientId: chat.user_id });
+  }
+
+  filterUsers() {
+    if (this.userfilter && this.userfilter != '') {
+      this.filteredChats = this.chats.filter(chat => {
+        let test = chat.name.includes(this.userfilter);
+        return test;
+      });
+    } else {
+      this.filteredChats = this.chats;
+    }
+
   }
 }
