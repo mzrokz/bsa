@@ -2,16 +2,16 @@
   <div style="background-color: #3588A1; height: 13vw;">
     <ion-row>
       <ion-col col-3>
-        <!--<img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">-->
+        <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="showFilter = false">
       </ion-col>
       <ion-col col-6>
-        <!-- <div style="margin-top: 2vw;margin-left: 16vw;color: white;font-size: 5vw;">
+        <div *ngIf="!showFilter" style="margin-top: 2vw;margin-left: 16vw;color: white;font-size: 5vw;">
           My Chats
-        </div> -->
-        <input type="text" [(ngModel)]="userfilter" (ngModelChange)="filterUsers()">
+        </div>
+        <input *ngIf="showFilter" type="text" [(ngModel)]="userfilter" (ngModelChange)="filterUsers()">
       </ion-col>
       <ion-col col-3>
-        <img src="assets/imgs/serch_icon.png" class="search">
+        <img src="assets/imgs/serch_icon.png" class="search" (click)="showFilter = true">
       </ion-col>
     </ion-row>
   </div>

@@ -15,6 +15,7 @@ export class MychatpagePage {
   public chats = [];
   public filteredChats = [];
   userfilter: string = '';
+  showFilter: boolean = false;
 
   constructor(
     public navCtrl: NavController,
