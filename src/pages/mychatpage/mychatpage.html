@@ -8,7 +8,7 @@
         <div *ngIf="!showFilter" style="margin-top: 2vw;margin-left: 16vw;color: white;font-size: 5vw;">
           My Chats
         </div>
-        <input *ngIf="showFilter" type="text" [(ngModel)]="userfilter" (ngModelChange)="filterUsers()">
+        <input *ngIf="showFilter" type="text" class="chat-search" [(ngModel)]="userfilter" (ngModelChange)="filterUsers()">
       </ion-col>
       <ion-col col-3>
         <img src="assets/imgs/serch_icon.png" class="search" (click)="showFilter = true">

@@ -15,6 +15,17 @@ page-settings {
         width: 6vw;
     }
 
+    button.edit-settings.fab.fab-md {
+        display: inline-block !important;
+        background-color: transparent  !important;
+        box-shadow: none  !important;
+        margin-top: 0rem  !important;
+        position: absolute  !important;
+        right: 15px  !important;
+        width: 35px  !important;
+        height: 25px  !important;
+    }
+
     /* content portion starts */
     .sectionDiv {
         background-color: white;

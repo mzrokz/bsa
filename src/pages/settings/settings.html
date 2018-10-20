@@ -9,6 +9,11 @@
   <div class="UpperTitle">
     <img src="assets/imgs/settings/back.png" (click)="goBack()" />
     Settings
+
+    <button ion-fab (click)="openEditSettings()" style="display: inline-block; background-color: transparent; box-shadow: none;
+    margin-top: 0rem; position: absolute; right: 15px; width: 35px; height: 25px;">
+      <ion-icon name="create"></ion-icon>
+    </button>
   </div>
 
   <div style="color: #3588A1; padding: 1.5vh; font-size: 3.2vw;">
@@ -109,10 +114,5 @@
     </ion-row>
   </div>
 
-  <ion-fab>
-    <button ion-fab (click)="openEditSettings()">
-      <ion-icon name="create"></ion-icon>
-    </button>
-  </ion-fab>
 
 </ion-content>
