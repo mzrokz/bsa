@@ -107,7 +107,7 @@ export class WebServicesProvider {
 
   }
 
-  postAddComment(list_id, user_id, comment_content,price /*auth_token*/) {
+  postAddComment(list_id, user_id, comment_content/*,price*/ /*auth_token*/) {
     // let body = JSON.stringify(data);
     /*   let header = new Headers;
        header.append('Content-Type', 'application/json');*/
@@ -121,7 +121,7 @@ export class WebServicesProvider {
     body.append('list_id', list_id);
     body.append('user_id', user_id);
     body.append('comment_content', comment_content);
-    body.append('price', price);
+  /*  body.append('price', price);*/
 
     let options = {headers: headers};
     return this.http.post(this.apiUrl + this.addComment, body, options);

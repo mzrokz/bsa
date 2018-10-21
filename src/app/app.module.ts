@@ -45,6 +45,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 import { SearchPage } from "../pages/search/search";
 import { FilterModalPage } from "../pages/filter-modal/filter-modal";
 import { ChatService } from '../services/chat.service';
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 @NgModule({
   declarations: [
@@ -153,7 +154,9 @@ import { ChatService } from '../services/chat.service';
     FileTransfer,
     FileTransferObject,
     SocialSharing,
-    ChatService
+    ChatService,
+    PhotoViewer
+
   ]
 })
 export class AppModule { }

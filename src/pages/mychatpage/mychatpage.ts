@@ -14,6 +14,10 @@ export class MychatpagePage {
   public currentUser: any = {};
   public chats = [];
 
+  author_id:any;
+  dataFromPrevious:any;
+  recepientId:any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -21,6 +25,9 @@ export class MychatpagePage {
     private userService: UserService,
     private commonService: CommonService
   ) {
+
+    this.recepientId = this.dataFromPrevious.author_id;
+
   }
 
   ionViewDidLoad() {

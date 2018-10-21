@@ -38,8 +38,8 @@
         -->
 
         <img *ngIf="banner.src != undefined || banner.src != '' "
-             src="{{banner.src}}" style="height: 70vw;width: 100%;position: relative;text-align: center"
-             onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
+             src="{{banner.src}}" style="height: 70vw;width: 100%;position: relative;text-align: center" (click)="showImage(banner.src)"
+             onerror="this.src='assets/imgs/default_gallery.jpg';  "/>
 
 
         <ion-row *ngIf="productDetailResponse.image_count && productDetailResponse.image_count != undefined " class="imageCountRow">
@@ -291,11 +291,12 @@
             <p style="font-size: 3vw">{{data.post_date}}</p>
           </ion-col>
         </ion-row>
-        <div *ngIf="data.price && data.price != '' " style="color: #3588A1;
+        <!--price in comments list code -->
+        <!--<div *ngIf="data.price && data.price != '' " style="color: #3588A1;
     font-size: 3vw;
     width: auto;
     text-align: right;margin-right: 1vw">{{data.price}} $
-        </div>
+        </div>-->
       </div>
 
     </ion-card-content>

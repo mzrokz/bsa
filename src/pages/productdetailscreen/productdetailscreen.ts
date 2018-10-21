@@ -4,6 +4,7 @@ import {Storage} from "@ionic/storage";
 import {WebServicesProvider} from "../../services/web.service";
 import {CommonService} from "../../services/common.service";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 /**
  * Generated class for the ProductdetailscreenPage page.
@@ -31,7 +32,7 @@ export class ProductdetailscreenPage {
   listOfComments: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing,
-              public webservice: WebServicesProvider, public loader: CommonService, public storage: Storage) {
+              public webservice: WebServicesProvider, public loader: CommonService, public storage: Storage,public photoViewer: PhotoViewer) {
     this.dataFromPrevious = this.navParams.data.data;
     // console.log("this.dataFromPrevious ", JSON.stringify(this.dataFromPrevious));
 
@@ -135,7 +136,7 @@ S
 
     if (this.product_id != null && this.user_id != null && this.comments != null) {
       this.loader.showLoader();
-      this.webservice.postAddComment(this.product_id, this.user_id, this.comments, this.productDetailResponse.price/*,this.auth_token*/)
+      this.webservice.postAddComment(this.product_id, this.user_id, this.comments/*, this.productDetailResponse.price*//*,this.auth_token*/)
         .subscribe(response => {
           this.loader.hideLoader();
           let resp: any = {};
@@ -159,10 +160,10 @@ S
 
   openMyChat() {
 
-    if (this.productDetailResponse.author_id!=null){
-      this.navCtrl.push('ChattingScreenPage',{recepientId :this.productDetailResponse.author_id});
+    if (this.productDetailResponse.author_id != null) {
+      this.navCtrl.push('ChattingScreenPage', {recepientId: this.productDetailResponse.author_id});
 
-    }else{
+    } else {
       this.loader.showToast('Please try to connect on a call,this user is not available on chat!');
     }
 
@@ -170,17 +171,61 @@ S
   }
 
   shareViaWhatsApp() {
-    this.socialSharing.shareViaWhatsApp('I am Sharing this image', this.productDetailResponse.image_uri, '').then(() => {
-      // Success!
-      alert('Success');
-    }).catch((err) => {
-      // Error!
-      alert(err);
+
+    this.socialSharing.canShareVia('whatsapp', '', '', '', '').then(() => {
+
+      this.socialSharing.shareViaWhatsApp('', this.productDetailResponse.image_uri, '').then(() => {
+        // Success!
+        this.loader.showToast('Share successfully');
+      }).catch((err) => {
+        // Error!
+        this.loader.showToast('Not Share');
+      });
+
+    }).catch(() => {
+      this.loader.showToast('This app is not installed in your device.');
     });
+
+
   }
 
   shareViaTwitter() {
-    this.socialSharing.shareViaTwitter('I am Sharing this image', this.productDetailResponse.image_uri, '').then(() => {
+    this.socialSharing.canShareVia('twitter', '', '', '', '').then(() => {
+      this.socialSharing.shareViaTwitter('', this.productDetailResponse.image_uri, '').then(() => {
+        // Success!
+        this.loader.showToast('Share successfully');
+      }).catch((err) => {
+        // Error!
+        this.loader.showToast('Not Share');
+      });
+
+    }).catch(() => {
+      this.loader.showToast('This app is not installed in your device.');
+    });
+
+
+  }
+
+  shareViaFb() {
+
+    this.socialSharing.canShareVia('facebook', '', '', '', '').then(() => {
+      this.socialSharing.shareViaFacebook('', this.productDetailResponse.image_uri, '').then(() => {
+        // Success!
+        this.loader.showToast('Share successfully');
+      }).catch((err) => {
+        // Error!
+        this.loader.showToast('Not Share');
+      });
+
+    }).catch(() => {
+      this.loader.showToast('This app is not installed in your device.');
+    });
+
+
+  }
+
+  share() {
+    this.socialSharing.share('I am Sharing this image', '', this.productDetailResponse.image_uri, '').then(() => {
       // Success!
       alert('Success');
     }).catch((err) => {
@@ -189,14 +234,9 @@ S
     });
   }
 
-  shareViaFb() {
-    this.socialSharing.shareViaFacebook('I am Sharing this image', this.productDetailResponse.image_uri, '').then(() => {
-      // Success!
-      alert('Success');
-    }).catch((err) => {
-      // Error!
-      alert(err);
-    });
+
+  showImage(imageData) {
+    this.photoViewer.show(imageData);
   }
 
 }
