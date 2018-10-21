@@ -45,6 +45,12 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 import { SearchPage } from "../pages/search/search";
 import { FilterModalPage } from "../pages/filter-modal/filter-modal";
 import { ChatService } from '../services/chat.service';
+import { AdsPage } from '../pages/ads/ads';
+import { RecentPostsPage } from '../pages/recent-posts/recent-posts';
+import { FavAdsPage } from '../pages/fav-ads/fav-ads';
+import { FollowersPage } from '../pages/followers/followers';
+import { FollowingPage } from '../pages/following/following';
+import { AccountPage } from '../pages/account/account';
 
 @NgModule({
   declarations: [
@@ -73,7 +79,13 @@ import { ChatService } from '../services/chat.service';
     SignupPage,
     ProductdetailscreenPage,
     SearchPage,
-    FilterModalPage
+    FilterModalPage,
+    AdsPage,
+    FavAdsPage,
+    RecentPostsPage,
+    FollowersPage,
+    FollowingPage,
+    AccountPage
   ],
   imports: [
     BrowserModule,
@@ -106,8 +118,14 @@ import { ChatService } from '../services/chat.service';
           { component: SignupPage, name: 'SignupPage', segment: 'signup' },
           { component: VerificationPage, name: 'VerificationPage', segment: 'verification' },
           { component: ProductdetailscreenPage, name: 'ProductdetailscreenPage', segment: 'product-detail-screen' },
-          { component: SearchPage, name: ' SearchPage', segment: 'search-screen' },
-          { component: FilterModalPage, name: ' FilterModalPage', segment: 'filter-modal' }
+          { component: SearchPage, name: 'SearchPage', segment: 'search-screen' },
+          { component: FilterModalPage, name: 'FilterModalPage', segment: 'filter-modal' },
+          { component: AdsPage, name: 'AdsPage', segment: 'ads' },
+          { component: FavAdsPage, name: 'FavAdsPage', segment: 'fav-ads' },
+          { component: RecentPostsPage, name: 'RecentPostsPage', segment: 'recent-posts' },
+          { component: FollowersPage, name: 'FollowersPage', segment: 'followers' },
+          { component: FollowingPage, name: 'FollowingPage', segment: 'following' },
+          { component: AccountPage, name: 'AccountPage', segment: 'account' }
         ]
       }
     )
@@ -139,7 +157,13 @@ import { ChatService } from '../services/chat.service';
     SignupPage,
     ProductdetailscreenPage,
     SearchPage,
-    FilterModalPage
+    FilterModalPage,
+    AdsPage,
+    FavAdsPage,
+    RecentPostsPage,
+    FollowersPage,
+    FollowingPage,
+    AccountPage
   ],
   providers: [
     StatusBar,
