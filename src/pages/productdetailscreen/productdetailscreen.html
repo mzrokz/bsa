@@ -41,7 +41,6 @@
              src="{{banner.src}}" style="height: 70vw;width: 100%;position: relative;text-align: center" (click)="showImage(banner.src)"
              onerror="this.src='assets/imgs/default_gallery.jpg';  "/>
 
-
         <ion-row *ngIf="productDetailResponse.image_count && productDetailResponse.image_count != undefined " class="imageCountRow">
           <div class="imageCount">
             <img src="assets/imgs/gallery_img_trans.png"
@@ -67,8 +66,7 @@
         <ion-slide>
           <img *ngIf="productDetailResponse.image_uri != undefined || productDetailResponse.image_uri != '' "
                src="{{productDetailResponse.image_uri}}" style="height: 70vw;width: 100%;position: relative;text-align: center"
-               onerror="this.src='assets/imgs/default_gallery.jpg'; "/>
-
+               onerror="this.src='assets/imgs/default_gallery.jpg'; " (click)="showImage(productDetailResponse.image_uri)"/>
 
           <ion-row *ngIf="productDetailResponse.image_count && productDetailResponse.image_count != undefined " class="imageCountRow">
             <div class="imageCount">
