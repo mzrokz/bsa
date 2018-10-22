@@ -45,7 +45,7 @@
   </div>
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotoRecentPosts()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/Recently-Viewed.png" style="height: 2.5vw;">
       <span class="titleHeader">
@@ -56,7 +56,7 @@
   </div>
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotoFavAds()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/Favorite-ads.png" style="height: 3vw;">
       <span class="titleHeader">
@@ -67,7 +67,7 @@
   </div>
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotoAds()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/My-Ads.png" style="height: 3vw;">
       <span class="titleHeader">
@@ -78,7 +78,7 @@
   </div>
 
 
-
+  <!-- 
   <div class="settingsDiv">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/My-Wallet.png" style="height: 3vw;">
@@ -87,10 +87,10 @@
       </span>
       <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
     </ion-row>
-  </div>
+  </div> -->
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotoAccount()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/Account.png" style="height: 3vw;">
       <span class="titleHeader">
@@ -101,7 +101,7 @@
   </div>
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotofollowers()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/followers.png" style="height:  3vw;">
       <span class="followHeader">
@@ -117,7 +117,7 @@
   </div>
 
 
-  <div class="settingsDiv">
+  <div class="settingsDiv" (click)="gotoFollowing()">
     <ion-row style="padding: 4vw;">
       <img src="assets/imgs/Following.png" style="height:  3vw;">
       <span class="followHeader">

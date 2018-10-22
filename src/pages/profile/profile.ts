@@ -3,6 +3,12 @@ import { NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
+import { RecentPostsPage } from '../recent-posts/recent-posts';
+import { FavAdsPage } from '../fav-ads/fav-ads';
+import { AdsPage } from '../ads/ads';
+import { AccountPage } from '../account/account';
+import { FollowersPage } from '../followers/followers';
+import { FollowingPage } from '../following/following';
 
 /**
  * Generated class for the ProfilePage page.
@@ -40,7 +46,6 @@ export class ProfilePage {
 
   getProfile(userId) {
     this.userService.getProfile(userId).subscribe(res => {
-      debugger;
       this.profile = (res as any).data;
       this.commonService.hideLoader();
     }, err => {
@@ -51,5 +56,29 @@ export class ProfilePage {
 
   gotoSettings() {
     this.navCtrl.push(SettingsPage);
+  }
+
+  gotoRecentPosts() {
+    this.navCtrl.push(RecentPostsPage);
+  }
+
+  gotoFavAds() {
+    this.navCtrl.push(FavAdsPage);
+  }
+
+  gotoAds() {
+    this.navCtrl.push(AdsPage);
+  }
+
+  gotoAccount() {
+    this.navCtrl.push(AccountPage);
+  }
+
+  gotofollowers() {
+    this.navCtrl.push(FollowersPage);
+  }
+
+  gotoFollowing() {
+    this.navCtrl.push(FollowingPage);
   }
 }

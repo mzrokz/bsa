@@ -1,24 +1,22 @@
 <ion-content>
   <div style="background-color: #3588A1; height: 13vw;">
     <ion-row>
-      <ion-col col-3>
-        <!--<img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">-->
+      <ion-col col-2>
+        <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="showFilter = false">
       </ion-col>
-      <ion-col col-6>
-        <div style="margin-top: 2vw;
-    margin-left: 16vw;
-    color: white;
-    font-size: 5vw;">
+      <ion-col col-8>
+        <div *ngIf="!showFilter" style="margin-top: 2vw;margin-left: 16vw;color: white;font-size: 5vw;">
           My Chats
         </div>
+        <input *ngIf="showFilter" type="text" class="chat-search" [(ngModel)]="userfilter" (ngModelChange)="filterUsers()">
       </ion-col>
-      <ion-col col-3>
-        <img src="assets/imgs/serch_icon.png" class="search">
+      <ion-col col-2>
+        <img src="assets/imgs/serch_icon.png" class="search" (click)="showFilter = true">
       </ion-col>
     </ion-row>
   </div>
 
-  <ng-container *ngFor="let chat of chats">
+  <ng-container *ngFor="let chat of filteredChats">
     <div style="margin-top: 3vw" (click)="gotoChatDetail(chat)">
       <ion-row>
         <ion-col col-4>

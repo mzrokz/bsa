@@ -29,7 +29,6 @@ export class ChattingScreenPage {
     private chatService: ChatService
   ) {
     this.otherUserId = this.navParams.get('recepientId');
-    this.otherUserId = 128;
   }
 
   ionViewDidLoad() {
@@ -77,7 +76,6 @@ export class ChattingScreenPage {
       user2: this.otherUserId
     }
     this.chatService.getChatMessages(data).subscribe(res => {
-      // debugger;
       this.commonService.hideLoader();
       if (res.status = 200) {
         let chats = res.data;
@@ -106,7 +104,6 @@ export class ChattingScreenPage {
   }
 
   sendMessage() {
-    debugger;
     if (this.chatMsg && this.chatMsg != '') {
       if (this.currentUser.user_id && this.otherUserId) {
         let data = {

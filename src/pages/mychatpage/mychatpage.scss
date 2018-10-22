@@ -1,12 +1,24 @@
 page-mychatpage {
+    .search {
+        padding: 1vw;
+        width: 7vw;
+        margin-right: 2vw;
+        margin-top: 2vw;
+        float: right;
+    }
 
-
-  .search {
-    padding: 1vw;
-    width: 7vw;
-    margin-right: 2vw;
-    margin-top: 2vw;
-    float: right;
-  }
-
+    .chat-search {
+        margin-top: 1vw;
+        margin-left: 0vw;
+        background-color: transparent;
+        border-color: transparent;
+        border-bottom: 1.2px solid #fff;
+        caret-color: white;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        height: 80%;
+        font-size: 6vw;
+        color: #fff;
+    }
 }
