@@ -1,11 +1,4 @@
 page-recent-posts {
-    .profileHeader {
-        color: white;
-        text-align: center;
-        font-size: 5vw;
-        padding-top: 4vw;
-    }
-
     /*        Add post header*/
     .UpperTitle {
         text-align: center;
@@ -22,107 +15,183 @@ page-recent-posts {
         width: 6vw;
     }
 
-    .mainContainer {
-        position: relative;
-        text-align: left;
-        color: black;
-        width: auto;
-        height: auto;
+    /*        IF the browser does NOT support the  CSS Grid Layout specification
+            We rely on the use of the CSS Flexbox standard instead*/
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    .whitecontainer {
-        position: initial;
-        text-align: center;
-        color: black;
-        background-color: white;
-        height: 21vw;
+    /*        IF the browser DOES support the CSS Grid Layout specification
+            then the following rules are applied instead*/
+    .wrapper {
+        margin: 1.5rem 2rem;
+        display: grid;
+
+        /*        Define a 15 pixel gap between each grid track*/
+        grid-gap: 15px;
+
+        /*        Define a rule, that will be repeated for each grid column, where
+                the grid track is set to a minimum width of 300 pixels and a maximum
+                width of the available space within the grid container (via the fr or
+                fraction unit)*/
+
+        /*        The auto-fill value allows as many grid tracks to be fitted into the 
+                width of the grid container as possible*/
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .profileImage {
+    /*        Define the style rules for each panel within the grid container*/
+    .box {
+        border-radius: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+        /*        Add a flex rule for browsers not supporting the
+                CSS Grid Layout spec*/
+        flex: 1 1 300px;
+    }
+
+    .milky-white {
+        background-color: #fff;
+    }
+
+    .box-content {
+        margin: 0 auto;
+        padding: 0 0.5rem;
+    }
+
+    h4.product-title {
+        font-size: 3.6vw;
+        margin-top: 1rem;
+    }
+
+    span.product-points {
+        font-size: 3vw;
+    }
+
+    .price {
+        padding-top: 10px;
+        height: 25px;
+    }
+
+    .price .product-title {
+        color: #3588A1;
+        margin: 0 auto;
+    }
+
+    .gallery-icon {
+        width: 3.5vw;
+        height: 3.5vw;
+        right: 7vw;
+        position: absolute;
+    }
+
+    .price .digit {
+        color: #000;
+        float: right;
+    }
+
+    hr {
+        background-color: #d8cece !important;
+    }
+
+    .post-by {
+        display: flex;
+        align-items: center;
+        margin-top: -0.5rem;
+        padding: 0.2rem;
+    }
+
+    .profile-picture {
         border-radius: 50%;
-        width: 28vw;
-        height: 28vw;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin-top: 9vw;
-        margin-left: auto;
-        margin-right: auto;
+        width: 10vw;
+        height: 10vw;
     }
 
-    .followerImage {
-        width: 25vw;
-        position: fixed;
-        top: 14%;
-        bottom: 0;
-        right: 64%;
-        left: 0;
-        margin-left: auto;
-        margin-right: auto;
+    .user-name {
+        padding-left: 1rem;
     }
 
-    .followingImage {
-        width: 25vw;
-        position: fixed;
-        top: 14%;
-        bottom: 0;
-        right: 0;
-        left: 64%;
-        margin-left: auto;
-        margin-right: auto;
+    .price h4 {
+        float: left;
+        margin: 5px;
     }
 
-    .followersContainer {
-        display: contents;
+    .textWrapper {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 
-    button.follow-btn {
-        position: absolute;
-        top: 4rem;
-        left: 1.2rem;
-        background-color: #fff;
-        float: right;
-        margin: 0 auto;
-        padding: 1.2rem 1.8rem;
-        border-radius: 5rem;
+    .textInnerCard {
+        /* width: 100%;
+         padding: 2vw;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         height: 10vw;
+         font-size: 3.5vw;*/
+
+        width: 100%;
+        padding: 2vw;
+
+        /* text-overflow: ellipsis; */
+        /* white-space: nowrap; */
+        /* height: 10vw; */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 3.5vw;
     }
 
-    button.following-btn {
-        position: absolute;
-        top: 4rem;
-        right: 1.2rem;
-        background-color: #fff;
-        float: right;
-        margin: 0 auto;
-        padding: 1.2rem 1.8rem;
-        border-radius: 5rem;
-    }
+    .subTextInnerCard {
+        width: 100%;
 
-    .settingsDiv {
-        background-color: white;
-        border-radius: 1vw;
-        height: 7%;
-        margin-left: 3%;
-        margin-right: 3%;
-        margin-bottom: 1%;
-    }
-
-    .titleHeader {
-        color: dimgrey;
+        // padding: 2vw;
+        margin-left: 2vw;
         font-size: 3vw;
-        padding-left: 5vw;
+        margin-bottom: 1vw;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
     }
 
-    .followHeader {
-        color: dimgrey;
+    .priceText {
+        margin-left: 2vw;
         font-size: 3vw;
-        padding-left: 4vw;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
     }
 
-    .nextBlackIcon {
-        height: 3vw;
-        margin-left: auto;
+    .createdBynameText {
+        // margin-top: 6%;
+        font-size: 3vw;
+
+        // width: 100%;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        margin-left: 2vw;
+    }
+
+    .sizeOfCard {
+        height: 72vw;
+
+        //height: 56vw;
+        width: 44vw;
+    }
+
+    .bgMainCard {
+        background-repeat: no-repeat;
+
+        // background: url('assets/imgs/icon_bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 33vw;
+        width: auto;
+
+        //padding-top: 2vw;
+   
     }
 }

@@ -4,6 +4,7 @@ import { SettingsPage } from '../settings/settings';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
 import { ProfilePage } from '../profile/profile';
+import { ProductService } from '../../services/product.service';
 
 /**
  * Generated class for the ProfilePage page.
@@ -19,13 +20,20 @@ import { ProfilePage } from '../profile/profile';
 export class FavAdsPage {
 
   profile: any = {};
+  currentUser: any = {};
+  posts: any = [];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private userService: UserService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private productService: ProductService
   ) {
+    this.userService.getCurrentUser().then(user => {
+      this.currentUser = user;
+      this.getFavouritePosts();
+    });
   }
 
   ionViewDidLoad() {
@@ -33,7 +41,24 @@ export class FavAdsPage {
 
   }
 
+  getFavouritePosts() {
+    this.commonService.showLoader();
+    this.currentUser.user_id = 118;
+    this.productService.getFavouriteProducts(this.currentUser.user_id).subscribe(res => {
+      this.commonService.hideLoader();
+      if (res.status == 200) {
+        this.posts = res.data;
+      }
+    }, error => {
+      this.commonService.hideLoader();
+    });
+  }
+
   goBack() {
     this.navCtrl.push(ProfilePage);
+  }
+
+  openProductDetailPage(product) {
+    this.navCtrl.push('ProductdetailscreenPage', { data: product });
   }
 }
