@@ -65,4 +65,38 @@ page-account {
         font-size: 4.5vw;
     }
 
+    .row-adjust {
+        padding: 5vw 1vw;
+        border-bottom: 0.35px solid #cecece;
+    }
+
+    img.initial-icon {
+        margin: -0.5rem 0;
+        margin-right: 1rem;
+        height: 7vw;
+    }
+
+    span.ads-digit {
+        margin: 0 auto;
+        margin-right: 15px;
+    }
+
+    .nextBlackIcon {
+        height: 2.5vh;
+    }
+
+    .big-btn-alignment {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .big-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 3vw 31vw;
+        border-radius: 3px;
+        font-size: 4.5vw;  
+    }
+
 }
