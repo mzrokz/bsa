@@ -6,7 +6,7 @@ page-following {
         padding-top: 4vw;
     }
 
-    /*        Add post header*/
+    /*Add post header*/
     .UpperTitle {
         text-align: center;
         padding: 20px 0;
@@ -22,107 +22,36 @@ page-following {
         width: 6vw;
     }
 
-    .mainContainer {
-        position: relative;
-        text-align: left;
-        color: black;
-        width: auto;
-        height: auto;
+    .f-section {
+        width: 100%; 
+        display: block; 
+        padding: 0.825rem;
+        border-bottom: 1px solid #cecece;
     }
 
-    .whitecontainer {
-        position: initial;
-        text-align: center;
-        color: black;
-        background-color: white;
-        height: 21vw;
-    }
-
-    .profileImage {
+    img.user-img {
         border-radius: 50%;
-        width: 28vw;
-        height: 28vw;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin-top: 9vw;
-        margin-left: auto;
-        margin-right: auto;
+        float: left;
+        width: 15vw;
+        height: 15vw;
     }
 
-    .followerImage {
-        width: 25vw;
-        position: fixed;
-        top: 14%;
-        bottom: 0;
-        right: 64%;
-        left: 0;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .followingImage {
-        width: 25vw;
-        position: fixed;
-        top: 14%;
-        bottom: 0;
-        right: 0;
-        left: 64%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .followersContainer {
-        display: contents;
-    }
-
-    button.follow-btn {
-        position: absolute;
-        top: 4rem;
-        left: 1.2rem;
-        background-color: #fff;
-        float: right;
+    .user-title {
+        display: inline-block;
+        font-size: 4vw;
         margin: 0 auto;
-        padding: 1.2rem 1.8rem;
-        border-radius: 5rem;
+        margin-left: 15px;
+        line-height: 3.5;
     }
 
-    button.following-btn {
-        position: absolute;
-        top: 4rem;
-        right: 1.2rem;
-        background-color: #fff;
+    .user-follow {
+        background-color: transparent;
+        border: 1px solid #cecece;
+        border-radius: 5px;
         float: right;
-        margin: 0 auto;
-        padding: 1.2rem 1.8rem;
-        border-radius: 5rem;
-    }
-
-    .settingsDiv {
-        background-color: white;
-        border-radius: 1vw;
-        height: 7%;
-        margin-left: 3%;
-        margin-right: 3%;
-        margin-bottom: 1%;
-    }
-
-    .titleHeader {
-        color: dimgrey;
-        font-size: 3vw;
-        padding-left: 5vw;
-    }
-
-    .followHeader {
-        color: dimgrey;
-        font-size: 3vw;
-        padding-left: 4vw;
-    }
-
-    .nextBlackIcon {
-        height: 3vw;
-        margin-left: auto;
+        margin-top: 3vw;
+        padding: 2vw 5vw;
+        font-size: 3.8vw;
+        font-weight: 500;
     }
 }
