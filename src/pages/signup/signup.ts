@@ -36,10 +36,10 @@ export class SignupPage {
       return;
     }
 
-    this.numberMerge=this.countryCode+this.phoneNumber;
+    this.numberMerge = this.countryCode + this.phoneNumber;
     console.log("numberMerge: " + this.numberMerge);
     this.commonService.showLoader();
-    this.webservice.postUserSignUp(this.phoneNumber)
+    this.webservice.postUserSignUp(this.numberMerge)
       .subscribe(succ => {
         this.commonService.hideLoader();
         let resp: any = {};
@@ -56,6 +56,27 @@ export class SignupPage {
       }, (err) => {
         this.commonService.hideLoader()
       });
+
+    /* this.numberMerge=this.countryCode+this.phoneNumber;
+     console.log("numberMerge: " + this.numberMerge);
+     this.commonService.showLoader();
+     this.webservice.postUserSignUp(this.phoneNumber)
+       .subscribe(succ => {
+         this.commonService.hideLoader();
+         let resp: any = {};
+         resp = JSON.stringify(succ);
+         let data = JSON.parse(resp);
+         console.log("data: " + JSON.stringify(data));
+         if (data.status === '200') {
+           this.navCtrl.push('VerificationPage', { data: data });
+           this.commonService.showToast(data.otp); //todo need to uncomment on build
+         } else if (data.status === '403') {
+           this.commonService.showToast(data.msg); //todo need to uncomment on build
+         }
+ 
+       }, (err) => {
+         this.commonService.hideLoader()
+       });*/
 
   }
 
@@ -87,5 +108,4 @@ export class SignupPage {
     }
     return true;
   }
-
 }

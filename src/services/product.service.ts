@@ -56,4 +56,15 @@ export class ProductService {
 
         return promise;
     }
+
+    getRecentProducts(userId) {
+        let payload = this.commonService.prepareFormData({ user_id: userId });
+        return this.http.post<any>(this.commonService.baseUrl + 'recently-views.php', payload);
+    }
+
+    getFavouriteProducts(userId) {
+        let payload = this.commonService.prepareFormData({ user_id: userId });
+        return this.http.post<any>(this.commonService.baseUrl + 'favorite-products.php', payload);
+    }
+
 }
