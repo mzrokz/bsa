@@ -63,6 +63,9 @@ export class AddPostPage {
     this.post.title = null;
     this.post.description = null;
     this.post.mobile = null;
+    this.post.price = null;
+    this.post.brand = null;
+    this.post.model = null;
   }
 
   getAllCatrgories() {
@@ -139,7 +142,7 @@ export class AddPostPage {
     let file: any = {};
 
     let options = {
-      maximumImagesCount: 1
+      maximumImagesCount: 5
     };
     this.imagePicker.getPictures(options).then((results) => {
       for (var i = 0; i < results.length; i++) {

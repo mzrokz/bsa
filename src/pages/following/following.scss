@@ -22,9 +22,18 @@ page-following {
         width: 6vw;
     }
 
+    .centralize {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4.5vw;
+        font-weight: 500;
+    }
+
     .f-section {
-        width: 100%; 
-        display: block; 
+        width: 100%;
+        display: block;
         padding: 0.825rem;
         border-bottom: 1px solid #cecece;
     }

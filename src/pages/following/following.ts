@@ -18,7 +18,8 @@ import { ProfilePage } from '../profile/profile';
 })
 export class FollowingPage {
 
-  profile: any = {};
+  following: any = [];
+  currentUser: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -29,11 +30,27 @@ export class FollowingPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdsPage');
-
+    console.log('ionViewDidLoad FollowingPage');
+    this.userService.getCurrentUser().then(user => {
+      this.currentUser = user;
+      this.commonService.showLoader();
+      this.userService.getOtherUserProfile(this.currentUser.user_id).subscribe(res => {
+        if (res.status == 200) {
+          this.following = res.follower;
+        }
+        this.commonService.hideLoader();
+      }, err => {
+        this.commonService.hideLoader();
+        console.error(err);
+      });
+    });
   }
 
   goBack() {
     this.navCtrl.push(ProfilePage);
+  }
+
+  gotoProfile(user) {
+    // this.navCtrl.push(OtherUserProfilePage, { "recepientId": user.user_id });
   }
 }
