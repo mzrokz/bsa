@@ -31,7 +31,9 @@ export class CommonService {
     }
 
     hideLoader() {
-        this.loader.dismiss();
+        setTimeout(() => {
+            this.loader.dismiss();
+        }, 1000);
     }
 
     prepareFormData(payload) {
