@@ -12,6 +12,7 @@ export class OtherUserProfilePage {
   user: any = {};
   currentUser: any = {};
   isFollowing: boolean = false;
+  otherUserId: any;
 
   constructor(
     public navCtrl: NavController,
@@ -19,19 +20,19 @@ export class OtherUserProfilePage {
     private userService: UserService,
     public storage: Storage
   ) {
+    this.otherUserId = this.navParams.get('recepientId');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OtherUserProfilePage');
     this.userService.getCurrentUser().then(user => {
       this.currentUser = user;
-    })
-    this.getProfile();
+      this.getProfile();
+    });
   }
 
   getProfile() {
-    // TODO : UserId
-    this.userService.getOtherUserProfile(118).subscribe(res => {
+    this.userService.getOtherUserProfile(this.otherUserId).subscribe(res => {
       if (res.status == 200) {
         this.user = res.data;
       }
