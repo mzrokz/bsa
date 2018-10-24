@@ -51,6 +51,9 @@ S
     this.storage.get('user_id').then(user_id => {
       console.log('this.userId in storage' + user_id);
       this.user_id = user_id;
+
+      this.callGetProductDetailApi();
+
     });
 
   }
@@ -61,13 +64,12 @@ S
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad ProductdetailscreenPage');
-    this.callGetProductDetailApi();
   }
 
   callGetProductDetailApi() {
     if (this.product_id != null) {
       this.loader.showLoader();
-      this.webservice.getProductDetailData(this.product_id)
+      this.webservice.getProductDetailData(this.product_id,this.user_id)
         .subscribe(responce => {
           this.loader.hideLoader();
           let resp: any = {};

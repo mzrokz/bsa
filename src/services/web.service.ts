@@ -23,7 +23,7 @@ export class WebServicesProvider {
   listComments = 'list-comments.php';
   childCategory = 'child-category.php?parent_id=';
   listProductByCategory = 'category-products.php?category_id=';
-  productDetailList = 'product-detail.php?product_id=';
+  productDetailList = 'product-detail.php';
   verifyOtp = 'verify-otp.php';
   homeSlider = 'home-slider.php';
   search = 'search-product.php';
@@ -171,19 +171,24 @@ export class WebServicesProvider {
     return this.http.get(this.apiUrl + this.listProductByCategory + category_id, options);
   }
 
-  getProductDetailData(product_id) {
-    // let header = new HttpHeaders;
-    // header.append('Content-Type', 'application/json');
-    // // header.append('Authorization', token);
-    // let options = { headers: header };
+  getProductDetailData(product_id, user_id) {
+    let headers = new HttpHeaders({
+      'NDAPI-Key': 'XXXXXXXXX',
+      'NDAPI-Host': 'XXXXXXXXX',
+// 'auth_token': auth_token
+    });
+    let options = {headers: headers};
+    let body = new FormData();
+    body.append('product_id', product_id);
+    body.append('user_id', user_id);
 
-    return this.http.get(this.apiUrl + this.productDetailList + product_id);
+    return this.http.post(this.apiUrl + this.productDetailList, body, options);
   }
 
   getHomeSliderImages(auth_token) {
     let header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
-    header.append('auth_token', auth_token);
+    header.append('auazth_token', auth_token);
     let options = {headers: header};
     return this.http.get<any>(this.apiUrl + this.homeSlider, options);
 
