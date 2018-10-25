@@ -47,11 +47,6 @@ export class ProductService {
         let newPromise = new Promise((resolve, reject) => {
             forkJoin<any>(promises).subscribe(res => {
                 let images = [];
-                res.forEach(rs => {
-                    let imageId = rs.image_id[0];
-                    images.push(imageId);
-                });
-
                 let params = this.commonService.prepareFormData({
                     user_id: post.currentUserId,
                     category_id: post.categoryId,
@@ -60,9 +55,14 @@ export class ProductService {
                     description: post.description,
                     price: "50",
                     brand_name: "Sony",
-                    model_name: "X - 4785",
-                    image_id: images
+                    model_name: "X - 4785"
                 });
+                res.forEach((rs, i) => {
+                    let imageId = rs.image_id[0];
+                    params = params.append("image_id[" + i + "]", imageId);
+                });
+
+
                 this.http.post<any>("http://4auctions.net/api/add-product.php", params).subscribe(res => {
                     if (res.status == 200) {
                         resolve(true);
