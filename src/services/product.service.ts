@@ -53,9 +53,9 @@ export class ProductService {
                     subcategory_id: post.subcategoryId,
                     title: post.title,
                     description: post.description,
-                    price: "50",
-                    brand_name: "Sony",
-                    model_name: "X - 4785"
+                    price: post.price,
+                    brand_name: post.brand,
+                    model_name: post.model
                 });
                 res.forEach((rs, i) => {
                     let imageId = rs.image_id[0];

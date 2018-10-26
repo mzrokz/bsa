@@ -9,6 +9,7 @@ import { AdsPage } from '../ads/ads';
 import { AccountPage } from '../account/account';
 import { FollowersPage } from '../followers/followers';
 import { FollowingPage } from '../following/following';
+import { ProfileUpdatePage } from '../profile-update/profile-update';
 
 /**
  * Generated class for the ProfilePage page.
@@ -80,5 +81,9 @@ export class ProfilePage {
 
   gotoFollowing() {
     this.navCtrl.push(FollowingPage);
+  }
+
+  updateProfile() {
+    this.navCtrl.push(ProfileUpdatePage);
   }
 }

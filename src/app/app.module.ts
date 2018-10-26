@@ -51,7 +51,8 @@ import { FavAdsPage } from '../pages/fav-ads/fav-ads';
 import { FollowersPage } from '../pages/followers/followers';
 import { FollowingPage } from '../pages/following/following';
 import { AccountPage } from '../pages/account/account';
-import {PhotoViewer} from "@ionic-native/photo-viewer";
+import { PhotoViewer } from "@ionic-native/photo-viewer";
+import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
     RecentPostsPage,
     FollowersPage,
     FollowingPage,
-    AccountPage
+    AccountPage,
+    ProfileUpdatePage
   ],
   imports: [
     BrowserModule,
@@ -126,7 +128,8 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
           { component: RecentPostsPage, name: 'RecentPostsPage', segment: 'recent-posts' },
           { component: FollowersPage, name: 'FollowersPage', segment: 'followers' },
           { component: FollowingPage, name: 'FollowingPage', segment: 'following' },
-          { component: AccountPage, name: 'AccountPage', segment: 'account' }
+          { component: AccountPage, name: 'AccountPage', segment: 'account' },
+          { component: ProfileUpdatePage, name: 'ProfileUpdatePage', segment: 'profile-update' }
         ]
       }
     )
@@ -164,7 +167,8 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
     RecentPostsPage,
     FollowersPage,
     FollowingPage,
-    AccountPage
+    AccountPage,
+    ProfileUpdatePage
   ],
   providers: [
     StatusBar,

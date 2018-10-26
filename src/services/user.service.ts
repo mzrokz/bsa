@@ -52,6 +52,11 @@ export class UserService {
         return this.http.post<any>(this.commonService.baseUrl + 'add-follow-user.php', payload);
     }
 
+    updateProfile(profile) {
+        let payload = this.commonService.prepareFormData(profile);
+        return this.http.post<any>(this.commonService.baseUrl + 'update-user.php', payload);
+    }
+
     logoutUser(nav) {
         this.storage.clear();
         nav.setRoot(LoginPage);

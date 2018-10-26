@@ -21,12 +21,13 @@
         <button class="follow-btn">Followers</button>
       </div>
 
-      <img [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.jpg'" class="profileImage">
+      <img (click)="updateProfile()" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.jpg'"
+        class="profileImage">
 
       <div class="followersContainer">
         <button class="following-btn">Followings</button>
       </div>
-      <div class="whitecontainer">
+      <div (click)="updateProfile()" class="whitecontainer">
         <div style="padding-top: 8%;font-size: 3.5vw;"><b>{{profile.Name}}</b></div>
         <div style="font-size: 3vw;color: grey;">{{profile.ContactNo}}</div>
       </div>
