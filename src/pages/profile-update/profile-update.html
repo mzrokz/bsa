@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content style="background-color: #EDEDED">
+
+  <div style="background-color: #3588A1;margin-bottom: 2%">
+    <div class="UpperTitle">
+      <img src="assets/imgs/settings/back.png" />
+      Update Profile
+    </div>
+
+    <div class="mainContainer">
+      <div style="background-color: #3588A1;height: 30vw">
+      </div>
+
+      <img (click)="getPhoto()" [src]="profile.ProfileImage ? profile.ProfileImage : 'assets/imgs/default.jpg'" class="profileImage">
+
+      <div class="whitecontainer">
+        <div style="padding-top: 8%;font-size: 3.5vw;"><b>{{profile.Name}}</b></div>
+        <div style="font-size: 3vw;color: grey;">{{profile.ContactNo}}</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="settingsDiv">
+    <ion-row style="padding: 4vw;">
+      <span class="titleHeader">
+        <input type="text" [(ngModel)]="profile.Name" />
+      </span>
+    </ion-row>
+  </div>
+
+  <button (click)="updateProfile()">Update Profile</button>
+
+
+</ion-content>

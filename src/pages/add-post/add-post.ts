@@ -8,6 +8,7 @@ import { WebServicesProvider } from '../../services/web.service';
 import { ProductService } from '../../services/product.service';
 import { Storage } from '@ionic/storage';
 import { UserService } from '../../services/user.service';
+import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({
   selector: 'page-add-post',
@@ -15,11 +16,6 @@ import { UserService } from '../../services/user.service';
   providers: [ImagePicker, Base64]
 })
 export class AddPostPage {
-
-  isSaveSelected: boolean = false;
-
-  regData = { avatar: '', email: '', password: '', fullname: '' };
-  imgPreview;
 
   post: any;
   allCategories: any;
@@ -139,23 +135,29 @@ export class AddPostPage {
   getPhoto() {
     let that = this;
     this.post.files = [];
-    let file: any = {};
 
     let options = {
       maximumImagesCount: 5
     };
     this.imagePicker.getPictures(options).then((results) => {
+      let promises = [];
       for (var i = 0; i < results.length; i++) {
+        let file: any = {};
         file.path = results[i];
-        this.base64.encodeFile(results[i]).then((base64File: string) => {
-          file.encodedImg = base64File;
-          file.imgTag = this.sanitizer.bypassSecurityTrustResourceUrl(file.encodedImg);
-          that.post.files.push(file);
-        }, (err) => {
-          console.log(err);
-        });
+        let promise = this.base64.encodeFile(results[i]);
+        this.post.files.push(file);
+        promises.push(promise);
       }
-    }, (err) => { });
+
+      forkJoin<any>(promises).subscribe(res => {
+        res.forEach((file, i) => {
+          this.post.files[i].encodedImg = file;
+          this.post.files[i].imgTag = this.sanitizer.bypassSecurityTrustResourceUrl(this.post.files[i].encodedImg);
+        });
+      });
+    }, (err) => {
+      console.error(err);
+    });
   }
 
 
