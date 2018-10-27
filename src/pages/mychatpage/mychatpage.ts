@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { ChatService } from '../../services/chat.service';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
 import { ChattingScreenPage } from '../chatting-screen/chatting-screen';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-mychatpage',
@@ -22,13 +23,26 @@ export class MychatpagePage {
     public navParams: NavParams,
     private chatService: ChatService,
     private userService: UserService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private app: App
   ) {
 
   }
 
   ionViewDidLoad() {
+    debugger;
     console.log('ionViewDidLoad MychatpagePage');
+  }
+
+  ionViewCanEnter(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getCurrentUser().then(user => {
+        resolve(true);
+      }).catch(() => {
+        resolve(false);
+        this.commonService.redirectToHome(this.app);
+      });
+    })
   }
 
   ionViewDidEnter() {

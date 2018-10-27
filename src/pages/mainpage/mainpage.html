@@ -3,10 +3,12 @@
 
     <ion-row>
 
-      <ion-col col-3>
-
-        <!--<img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">-->
+      <ion-col col-3 *ngIf="!isLoggedIn">
+        <span class="loginLink" (click)="gotoLogin()">
+          <ion-icon name="log-in"></ion-icon> LogIn
+        </span>
       </ion-col>
+      <ion-col col-3 *ngIf="isLoggedIn"></ion-col>
       <ion-col col-6>
 
         <div style="    margin-top: 2vw;
@@ -28,8 +30,8 @@
 
   <div>
     <ion-slides #mySlides style="width: 100%;margin-left: auto;
-    margin-right: auto;height: 100%" autoplay="1000" loop="true" speed="1000"
-                *ngIf="sliderImageDataModal && sliderImageDataModal.length" >
+    margin-right: auto;height: 100%" autoplay="1000"
+      loop="true" speed="1000" *ngIf="sliderImageDataModal && sliderImageDataModal.length">
 
       <ion-slide *ngFor="let sliders of sliderImageDataModal">
         <img src="{{sliders}}" style="width: 100%;" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
@@ -51,15 +53,15 @@
   <div *ngIf="rootCategoryResponse.length > 0" style="width: 90%;margin-left: auto;">
     <!--style="margin-left: 2vw"-->
     <ion-row style="width: auto">
-    <div *ngFor="let data of rootCategoryResponse;let i=index" (click)="openSubCategoryScreen(data)">
+      <div *ngFor="let data of rootCategoryResponse;let i=index" (click)="openSubCategoryScreen(data)">
 
-      <div class="bgMainCard">
-        <img src="{{data.cat_image}}" onerror="this.src='assets/imgs/default_gallery.jpg'; " class="subMainCard"/>
-        <div class="text">{{data.category_name}}</div>
+        <div class="bgMainCard">
+          <img src="{{data.cat_image}}" onerror="this.src='assets/imgs/default_gallery.jpg'; " class="subMainCard" />
+          <div class="text">{{data.category_name}}</div>
+        </div>
+
+
       </div>
-
-
-    </div>
     </ion-row>
 
     <!--<ion-row style="width: auto">-->
@@ -119,10 +121,10 @@
         </ion-slide>&ndash;&gt;
 
       </ion-slides>-->
-  <!--  </ion-row>-->
+    <!--  </ion-row>-->
 
   </div>
-<!--
+  <!--
   <p style="font-size: 4.5vw;
     text-align: center;margin-top: 0vw">CATEGORY </p>
 
@@ -256,4 +258,3 @@
   </div>-->
 
 </ion-content>
-

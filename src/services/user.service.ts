@@ -71,12 +71,12 @@ export class UserService {
 
                 let params = this.commonService.prepareFormData({
                     user_id: profile.currentUserId,
-                    first_name: profile.currentUserId,
-                    last_name: profile.currentUserId,
+                    first_name: profile.firstName,
+                    last_name: profile.lastName,
                     image_id: res.image_id[0],
                 });
 
-                this.http.post<any>(this.commonService.baseUrl + 'update-user.php', params).subscribe(res => {
+                this.http.post<any>(this.commonService.baseUrl + 'update-profile.php', params).subscribe(res => {
                     if (res.status == 200) {
                         resolve(true);
                     } else {
@@ -93,7 +93,11 @@ export class UserService {
     }
 
     logoutUser(nav) {
-        this.storage.clear();
+        this.clearStorage();
         nav.setRoot(LoginPage);
+    }
+
+    clearStorage() {
+        this.storage.clear();
     }
 }

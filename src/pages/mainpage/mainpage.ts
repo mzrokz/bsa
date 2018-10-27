@@ -1,9 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides, App } from 'ionic-angular';
 import { WebServicesProvider } from "../../services/web.service";
 import { Storage } from "@ionic/storage";
 import { CommonService } from '../../services/common.service';
-import {SearchPage} from "../search/search";
+import { SearchPage } from "../search/search";
+import { LoginPage } from '../login/login';
+import { UserService } from '../../services/user.service';
 
 /**
  * Generated class for the MainpagePage page.
@@ -24,22 +26,32 @@ export class MainpagePage {
 
   rootCategoryResponse: any = [];
   sliderImageDataModal: any = [];
-  auth_token:any;
+  auth_token: any;
+  isLoggedIn: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public webservice: WebServicesProvider,
-    public commonService: CommonService, public storage: Storage) {
-
-
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public webservice: WebServicesProvider,
+    public commonService: CommonService,
+    public storage: Storage,
+    private userService: UserService,
+    private app: App
+  ) {
     this.storage.get('auth_token').then(auth_token => {
       this.auth_token = auth_token;
       console.log('Auth token : ' + this.auth_token);
     });
+
+    this.userService.getCurrentUser().then(user => {
+      this.isLoggedIn = true;
+    }, err => {
+      this.isLoggedIn = false;
+    });
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad MainpagePage');
-    this.callGetSliderImageDataApi();
     this.callGetRootCategoryApi();
   }
 
@@ -62,6 +74,7 @@ export class MainpagePage {
         let dataOnlyHere = JSON.stringify(data.data);
         this.rootCategoryResponse = JSON.parse(dataOnlyHere);
       }
+      this.callGetSliderImageDataApi();
     }, (err) => {
       this.commonService.hideLoader();
 
@@ -94,10 +107,12 @@ export class MainpagePage {
   }
 
 
-  openSearchScreen(){
+  openSearchScreen() {
     this.navCtrl.push(SearchPage);
   }
 
+  gotoLogin() {
+    this.userService.logoutUser(this.app.getRootNav());
+  }
 
-  
 }

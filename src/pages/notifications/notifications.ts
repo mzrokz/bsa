@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {WebServicesProvider} from "../../services/web.service";
-import {CommonService} from "../../services/common.service";
-import {Storage} from "@ionic/storage";
+import { Component } from '@angular/core';
+import { NavController, NavParams, App } from 'ionic-angular';
+import { WebServicesProvider } from "../../services/web.service";
+import { CommonService } from "../../services/common.service";
+import { Storage } from "@ionic/storage";
+import { UserService } from '../../services/user.service';
 
 /**
  * Generated class for the NotificationsPage page.
@@ -22,8 +23,11 @@ export class NotificationsPage {
   notificationListDataModal: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public webservice: WebServicesProvider,
-              public commonService: CommonService, public storage: Storage) {
+    public webservice: WebServicesProvider,
+    public commonService: CommonService, public storage: Storage,
+    private app: App,
+    private userService: UserService
+  ) {
 
 
     this.storage.get('auth_token').then(auth_token => {
@@ -40,6 +44,17 @@ export class NotificationsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificationsPage');
+  }
+
+  ionViewCanEnter(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getCurrentUser().then(user => {
+        resolve(true);
+      }).catch(() => {
+        resolve(false);
+        this.commonService.redirectToHome(this.app);
+      });
+    })
   }
 
   getNotificationListData() {

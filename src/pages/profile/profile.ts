@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
@@ -30,7 +30,8 @@ export class ProfilePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private userService: UserService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private app: App
   ) {
   }
 
@@ -40,9 +41,19 @@ export class ProfilePage {
     this.userService.getCurrentUser().then(user => {
       this.getProfile(user.user_id);
     }).catch(err => {
-      this.commonService.showToast("Please log in to view Profile");
       this.commonService.hideLoader();
     });
+  }
+
+  ionViewCanEnter(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getCurrentUser().then(user => {
+        resolve(true);
+      }).catch(() => {
+        resolve(false);
+        this.commonService.redirectToHome(this.app);
+      });
+    })
   }
 
   getProfile(userId) {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -32,7 +32,8 @@ export class AddPostPage {
     private webService: WebServicesProvider,
     private productService: ProductService,
     private storage: Storage,
-    private userService: UserService
+    private userService: UserService,
+    private app: App
 
   ) {
     this.preparePostObject();
@@ -44,6 +45,17 @@ export class AddPostPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPostPage');
     this.getAllCatrgories();
+  }
+
+  ionViewCanEnter(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getCurrentUser().then(user => {
+        resolve(true);
+      }).catch(() => {
+        resolve(false);
+        this.commonService.redirectToHome(this.app);
+      });
+    })
   }
 
   ionViewDidEnter() {

@@ -24,31 +24,22 @@
       </div>
     </div>
   </div>
-
-
-<!--   <div class="settingsDiv">
-    <ion-row style="padding: 4vw;">
-      <span class="titleHeader">
-        <input type="text" [(ngModel)]="profile.Name" />
-      </span>
-    </ion-row>
-  </div>
- -->
-<!--   <button (click)="updateProfile()">Update Profile</button> -->
-<ion-list class="list list-md">
-        <ion-item>
-            <ion-input type="text" placeholder="First Name"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="text" placeholder="Last Name"></ion-input>
-        </ion-item>
-</ion-list>
+  <ion-list class="list list-md">
+    <ion-item>
+      <ion-input type="text" placeholder="First Name" [(ngModel)]="profile.firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Last Name" [(ngModel)]="profile.lastName"></ion-input>
+    </ion-item>
+  </ion-list>
 
   <div padding="">
+    <button full="" ion-button="" ng-reflect-full="" class="button button-md button-default button-default-md button-full button-full-md"><span
+        class="button-inner" (click)="updateProfile()">Update Profile</span>
+      <div class="button-effect"></div>
+    </button>
 
-        <button full="" ion-button="" ng-reflect-full="" class="button button-md button-default button-default-md button-full button-full-md"><span class="button-inner">Update Profile</span><div class="button-effect"></div></button>
-
-    </div>
+  </div>
 
 
 </ion-content>

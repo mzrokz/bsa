@@ -52,6 +52,10 @@ export class HomePage {
     });
   }
 
+  navigatePage(page) {
+    this.navCtrl.push(page);
+  }
+
   ionViewDidLoad() {
     // console.log('ionViewDidLoad HomePage');
   }

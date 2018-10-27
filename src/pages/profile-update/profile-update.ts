@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { SettingsPage } from '../settings/settings';
 import { UserService } from '../../services/user.service';
 import { CommonService } from '../../services/common.service';
-import { RecentPostsPage } from '../recent-posts/recent-posts';
-import { FavAdsPage } from '../fav-ads/fav-ads';
-import { AdsPage } from '../ads/ads';
-import { AccountPage } from '../account/account';
-import { FollowersPage } from '../followers/followers';
-import { FollowingPage } from '../following/following';
 import { ProfilePage } from '../profile/profile';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
@@ -30,6 +23,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 export class ProfileUpdatePage {
 
   profile: any = {};
+  currentUser: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -46,20 +40,21 @@ export class ProfileUpdatePage {
     console.log('ionViewDidLoad ProfileUpdatePage');
     this.commonService.showLoader();
     this.userService.getCurrentUser().then(user => {
+      this.currentUser = user;
       this.getProfile(user.user_id);
-    }).catch(err => {
-      this.commonService.showToast("Please log in to update Profile");
-      this.commonService.hideLoader();
-    });
+    }).catch(() => {
+        this.commonService.showToast("Please log in to update Profile");
+        this.commonService.hideLoader();
+      });
   }
 
   getProfile(userId) {
     this.userService.getProfile(userId).subscribe(res => {
       this.profile = (res as any).data;
       this.commonService.hideLoader();
-    }, err => {
-      this.commonService.hideLoader();
-    });
+    }, () => {
+        this.commonService.hideLoader();
+      });
 
   }
 
@@ -97,11 +92,13 @@ export class ProfileUpdatePage {
 
   updateProfile() {
     debugger;
+    this.profile.currentUserId = this.currentUser.user_id;
     this.commonService.showLoader();
     this.userService.updateProfile(this.profile).then(res => {
-      debugger;
       if (res) {
         this.commonService.hideLoader();
+        this.commonService.showToast("Profile Updated Successfully");
+        this.navCtrl.setRoot(ProfilePage);
       }
     }, err => {
       console.log(err);

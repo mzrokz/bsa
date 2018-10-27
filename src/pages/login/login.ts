@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WebServicesProvider } from "../../services/web.service";
 import { CommonService } from '../../services/common.service';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +28,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public webservice: WebServicesProvider,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private storage: Storage
   ) {
   }
 
@@ -64,7 +66,7 @@ export class LoginPage {
       this.commonService.hideLoader()
     });*/
 
-    this.numberMerge=this.countryCode+this.phoneNumber;
+    this.numberMerge = this.countryCode + this.phoneNumber;
     console.log("numberMerge: " + this.numberMerge);
     this.commonService.showLoader();
     this.webservice.postUserLogin(this.numberMerge)
@@ -89,8 +91,8 @@ export class LoginPage {
 
 
   moveToMainScreen() {
+    this.storage.clear();
     this.navCtrl.push('HomePage');
-
   }
 
   backtoPreviousScreen() {

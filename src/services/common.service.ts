@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { LoadingController, Loading, AlertController } from 'ionic-angular';
 import { HttpParams } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast';
+import { UserService } from './user.service';
+import { HomePage } from '../pages/home/home';
+import { Storage } from '@ionic/storage';
 
 
 @Injectable()
@@ -10,10 +13,12 @@ export class CommonService {
     public baseUrl: string = "http://4auctions.net/api/";
     public loader: Loading;
     private loaderContent: string = "Please wait...";
+
     constructor(
         public loadingCtrl: LoadingController,
         public alertCtrl: AlertController,
-        private toast: Toast
+        private toast: Toast,
+        private storage: Storage
     ) {
 
     }
@@ -31,9 +36,7 @@ export class CommonService {
     }
 
     hideLoader() {
-        setTimeout(() => {
-            this.loader.dismiss();
-        }, 1000);
+        this.loader.dismiss();
     }
 
     prepareFormData(payload) {
@@ -57,5 +60,11 @@ export class CommonService {
     showToast(msg: string) {
         this.toast.show(msg, 'short', 'bottom').subscribe(toast => {
         });
+    }
+
+    redirectToHome(app) {
+        this.showToast("Please log In to access this page");
+        let nav = app.getRootNav();
+        nav.setRoot(HomePage);
     }
 }
