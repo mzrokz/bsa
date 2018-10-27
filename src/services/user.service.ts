@@ -4,6 +4,8 @@ import { CommonService } from './common.service';
 import { Storage } from '@ionic/storage';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
+import { FileTransferObject, FileUploadOptions, FileTransfer } from '@ionic-native/file-transfer';
+import { forkJoin } from 'rxjs/observable/forkJoin';
 
 @Injectable()
 export class UserService {
@@ -11,7 +13,8 @@ export class UserService {
     constructor(
         private http: HttpClient,
         private commonService: CommonService,
-        private storage: Storage
+        private storage: Storage,
+        private transfer: FileTransfer
     ) { }
 
     getCurrentUser() {
@@ -53,8 +56,40 @@ export class UserService {
     }
 
     updateProfile(profile) {
-        let payload = this.commonService.prepareFormData(profile);
-        return this.http.post<any>(this.commonService.baseUrl + 'update-user.php', payload);
+        debugger;
+        const fileTransfer: FileTransferObject = this.transfer.create();
+        let options: FileUploadOptions = {
+            fileKey: 'file',
+            fileName: 'product.jpeg',
+            chunkedMode: false,
+            mimeType: "image/jpeg",
+        }
+
+        let newPromise = new Promise<any>((resolve, reject) => {
+            fileTransfer.upload(profile.files[0].path, this.commonService.baseUrl + 'file.php', options).then(data => {
+                let res = JSON.parse(data.response);
+
+                let params = this.commonService.prepareFormData({
+                    user_id: profile.currentUserId,
+                    first_name: profile.currentUserId,
+                    last_name: profile.currentUserId,
+                    image_id: res.image_id[0],
+                });
+
+                this.http.post<any>(this.commonService.baseUrl + 'update-user.php', params).subscribe(res => {
+                    if (res.status == 200) {
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                }, err => {
+                    reject(err);
+                });
+            }).catch(err => {
+                reject(err);
+            })
+        });
+        return newPromise;
     }
 
     logoutUser(nav) {

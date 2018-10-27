@@ -96,10 +96,16 @@ export class ProfileUpdatePage {
   }
 
   updateProfile() {
-    this.userService.updateProfile(this.profile).subscribe(res => {
+    debugger;
+    this.commonService.showLoader();
+    this.userService.updateProfile(this.profile).then(res => {
       debugger;
-      if (res.status == 200) {
+      if (res) {
+        this.commonService.hideLoader();
       }
+    }, err => {
+      console.log(err);
+      this.commonService.hideLoader();
     })
   }
 
