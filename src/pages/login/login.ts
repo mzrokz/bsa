@@ -92,7 +92,7 @@ export class LoginPage {
 
   moveToMainScreen() {
     this.storage.clear();
-    this.navCtrl.push('HomePage');
+    this.navCtrl.push('HomePage',{isSkipLogin:true});
   }
 
   backtoPreviousScreen() {

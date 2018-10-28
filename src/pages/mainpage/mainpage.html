@@ -34,7 +34,7 @@
       loop="true" speed="1000" *ngIf="sliderImageDataModal && sliderImageDataModal.length">
 
       <ion-slide *ngFor="let sliders of sliderImageDataModal">
-        <img src="{{sliders}}" style="width: 100%;" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
+        <img src="{{sliders}}" style="width: 100%;height: 56vw" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
       </ion-slide>
 
       <!--<ion-slide>

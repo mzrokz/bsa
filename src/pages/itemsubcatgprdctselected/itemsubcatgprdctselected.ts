@@ -3,6 +3,8 @@ import {ModalController, NavController, NavParams} from 'ionic-angular';
 import { WebServicesProvider } from "../../services/web.service";
 import { CommonService } from '../../services/common.service';
 import {FilterModalPage} from "../filter-modal/filter-modal";
+import {UserService} from "../../services/user.service";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the ItemsubcatgprdctselectedPage page.
@@ -24,13 +26,11 @@ export class ItemsubcatgprdctselectedPage {
   itemChildCategoryResponse: any = [];
   filterResponse:any;
   isApplyFilter:boolean = false;
+  isSkipLogin:boolean = false;
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public webservice: WebServicesProvider,
-    public commonService: CommonService,
-    public modalCtrl: ModalController
+    public navCtrl: NavController, public navParams: NavParams, public webservice: WebServicesProvider,
+    public commonService: CommonService, public modalCtrl: ModalController, public storage: Storage
   ) {
 
     this.dataFromPrevious = this.navParams.data.data;
@@ -40,10 +40,21 @@ export class ItemsubcatgprdctselectedPage {
     this.rootCategoryName = this.navParams.data.rootCategoryName;
     this.subCategoryName = this.dataFromPrevious.category_name;
 
+     this.storage.get('isSkipLogin').then(isSkipLogin => {
+      console.log('this.isSkipLogin in storage' + isSkipLogin);
+      this.isSkipLogin = isSkipLogin;
+
+    });
+
   }
 
   openProductDetailPage(data) {
-    this.navCtrl.push('ProductdetailscreenPage', { data: data })
+    if(this.isSkipLogin){
+      this.commonService.showToast('Please Login In to access this page');
+    }else {
+      this.navCtrl.push('ProductdetailscreenPage', { data: data })
+    }
+
   }
 
   backtoPreviousScreen() {

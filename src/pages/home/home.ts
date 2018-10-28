@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Tabs } from 'ionic-angular';
-import { UserService } from '../../services/user.service';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, NavParams, Tabs} from 'ionic-angular';
+import {UserService} from '../../services/user.service';
+import {WebServicesProvider} from "../../services/web.service";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the HomePage page.
@@ -25,10 +27,10 @@ export class HomePage {
 
   isLoggedIn: boolean = false;
 
+  isSkipLogin: boolean = false;
+
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userService: UserService
+    public navCtrl: NavController, public navParams: NavParams, private userService: UserService, public storage: Storage
   ) {
     if (this.navParams.data) {
       if (this.navParams.data.page == 'mainPage') {
@@ -43,6 +45,11 @@ export class HomePage {
         this.profile = 'ProfilePage';
       }
       this.tabSelectedIndex = this.navParams.data.tab;
+      this.isSkipLogin = this.navParams.data.isSkipLogin;
+
+      if(this.isSkipLogin){
+        this.storage.set('isSkipLogin', this.isSkipLogin);
+      }
     }
 
     this.userService.getCurrentUser().then(user => {
@@ -50,6 +57,8 @@ export class HomePage {
     }).catch(err => {
       this.isLoggedIn = false;
     });
+
+
   }
 
   navigatePage(page) {

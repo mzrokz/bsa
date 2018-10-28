@@ -173,6 +173,7 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
   providers: [
     StatusBar,
     SplashScreen,
+    Storage,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserService,
     CommonService,
