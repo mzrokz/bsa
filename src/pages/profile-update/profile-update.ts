@@ -43,18 +43,22 @@ export class ProfileUpdatePage {
       this.currentUser = user;
       this.getProfile(user.user_id);
     }).catch(() => {
-        this.commonService.showToast("Please log in to update Profile");
-        this.commonService.hideLoader();
-      });
+      this.commonService.showToast("Please log in to update Profile");
+      this.commonService.hideLoader();
+    });
   }
 
   getProfile(userId) {
     this.userService.getProfile(userId).subscribe(res => {
       this.profile = (res as any).data;
+      if (this.profile) {
+        this.profile.firstName = this.profile.first_name;
+        this.profile.lastName = this.profile.last_name;
+      }
       this.commonService.hideLoader();
     }, () => {
-        this.commonService.hideLoader();
-      });
+      this.commonService.hideLoader();
+    });
 
   }
 
