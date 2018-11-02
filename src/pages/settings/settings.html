@@ -22,97 +22,94 @@
 
   <div class="sectionDiv mtop2rem">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/worldwide.png" class="initial-icon">
-      <span class="listings-block">
-        Country
-      </span>
-      <span class="nextBlackIcon">
-        {{settings.country}}
-      </span>
+        <span class="nextBlackIcon">
+          {{settings.country}}
+        </span>
+        <span class="listings-block">
+            Country
+        </span>
+        <img src="assets/imgs/settings/worldwide.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/city.png" class="initial-icon">
-      <span class="listings-block">
-        City
-      </span>
-      <span class="nextBlackIcon">
-        {{settings.city}}
-      </span>
+        <span class="nextBlackIcon">
+          {{settings.city}}
+        </span>
+        <span class="listings-block">
+            City
+        </span>
+        <img src="assets/imgs/settings/city.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/location.png" class="initial-icon">
-      <span class="listings-block">
-        Location
-      </span>
-      <span class="nextBlackIcon">
-        {{settings.location}}
-      </span>
+        <span class="nextBlackIcon">
+          {{settings.location}}
+        </span>
+        <span class="listings-block">
+            Location
+        </span>
+        <img src="assets/imgs/settings/location.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/language.png" class="initial-icon">
-      <span class="listings-block">
-        Language
-      </span>
-      <span class="nextBlackIcon">
-        {{settings.language}}
-      </span>
+        <span class="nextBlackIcon">
+          {{settings.language}}
+        </span>
+        <span class="listings-block">
+            Language
+        </span>
+        <img src="assets/imgs/settings/language.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/notification.png" class="initial-icon">
-      <span class="listings-block">
-        Notification
-      </span>
-
-      <span class="toggle-switch switch-adjust">
-        <label class="switch">
-          <input type="checkbox" [checked]="settings.isnotify == 1" (change)="onNotifyChange($event)">
-          <span class="slider round"></span>
-        </label>
-      </span>
+        <span class="toggle-switch switch-adjust">
+          <label class="switch">
+            <input type="checkbox" [checked]="settings.isnotify == 1" (change)="onNotifyChange($event)">
+            <span class="slider round"></span>
+          </label>
+        </span>
+        <span class="listings-block">
+          Notification
+        </span>
+        <img src="assets/imgs/settings/notification.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/terms.png" class="initial-icon">
+      <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon imginvert">
       <span class="listings-block">
         Terms and conditions
       </span>
-      <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon">
+      <img src="assets/imgs/settings/terms.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/share.png" class="initial-icon">
-      <span class="listings-block">
-        Share app
-      </span>
-      <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon">
+        <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon imginvert">
+        <span class="listings-block">
+          Share app
+        </span>
+        <img src="assets/imgs/settings/share.png" class="initial-icon">
     </ion-row>
   </div>
 
   <div class="sectionDiv logout" (click)="logout()">
     <ion-row class="row-adjust">
-      <img src="assets/imgs/settings/logout.png" class="initial-icon">
+      <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon imginvert">
       <span class="listings-block">
         Logout
       </span>
-      <img src="assets/imgs/settings/next_black.png" class="nextBlackIcon">
+      <img src="assets/imgs/settings/logout.png" class="initial-icon">
     </ion-row>
   </div>
-
-
 </ion-content>
