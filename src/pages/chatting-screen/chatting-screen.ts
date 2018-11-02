@@ -42,7 +42,7 @@ export class ChattingScreenPage {
 
   ionViewDidEnter() {
     this.getChats();
-    this.startInterval();
+    //this.startInterval();
   }
 
   getotherUserProfile() {
@@ -50,7 +50,7 @@ export class ChattingScreenPage {
     this.userService.getOtherUserProfile(this.otherUserId).subscribe(res => {
       if (res.status == 200) {
         this.otherUser = res.data;
-        this.startInterval();
+        //this.startInterval();
       }
     }, err => {
       this.commonService.hideLoader();

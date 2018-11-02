@@ -92,11 +92,16 @@ page-chatting-screen {
         padding: 0;
     }
 
+    .direct-chat-text p {
+    text-align: right;
+    text-align: -webkit-right;
+    }
+
     .chat-msg.row {
         background-color: #ddd;
         width: 100%;
         position: fixed;
-        bottom: 60px;
+        bottom: 0;
         margin: 0 auto;
         padding: 1.3rem 2rem;
         overflow: hidden;
