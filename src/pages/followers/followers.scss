@@ -1,0 +1,66 @@
+page-followers {
+    .profileHeader {
+        color: white;
+        text-align: center;
+        font-size: 5vw;
+        padding-top: 4vw;
+    }
+
+    /*Add post header*/
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
+
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
+
+    .centralize {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4.5vw;
+        font-weight: 500;
+    }
+
+    .f-section {
+        width: 100%;
+        display: block;
+        padding: 0.825rem;
+        border-bottom: 1px solid #cecece;
+    }
+
+    img.user-img {
+        border-radius: 50%;
+        float: left;
+        width: 15vw;
+        height: 15vw;
+    }
+
+    .user-title {
+        display: inline-block;
+        font-size: 4vw;
+        margin: 0 auto;
+        margin-left: 15px;
+        line-height: 3.5;
+    }
+
+    .user-follow {
+        background-color: transparent;
+        border: 1px solid #cecece;
+        border-radius: 5px;
+        float: right;
+        margin-top: 3vw;
+        padding: 2vw 5vw;
+        font-size: 3.8vw;
+        font-weight: 500;
+    }
+}

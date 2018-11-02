@@ -20,20 +20,35 @@ page-notifications {
   }
 
   .profilePic{
-    width: 10vw;
-    height: 10vw;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 6vw;
   }
 
   .name{
-    padding-left: 4vw;
-    text-align: left;
+    //padding-left: 4vw;
+    //text-align: left;
     margin-top: 2vw;
     font-size: 4vw;
     color: black;
   }
   .text{
-    margin-top: 1vw;
     font-size: 3.2vw;
     color: black;
+    /* width: 100%; */
+    //overflow: hidden;
+    //white-space: nowrap;
+    //text-overflow: ellipsis;
+  }
+
+  .card-content-md {
+    padding: 5px 5px 5px !important;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  .card-content-ios {
+    padding: 5px 5px 5px !important;
+    font-size: 1.4rem;
+    line-height: 1.5;
   }
 }

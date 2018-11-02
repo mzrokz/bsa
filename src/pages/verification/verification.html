@@ -19,7 +19,6 @@
 
   </ion-row>
 
-
   <div style="width: 74%;
     margin-left: auto;
     margin-top: 10vw;
@@ -32,12 +31,11 @@
 
   <div style="font-size: 4vw;color: white;text-align: center;margin-top: 5vw;">Enter your OTP code here</div>
 
-
   <div class="passContainer" style="margin-top:5vw">
     <img src="assets/imgs/bt2.png" style="margin-left: 2%;"/>
 
     <div class="mobileNumber">
-      <input style="background-color: transparent;border: transparent;font-size: 4vw" type="number" maxlength="4"/>
+      <input [(ngModel)]="otp" style="background-color: transparent;border: transparent;font-size: 4vw;text-align: center" type="number" maxlength="4"/>
     </div>
 
   </div>

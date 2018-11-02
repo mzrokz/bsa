@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the SliderPage page.
@@ -8,13 +8,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-slider',
   templateUrl: 'slider.html',
 })
 export class SliderPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -29,5 +27,5 @@ export class SliderPage {
   openLogin() {
     this.navCtrl.push('LoginPage');
   }
-
 }
+

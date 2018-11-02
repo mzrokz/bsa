@@ -1,7 +1,7 @@
-<ion-content>
+<ion-content style="background-color: #EDEDED">
 
   <div>
-    <div style="background-color: #3588A1">
+    <div style="background-color: #62AEC6">
 
       <ion-row>
 
@@ -13,50 +13,50 @@
         <ion-col col-6>
 
           <div class="centreText">
-            Mobile
-
+            {{subCategoryName}}
           </div>
         </ion-col>
-
         <ion-col col-3>
+          <img src="assets/imgs/filter_icon.png" class="rightIcon" (click)="openFilterModal()">
 
-          <img src="assets/imgs/filter_icon.png" class="rightIcon">
         </ion-col>
 
       </ion-row>
     </div>
   </div>
 
-  <div class="bg">
+  <div>
 
     <ion-row>
-      <div style="padding-top: 5vw">
+     <!-- <div style="padding-top: 5vw">
         <div class="bgTabCard">
           <ion-row>
-            <div class="text"> Mobile Tablet
+            <div class="text">{{rootCategoryName}}
               <img src="assets/imgs/cross_light.png" class="crossBtn">
             </div>
           </ion-row>
         </div>
       </div>
+
       <div style="padding-top: 5vw">
         <div class="bgTabCard">
           <ion-row>
-            <div class="text"> Mobile
+            <div class="text"> {{subCategoryName}}
               <img src="assets/imgs/cross_light.png" class="crossBtn">
             </div>
           </ion-row>
         </div>
-      </div>
-      <div style="padding-top: 5vw">
-        <div class="bgTabCard">
-          <ion-row>
-            <div class="text"><b>Apple</b>
-              <img src="assets/imgs/cross_dark.png" class="crossBtn">
-            </div>
-          </ion-row>
-        </div>
-      </div>
+      </div>-->
+
+      <!-- <div style="padding-top: 5vw">
+         <div class="bgTabCard">
+           <ion-row>
+             <div class="text"><b>Apple</b>
+               <img src="assets/imgs/cross_dark.png" class="crossBtn">
+             </div>
+           </ion-row>
+         </div>
+       </div>-->
 
     </ion-row>
     <div style="margin-top: 5vw;height: auto;width: 100%">
@@ -65,391 +65,68 @@
 
         <ion-row>
 
-          <ion-col col-6>
+          <ion-col col-6 *ngFor="let data of itemChildCategoryResponse; let i = index">
             <ion-card class="sizeOfCard">
               <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
+                <div class="bgMainCard" (click)="openProductDetailPage(data)">
+                  <img *ngIf="data.product_image != undefined || data.product_image != '' "
+                       src="{{data.product_image}}" style="height: 100%;width: 100%" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
                   <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
+                    <div class="textInnerCard"><b>{{data.product_description}} </b></div>
+                    <div class="subTextInnerCard">{{data.product_name}}</div>
+                    <div class="subTextInnerCard">{{data.create_date}}</div>
+                    <!-- <ion-row style="margin-top: 3vw;">
+                       <ion-col col-6>
+                         <div class="subTextInnerCard" style="color: #14B6BB;"><b>{{data.price}} $</b></div>
+                       </ion-col>
+                       <ion-col col-6>
+                         <ion-row>
+                           <div style="float: right">
+                             <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw"><h2>{{data.count}}</h2>
+                           </div>
+                         </ion-row>
+                       </ion-col>
+                     </ion-row>-->
+
+                    <ion-row style="margin-top: 3vw;">
+                      <div class="priceText" style="color: #14B6BB;"><b>{{data.price}} $</b></div>
+                      <div style="margin-left: auto; margin-right: 7vw;" *ngIf="data.count && data.count != '' ">
+                        <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
+                        <h2>{{data.count}}</h2>
+                      </div>
+
                     </ion-row>
                   </div>
                   <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
+                  <!--<ion-row>
 
                     <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
+                      <img *ngIf="data.user_image != undefined || data.user_image != '' " src="{{data.user_image}}"
+                           style="width: 4vw;height: 4vw;margin-left: 2vw" onerror="this.src='assets/imgs/default.jpg'; ">
                     </ion-col>
                     <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
+                      <div class="createdBynameText">{{data.created_by}}</div>
                     </ion-col>
                     <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
+                      <a href="tel:{{data.contact_no}}">
+                        <img src="assets/imgs/call_icon.png"
+                             style="width: 4vw;height: 4vw;margin-left: 2vw;float: right;margin-top: 1%;">
+                      </a>
                     </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
+                  </ion-row>-->
 
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
+                  <ion-row style="margin-top: 1.5vw">
+                    <img *ngIf="data.user_image != undefined || data.user_image != '' " src="{{data.user_image}}"
+                         style="width: 4vw;height: 4vw;margin-left: 2vw" onerror="this.src='assets/imgs/default.jpg'; ">
 
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
+                    <div class="createdBynameText">{{data.created_by}}</div>
 
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-          </ion-col> <ion-col col-6>
-            <ion-card class="sizeOfCard">
-              <ion-card-content>
-                <div class="bgMainCard">
-                  <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
-                  <div>
-                    <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
-                    <div class="subTextInnerCard">Apple Iphone 6</div>
-                    <div class="subTextInnerCard">7 hours ago</div>
-                    <ion-row>
-                      <ion-col col-6>
-                        <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
-                      </ion-col>
-                      <ion-col col-6>
-                        <ion-row>
-                          <div style="float: right">
-                            <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
-                          </div>
-                        </ion-row>
-                      </ion-col>
-                    </ion-row>
-                  </div>
-                  <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
-                  <ion-row>
-
-                    <ion-col col-3>
-                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
-                    </ion-col>
-                    <ion-col col-6>
-                      <div style="float: left">Tony Brown</div>
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
-                    </ion-col>
+                    <div style="margin-left: auto;margin-right: 2vw;" *ngIf="data.contact_no && data.contact_no != '' ">
+                      <a href="tel:{{data.contact_no}}">
+                        <img src="assets/imgs/call_icon.png"
+                             style="width: 4vw;height: 4vw;margin-left: 2vw;float: right;margin-top: 1%;">
+                      </a>
+                    </div>
                   </ion-row>
                 </div>
               </ion-card-content>
@@ -457,9 +134,49 @@
 
           </ion-col>
 
+          <!-- <ion-col col-6>
+             <ion-card class="sizeOfCard">
+               <ion-card-content>
+                 <div class="bgMainCard">
+                   <img src="assets/imgs/phone_demo.png" style="height: 100%;width: 100%">
+                   <div>
+                     <div class="textInnerCard"><b>Buy a Apple phone from the owner </b></div>
+                     <div class="subTextInnerCard">Apple Iphone 6</div>
+                     <div class="subTextInnerCard">7 hours ago</div>
+                     <ion-row>
+                       <ion-col col-6>
+                         <div class="subTextInnerCard" style="color: #14B6BB;"><b>5000 $</b></div>
+                       </ion-col>
+                       <ion-col col-6>
+                         <ion-row>
+                           <div style="float: right">
+                             <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
+                           </div>
+                         </ion-row>
+                       </ion-col>
+                     </ion-row>
+                   </div>
+                   <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
+                   <ion-row>
+
+                     <ion-col col-3>
+                       <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw">
+                     </ion-col>
+                     <ion-col col-6>
+                       <div style="float: left">Tony Brown</div>
+                     </ion-col>
+                     <ion-col col-3>
+                       <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right">
+                     </ion-col>
+                   </ion-row>
+                 </div>
+               </ion-card-content>
+             </ion-card>
+
+           </ion-col>-->
+
+
         </ion-row>
-
-
 
 
       </ion-grid>

@@ -1,0 +1,29 @@
+<!--
+  Generated template for the Followers Page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content style="background-color: #EDEDED">
+
+  <div style="background-color: #3588A1;margin-bottom: 2%">
+    <div class="UpperTitle">
+      <img src="assets/imgs/settings/back.png" (click)="goBack()" />
+      Followers
+    </div>
+  </div>
+
+
+  <ion-row *ngIf="followers.length <= 0">
+    <div class="centralize">No User is following</div>
+  </ion-row>
+
+  <ion-row *ngIf="followers && followers.length > 0" style="background-color: #fff;">
+    <div class="f-section" *ngFor="let user of followers" (click)="gotoProfile(user)">
+      <img class="user-img" [src]="user.ProfileImage ? user.ProfileImage : 'assets/imgs/user.jpg'" alt="">
+      <span class="user-title">{{user.Name}}</span>
+      <!-- <button class="user-follow">Following</button> -->
+    </div>
+  </ion-row>
+
+</ion-content>

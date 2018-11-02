@@ -1,0 +1,56 @@
+<!--
+  Generated template for the By Chatting page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content style="background-color: #EDEDED">
+	<div class="UpperTitle">
+		<img src="assets/imgs/settings/back.png" (click)="backtoPreviousScreen()" />
+		{{ this.otherUser?.Name}}
+		<!-- <span>Online</span> -->
+	</div>
+
+	<ion-row class="chat-area">
+		<ion-col>
+			<ng-container *ngFor="let chat of chats">
+				<div class="direct-chat-msg" [ngClass]="chat.direction">
+					<img class="direct-chat-img" [src]="(chat.userImg && chat.userImg != '') ? chat.userImg : '/assets/imgs/default.jpg'">
+					<div class="direct-chat-text">
+						<p>{{chat.msg}}</p>
+						<span style="float:right;color:#999">{{chat.time}}</span>
+					</div>
+				</div>
+			</ng-container>
+		</ion-col>
+
+
+		<!-- <div class="direct-chat-msg message-type">
+			<div class="direct-chat-text">
+				<p>James is Typing...</p>
+			</div>
+		</div> -->
+	</ion-row>
+
+	<ion-row class="chat-msg">
+		<div class="input-group">
+			<div class="row x1">
+				<!-- <div class="col-2 right">
+					<span class="add-icon">
+						<img src="assets/imgs/add.png" alt="">
+					</span>
+				</div> -->
+				<div class="col-10 right-inner-addon">
+					<input type="text" name="message" id="srch-term" placeholder="Type Message ..." class="type-message" [(ngModel)]="chatMsg">
+					<!-- <a href="#" class="emo-link"><img src="assets/imgs/icon.png" alt=""></a> -->
+				</div>
+				<div class="col-2 right">
+					<span class="send-icon">
+						<img src="assets/imgs/send.png" alt="" (click)="sendMessage()">
+					</span>
+				</div>
+			</div>
+		</div>
+	</ion-row>
+
+</ion-content>

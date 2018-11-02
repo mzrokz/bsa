@@ -1,0 +1,102 @@
+page-account {
+    .profileHeader {
+        color: white;
+        text-align: center;
+        font-size: 5vw;
+        padding-top: 4vw;
+    }
+
+    /* Add post header*/
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
+
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
+
+    /* Common CSS */
+
+    p {
+        margin: 0 auto;
+    }
+
+    span.float-left {
+        float: right;
+    }
+
+    .zero {
+        color: #32db64;
+    }
+
+    .generic-font-size {
+        font-size: 4.5vw;
+        color: #cfcfcf;
+    }
+
+    .container {
+        margin: 0vw 4vw;
+        margin-top: 3vw;
+        margin-bottom: 7vw;
+        padding: 3vw 4vw;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #000;
+    }
+
+    .header-1 {
+        font-size: 4.8vw;
+        font-weight: 500;
+    }
+
+    button.upgrade {
+        background-color: #007bff;
+        color: #fff;
+        margin-left: 14.5vw;
+        padding: 3vw;
+        border-radius: 3px;
+        font-size: 4.5vw;
+    }
+
+    .row-adjust {
+        padding: 5vw 1vw;
+        border-bottom: 0.35px solid #cecece;
+    }
+
+    img.initial-icon {
+        margin: -0.5rem 0;
+        margin-right: 1rem;
+        height: 7vw;
+    }
+
+    span.ads-digit {
+        margin: 0 auto;
+        margin-right: 15px;
+    }
+
+    .nextBlackIcon {
+        height: 2.5vh;
+    }
+
+    .big-btn-alignment {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .big-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 3vw 31vw;
+        border-radius: 3px;
+        font-size: 4.5vw;  
+    }
+
+}

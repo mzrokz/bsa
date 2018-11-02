@@ -1,0 +1,197 @@
+page-fav-ads {
+    /*        Add post header*/
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
+
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
+
+    /*        IF the browser does NOT support the  CSS Grid Layout specification
+            We rely on the use of the CSS Flexbox standard instead*/
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /*        IF the browser DOES support the CSS Grid Layout specification
+            then the following rules are applied instead*/
+    .wrapper {
+        margin: 1.5rem 2rem;
+        display: grid;
+
+        /*        Define a 15 pixel gap between each grid track*/
+        grid-gap: 15px;
+
+        /*        Define a rule, that will be repeated for each grid column, where
+                the grid track is set to a minimum width of 300 pixels and a maximum
+                width of the available space within the grid container (via the fr or
+                fraction unit)*/
+
+        /*        The auto-fill value allows as many grid tracks to be fitted into the 
+                width of the grid container as possible*/
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    /*        Define the style rules for each panel within the grid container*/
+    .box {
+        border-radius: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+        /*        Add a flex rule for browsers not supporting the
+                CSS Grid Layout spec*/
+        flex: 1 1 300px;
+    }
+
+    .milky-white {
+        background-color: #fff;
+    }
+
+    .box-content {
+        margin: 0 auto;
+        padding: 0 0.5rem;
+    }
+
+    h4.product-title {
+        font-size: 3.6vw;
+        margin-top: 1rem;
+    }
+
+    span.product-points {
+        font-size: 3vw;
+    }
+
+    .price {
+        padding-top: 10px;
+        height: 25px;
+    }
+
+    .price .product-title {
+        color: #3588A1;
+        margin: 0 auto;
+    }
+
+    .gallery-icon {
+        width: 3.5vw;
+        height: 3.5vw;
+        right: 7vw;
+        position: absolute;
+    }
+
+    .price .digit {
+        color: #000;
+        float: right;
+    }
+
+    hr {
+        background-color: #d8cece !important;
+    }
+
+    .post-by {
+        display: flex;
+        align-items: center;
+        margin-top: -0.5rem;
+        padding: 0.2rem;
+    }
+
+    .profile-picture {
+        border-radius: 50%;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .user-name {
+        padding-left: 1rem;
+    }
+
+    .price h4 {
+        float: left;
+        margin: 5px;
+    }
+
+    .textWrapper {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .textInnerCard {
+        /* width: 100%;
+         padding: 2vw;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         height: 10vw;
+         font-size: 3.5vw;*/
+
+        width: 100%;
+        padding: 2vw;
+
+        /* text-overflow: ellipsis; */
+        /* white-space: nowrap; */
+        /* height: 10vw; */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 3.5vw;
+    }
+
+    .subTextInnerCard {
+        width: 100%;
+
+        // padding: 2vw;
+        margin-left: 2vw;
+        font-size: 3vw;
+        margin-bottom: 1vw;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    .priceText {
+        margin-left: 2vw;
+        font-size: 3vw;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    .createdBynameText {
+        // margin-top: 6%;
+        font-size: 3vw;
+
+        // width: 100%;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        margin-left: 2vw;
+    }
+
+    .sizeOfCard {
+        height: 72vw;
+
+        //height: 56vw;
+        width: 44vw;
+    }
+
+    .bgMainCard {
+        background-repeat: no-repeat;
+
+        // background: url('assets/imgs/icon_bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 33vw;
+        width: auto;
+
+        //padding-top: 2vw;
+   
+    }
+}

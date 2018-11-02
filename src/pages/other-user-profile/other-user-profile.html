@@ -1,0 +1,124 @@
+<!--
+  Generated template for the Other User Profile page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content style="background-color: #EDEDED">
+	<div class="UpperTitle">
+		<img src="assets/imgs/settings/back.png" (click)="goBack()" />
+		Profile
+	</div>
+
+	<div class="mainContainer">
+		<div style="height: 30vw; margin-top: -1.5rem;"></div>
+
+		<div class="followersContainer">
+			<div class="followerText">
+				<span>{{user.FollowerCount}}</span>
+				<br>
+				<span>Followers</span>
+			</div>
+		</div>
+
+		<img [src]="user.ProfileImage" class="profileImage">
+
+		<div class="followersContainer">
+
+			<div class="followingsText">
+				<span>{{user.FollowingCount}}</span>
+				<br>
+				<span>Followings</span>
+			</div>
+		</div>
+
+		<div class="whitecontainer">
+			<div class="user-name">{{user.Name}}</div>
+			<div class="user-contact">{{user.ContactNo}}</div>
+			<button class="follow-button" (click)="followUser()">{{ isFollowing ? 'Unfollow' : 'Follow' }}</button>
+		</div>
+	</div>
+
+
+	<!-- <div class="wrapper">
+		<div class="box milky-white">
+			<img src="assets/imgs/mobile.jpg" width="100%" />
+			<div class="box-content">
+				<h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
+				<span class="product-points">Sony Experia Z3</span><br>
+				<span class="product-points">7 Month ago</span>
+				<div class="post price">
+					<h4 class="product-title">5,000 $</h4>
+					<img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+					<h4 class="product-title digit">3</h4>
+				</div>
+				<hr>
+				<div class="post-by">
+					<img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
+					<span class="product-points user-name">Tony Boswell</span>
+					<img class="call-icon" src="assets/imgs/call_icon.png" href="#" alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="box milky-white">
+			<img src="assets/imgs/mobile.jpg" width="100%" />
+			<div class="box-content">
+				<h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
+				<span class="product-points">Sony Experia Z3</span><br>
+				<span class="product-points">7 Month ago</span>
+				<div class="post price">
+					<h4 class="product-title">5,000 $</h4>
+					<img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+					<h4 class="product-title digit">3</h4>
+				</div>
+				<hr>
+				<div class="post-by">
+					<img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
+					<span class="product-points user-name">Tony Boswell</span>
+					<img class="call-icon" src="assets/imgs/call_icon.png" href="#" alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="box milky-white">
+			<img src="assets/imgs/mobile.jpg" width="100%" />
+			<div class="box-content">
+				<h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
+				<span class="product-points">Sony Experia Z3</span><br>
+				<span class="product-points">7 Month ago</span>
+				<div class="post price">
+					<h4 class="product-title">5,000 $</h4>
+					<img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+					<h4 class="product-title digit">3</h4>
+				</div>
+				<hr>
+				<div class="post-by">
+					<img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
+					<span class="product-points user-name">Tony Boswell</span>
+					<img class="call-icon" src="assets/imgs/call_icon.png" href="#" alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="box milky-white">
+			<img src="assets/imgs/mobile.jpg" width="100%" />
+			<div class="box-content">
+				<h4 class="product-title">Buy a Sony Mobile From the Owner</h4>
+				<span class="product-points">Sony Experia Z3</span><br>
+				<span class="product-points">7 Month ago</span>
+				<div class="post price">
+					<h4 class="product-title">5,000 $</h4>
+					<img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+					<h4 class="product-title digit">3</h4>
+				</div>
+				<hr>
+				<div class="post-by">
+					<img src="assets/imgs/user.jpg" class="profile-picture" alt="Profile Picture">
+					<span class="product-points user-name">Tony Boswell</span>
+					<img class="call-icon" src="assets/imgs/call_icon.png" href="#" alt="">
+				</div>
+			</div>
+		</div>
+	</div> -->
+</ion-content>

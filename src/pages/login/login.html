@@ -8,18 +8,10 @@
 <ion-content padding class="bg">
 
   <ion-row>
+    <ion-col col-12>
 
-    <ion-col col-3>
-
-      <img src="assets/imgs/back.png" style="padding: 2vw;width:7vw" (click)="backtoPreviousScreen()">
-    </ion-col>
-    <ion-col col-9>
-
-      <div style="    margin-top: 2vw;
-    margin-left: 14vw;
-    color: white;
-    font-size: 5vw;">
-        Sign Up
+      <div class="centreTopText">
+        Login
 
       </div>
     </ion-col>
@@ -40,39 +32,34 @@
   </div>
 
   <div class="passContainer" style="margin-top:13vw">
-    <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
-    <!--
-        <div class="phoneNumber">
-          Phone number
-        </div>-->
+    <img src="assets/imgs/bt1.png" style="margin-left: 2%;" />
 
-    <div class="mobileNumber">
-      <input placeholder="Phone number"
-             style="background-color: transparent;border: transparent;font-size: 4vw;color: #3588A1;text-align: center;"
-             type="number"/>
+    <div class="phoneNumber">
+
+      <ion-row>
+        <ion-col col-4>
+          <input placeholder="+965"  class="countryCode" [(ngModel)]="countryCode"
+                 type="tel" />
+
+        </ion-col>
+        <ion-col  col-8>
+      <input placeholder="Phone number" [(ngModel)]="phoneNumber" style="background-color: transparent;
+      border: transparent;font-size: 4vw;color: #3588A1;"
+        type="tel" />
+        </ion-col>
+      </ion-row>
     </div>
 
   </div>
-
-  <!-- <div class="passContainer" style="margin-top:5vw">
-     <img src="assets/imgs/bt2.png" style="margin-left: 2%;"/>
-
-     <div class="mobileNumber">
-       Email address
-     </div>
-
-   </div>-->
-
 
   <div class="passContainer" style="margin-top:5vw">
-    <img src="assets/imgs/bt1.png" style="margin-left: 2%;"/>
+    <img src="assets/imgs/bt1.png" style="margin-left: 2%;" />
 
-    <div class="phoneNumber" (click)="goToVerification()">
-      Sign Up
+    <div class="loginBtn" (click)="goToVerification()">
+      Login
     </div>
   </div>
 
-
-  <p class="alreadyHave"> Already have an Account? Login</p>
+  <p class="alreadyHave" (click)="openSignUp()"> Don't have an Account? <b>Register Here</b></p>
 
 </ion-content>

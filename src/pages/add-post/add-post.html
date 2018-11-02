@@ -5,150 +5,55 @@
   Ionic pages and navigation.
 -->
 
-
 <ion-content style="background-color: #EDEDED">
-  <div style="background-color: #3588A1; height: 13vw;">
-    <div class="addPostHeader">
-      Add Post
+    <div class="UpperTitle">
+        <img src="assets/imgs/settings/back.png" />
+        Add Post
     </div>
-  </div>
 
-  <div class="addPostCameraDiv">
-    <img src="assets/imgs/add-photoCameraIcon.png" class="cameraIcon">
-    <div style="font-size: 3.5vw;">Add Photo</div>
-  </div>
-
-  <div class="subcategoryDiv">
-    <ion-row style="padding: 4vw;">
-      <span class="titleHeader">
-        Select category
-      </span>
-      <img src="assets/imgs/next_black.png" class="nextBlackIcon">
-    </ion-row>
-
-  </div>
-
-  <div class="subcategoryDiv">
-    <ion-row style="padding: 4vw;">
-      <span class="titleHeader">
-        Select subcategory
-      </span>
-      <img src="assets/imgs/next_black.png" class="nextBlackIcon">
-    </ion-row>
-  </div>
-
-  <div class="container">
-    <input placeholder="Add title"
-           style="background-color: transparent;border: transparent;font-size: 3vw;padding: 4vw;" type="text"/>
-  </div>
-
-  <div class="container">
-    <textarea rows="4" cols="50" wrap="soft" placeholder="Add description" style="background-color: transparent;
-    border-color: transparent;
-    color: black;padding: 4vw;
-    width: -webkit-fill-available;
-    font-size: 3vw;"></textarea>
-  </div>
-
-  <div class="container">
-    <input placeholder="Mobile number"
-           style="background-color: transparent;border: transparent;font-size: 3vw;padding: 4vw;" type="number"/>
-  </div>
-
-  <div class="savecontainer" (click)="save()" *ngIf="!isSaveSelected">
-    <img src="assets/imgs/save_btn_bg.png"/>
-    <div class="saveBluetitle">
-      Save
+    <div class="addPostCameraDiv" (click)="getPhoto()">
+        <img *ngIf="post.files.length <= 0" src="assets/imgs/add-photoCameraIcon.png" class="cameraIcon" />
+        <img *ngIf="post.files.length > 0" class="postImage" [src]="post.files[0].imgTag" />
+        <div *ngIf="post.files.length <= 0" style="font-size: 3.5vw;">Add Photo</div>
     </div>
-  </div>
-  <div class="savecontainer" (click)="save()" *ngIf="isSaveSelected">
-    <img src="assets/imgs/save_blue_bg.png"/>
-    <div class="saveWhitetitle">
-      Save
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Select category</ion-label>
+            <ion-select [(ngModel)]="post.categoryId" (ionChange)="onCategoryChange($event)">
+                <ion-option *ngFor="let category of allCategories" value="{{category.category_id}}">{{category.category_name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Select subcategory</ion-label>
+            <ion-select [(ngModel)]="post.subcategoryId">
+                <ion-option *ngFor="let subcategory of subCategories" value="{{subcategory.category_id}}">{{subcategory.category_name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Title" [(ngModel)]="post.title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-textarea type="text" placeholder="Description" [(ngModel)]="post.description"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Mobile" [(ngModel)]="post.mobile"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Price" [(ngModel)]="post.price"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Brand" [(ngModel)]="post.brand"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Model" [(ngModel)]="post.model"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div class="savecontainer" (click)="addPost()">
+        <img src="assets/imgs/save_btn_bg.png" />
+        <div class="saveBluetitle">
+            Save
+        </div>
     </div>
-  </div>
 </ion-content>
-
-<!-- <div class="add-post">
-<div class="container">
-	<div class="back">
-    <img src="assets/imgs/back.png">
-    </div>
-    <div class="add-text">
-    	<h3>Add Post</h3>
-    </div>
-</div>
-</div>
-<br>
-<div class="container">
-	<div class="add-photo">
-    	<img src="assets/imgs/cam.jpg">
-        <h4>Add Photo</h4>
-    </div>
-    <br>
-    <div class="select-catogery">
-    	<div class="select-text">
-        	<h5>Select Category</h5>
-        </div>
-        <div class="select-arrow">
-        <img src="assets/imgs/next.png">
-        </div>
-    </div>
-    <br>
-     <div class="select-catogery">
-    	<div class="select-text">
-        	<h5>Select Subcategory</h5>
-        </div>
-        <div class="select-arrow">
-        <img src="assets/imgs/next.png">
-        </div>
-    </div>
-    <br>
-     <div class="select-catogery">
-    	<div class="select-text">
-        	<h5>Add Title</h5>
-        </div>
-       
-    </div>
-    <br>
-     <div class="select-catogery description">
-    	<div class="select-text">
-        	<h5>Add Description</h5>
-        </div>
-    </div>
-    <br>
-    <div class="select-catogery">
-    	<div class="select-text">
-        	<h5>Mobile Number</h5>
-        </div>
-       
-    </div>
-    <br>
-    <div class="submit">
-    	<button type="button" class="save">Save</button>
-    </div>
-</div>
- <div class="icon-box">
- 	<div class="container">
-    	<div class="home icon">
-        	<img src="assets/imgs/home.png"><br>
-            <span>Home</span>
-        </div>
-        <div class="chat icon">
-        	<img src="assets/imgs/chat.png"><br>
-            <span>My Chat</span>
-        </div>
-        <div class="post icon">
-        	<img src="assets/imgs/add-post.png"><br>
-            <span>Add Post</span>
-        </div>
-        <div class="notification icon">
-        	<img src="assets/imgs/notification.png"><br>
-            <span>Notification</span>
-        </div>
-        <div class="user icon">
-        	<img src="assets/imgs/user.png"><br>
-            <span>Profile</span>
-        </div>
-    </div>
-    </div> -->

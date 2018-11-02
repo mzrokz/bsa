@@ -1,218 +1,165 @@
 page-add-post {
-  .addPostHeader{
-    color: white;
-    text-align: center;
-    font-size: 5vw;
-    padding-top: 4vw;
-  }
-  .addPostCameraDiv{
-    height: 27%;
-    background-color: #D6D6D6;
-    border-radius: 1vw;
-    margin: 3%;
-    position: relative;
-    text-align: center;
-    color: white;
-  }
-  .cameraIcon{
-    width: 12vw;
-    margin-top: 16%;
-  }
-  .subcategoryDiv{
-    background-color: white;
-    border-radius: 1vw;
-    height: 7%;
-    margin: 3%;
-  }
-  .titleHeader{
-    color: black;
-    font-size: 3vw;
-  }
-  .nextBlackIcon{
-    height: 3vw;
-    margin-left: auto;
-  }
-  .container{
-    position: relative;
-    text-align: left;
-    color: black;
-    width: auto;
-    background-color: white;
-    height: auto;
-    margin: 3%;
-    border-radius: 1vw;
-  }
+    /* Add post header */
+    .UpperTitle {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #3588A1;
+        font-size: 5vw;
+        color: #fff;
+        position: relative;
+    }
 
-  .savecontainer{
-    position: relative;
-    text-align: center;
-    color: black;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .UpperTitle img {
+        position: absolute;
+        left: 15px;
+        width: 6vw;
+    }
 
-  .saveBluetitle{
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      padding: 4vw;
-      color: #3588A1;
-  }
-  .saveWhitetitle{
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      padding: 4vw;
-      color: white;
-  }
+    .addPostCameraDiv {
+        height: 18%;
+        background-color: #D6D6D6;
+        border-radius: 1vw;
+        margin: 2rem 3%;
+        padding: 32px;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
 
-  /*set place holder color*/
-  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    black;
-  }
-  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    black;
-    opacity:  1;
-  }
-  ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:     black;
-    opacity:  1;
-  }
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:     black;
-  }
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color:    black;
-  }
+    .cameraIcon {
+        width: 12vw;
+    }
 
-  ::placeholder { /* Most modern browsers support this now. */
-    color:     black;
-  }
-}
-/*add new css*/
-body {
-  background-color:#ededed;
-    padding: 0;
-    margin: 0;
+    .postImage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-}
-.container {
+    .subcategoryDiv {
+        background-color: white;
+        border-radius: 1vw;
+        height: 7%;
+        margin: 3%;
+    }
 
-    width: 94%;
-    margin: auto;
+    .titleHeader {
+        color: black;
+        font-size: 3vw;
+    }
 
-}
-.add-post {
-  height: 60px;
-    background-color: #308aa1;
-  line-height: 60px;
+    .nextBlackIcon {
+        height: 3vw;
+        margin-left: auto;
+    }
 
-}
-.back {
+    .list-md {
+        margin: 0 15px;
+    }
 
-    float: left;
+    ion-item.item.item-block {
+    margin-bottom: 3%;
+    }
 
-}
-.add-text {
+    ion-item.item.item-block {
+    margin-bottom: 10px;
+    }
 
-    text-align: center;
-    color: #fff;
+    .container {
+        position: relative;
+        text-align: left;
+        color: black;
+        width: auto;
+        background-color: white;
+        height: auto;
+        margin: 3%;
+        border-radius: 1vw;
+    }
 
-}
-.back img {
-  padding-top: 23px;
-    width: 35%;
+    .savecontainer {
+        position: relative;
+        text-align: center;
+        color: black;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-}
-.add-text h3 {
+    .saveBluetitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 4vw;
+        color: #3588A1;
+    }
 
-    margin: 0;
+    .saveWhitetitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 4vw;
+        color: white;
+    }
 
-}
-.add-photo {
-  padding: 60px 0;
-    background-color: #d6d6d6;
-    text-align: center;
-    color: #fff;
+    .icon {
+        float: left;
+        width: 20%;
+    }
 
-}
-.add-photo img {
+    .icon-box {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        background-color: #f4f4f4;
+        height: 8vh;
+        padding: 0.5rem 0;
+    }
 
-    width: 20%;
+    .icon-box img {
+        width: 35%;
+    }
 
-}
-.add-photo h4 {
+    .icon span {
+        color: #b3b3b3;
+        font-size: 3vw;
+    }
 
-    margin: 0;
+    .post span {
+        color: #000;
+    }
 
-}
-.select-text {
+    /*set place holder color*/
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: black;
+    }
 
-    float: left;
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: black;
+        opacity: 1;
+    }
 
-}
-.select-arrow {
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: black;
+        opacity: 1;
+    }
 
-    float: right;
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: black;
+    }
 
-}
-.select-text h5 {
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: black;
+    }
 
-    margin: 0;
-
-}
-.select-catogery {
-  border-radius: 5px;
-    background-color: #fff;
-    color: #434242;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 10px;
-
-}
-.select-arrow img {
-
-    width: 50%;
-    padding-top: 20px;
-
-}
-.description {
-  height: 120px;
-}
-.save {
-
-    width: 100%;
-    padding: 15px;
-    border-radius: 50px;
-    box-shadow: none;
-    border: none;
-    background-color: #e0dfdf;
-  color: #1c6c87;
-  font-size: 20px;
-}
-.icon {
-    float: left;
-  width: 20%;
-}
-.icon-box {
-  text-align:center;
-  background-color:#f4f4f4;
-  height: 56px;
-  margin-top: 10px;
-  padding-top: 15px;
-}
-.icon-box img {
-    width: 45%;
-}
-.icon span {
-    color: #b3b3b3;
-    font-size: 12px;
-}
-.post span {
-  color: #1c6c87 ;
+    ::placeholder { /* Most modern browsers support this now. */
+        color: black;
+    }
 }

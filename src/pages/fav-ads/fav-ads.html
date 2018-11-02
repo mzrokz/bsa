@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content style="background-color: #EDEDED">
+
+  <div style="background-color: #3588A1;margin-bottom: 2%">
+    <div class="UpperTitle">
+      <img src="assets/imgs/settings/back.png" (click)="goBack()" />
+      Favourite Ads
+    </div>
+  </div>
+
+  <div style="margin-top: 5vw;height: auto;width: 100%">
+    <ion-grid style="padding: 0px">
+      <ion-row>
+        <ion-col col-6 *ngFor="let data of posts; let i = index">
+          <ion-card class="sizeOfCard">
+            <ion-card-content>
+              <div class="bgMainCard" (click)="openProductDetailPage(data)">
+                <img *ngIf="data.product_image != undefined || data.product_image != '' " src="{{data.product_image}}"
+                  style="height: 100%;width: 100%" onerror="this.src='assets/imgs/default_gallery.jpg'; ">
+                <div>
+                  <div class="textInnerCard"><b>{{data.product_description}} </b></div>
+                  <div class="subTextInnerCard">{{data.product_name}}</div>
+                  <div class="subTextInnerCard">{{data.create_date}}</div>
+                  <ion-row style="margin-top: 3vw;">
+                    <div class="priceText" style="color: #14B6BB;"><b>{{data.price}} $</b></div>
+                    <img class="gallery-icon" src="assets/imgs/gallery_icon.png" alt="">
+                    <div style="margin-left: auto; margin-right: 7vw;" *ngIf="data.count && data.count != '' ">
+                      <img src="assets/imgs/gallery_icon.png" style="width: 4vw;height: 4vw">
+                      <h2>{{data.count}}</h2>
+                    </div>
+                  </ion-row>
+                </div>
+                <div style="background: lightgray;height: 1px;width: auto;margin-top: 2vw"></div>
+                <ion-row style="margin-top: 1.5vw">
+                  <img *ngIf="data.user_image != undefined || data.user_image != '' " src="{{data.user_image}}" style="width: 4vw;height: 4vw;margin-left: 2vw"
+                    onerror="this.src='assets/imgs/default.jpg'; ">
+
+                  <div class="createdBynameText">{{data.created_by}}</div>
+
+                  <div style="margin-left: auto;margin-right: 2vw;" *ngIf="data.contact_no && data.contact_no != '' ">
+                    <a href="tel:{{data.contact_no}}">
+                      <img src="assets/imgs/call_icon.png" style="width: 4vw;height: 4vw;margin-left: 2vw;float: right;margin-top: 1%;">
+                    </a>
+                  </div>
+                </ion-row>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

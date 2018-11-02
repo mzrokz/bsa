@@ -1,0 +1,71 @@
+<!--
+  Generated template for the FilterModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>filterModal</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content padding>
+
+  <div style="text-align: center;
+    color: #62AEC6;
+    font-size: 6vw;
+    margin-bottom: 2vw;">Filter
+  </div>
+
+  <ion-list radio-group (ionChange)="filterByValue($event)" [(ngModel)]="filterBy">
+    <!-- <ion-list-header>
+       Filter
+     </ion-list-header>-->
+
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-radio value="price"  ></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tilte</ion-label>
+      <ion-radio value="title" ></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>History</ion-label>
+      <ion-radio value="history"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <div style="height: 1px;
+    width: auto;
+    margin-left: 4vw;
+    background-color: darkgray;">
+  </div>
+
+  <ion-list radio-group (ionChange)="filterOrderValue($event)" [(ngModel)]="filterOrder">
+
+    <ion-item>
+      <ion-label>Low to high</ion-label>
+      <ion-radio value="desc" ></ion-radio>
+    </ion-item>
+
+    <ion-item >
+      <ion-label>High to low</ion-label>
+      <ion-radio value="asc"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button class="clearFilter" (click)="clearFilter()">Clear Filter</button>
+
+  <button ion-button class="applyFilter" (click)="applyFilter()">Apply Filter</button>
+
+
+
+</ion-content>
