@@ -30,7 +30,6 @@ export class MychatpagePage {
   }
 
   ionViewDidLoad() {
-    debugger;
     console.log('ionViewDidLoad MychatpagePage');
   }
 

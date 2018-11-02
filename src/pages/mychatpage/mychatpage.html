@@ -19,26 +19,22 @@
   <ng-container *ngFor="let chat of filteredChats">
     <div style="margin-top: 3vw" (click)="gotoChatDetail(chat)">
       <ion-row>
-        <ion-col col-4>
-          <img [src]="(chat.image && chat.image !='') ? chat.image: 'assets/imgs/default_profile.png'" style="width: 70%;float: right;margin-right: 4vw">
-        </ion-col>
-        <ion-col col-4>
-          <div style="margin-top: 5vw">
-            <div style="font-size: 5vw"><b>{{chat.name}}</b></div>
-            <!-- <div style="font-size: 4vw">Doira Baird</div> -->
+
+        <div class="direct-chat-msg right">
+          <img class="direct-chat-img" [src]="(chat.image && chat.image !='') ? chat.image: 'assets/imgs/default_profile.png'" />
+          <div class="direct-chat-text">
+            {{chat.name}}
           </div>
-        </ion-col>
-        <ion-col col-4>
-          <div style="margin-top: 5vw">
-            <!-- <div style="font-size: 4vw;float: right;margin-right: 4vw;">03:25PM</div> -->
-          </div>
-        </ion-col>
+        </div>
+
       </ion-row>
     </div>
+
     <div style="height: 1px;
       width: auto;
       margin-top: 3vw;
       background-color: lightgray;">
     </div>
+
   </ng-container>
 </ion-content>
