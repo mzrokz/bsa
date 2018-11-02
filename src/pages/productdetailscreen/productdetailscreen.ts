@@ -30,9 +30,11 @@ export class ProductdetailscreenPage {
   user_id: any;
   auth_token: any;
   listOfComments: any = [];
+  isSkipLogin: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing,
-              public webservice: WebServicesProvider, public loader: CommonService, public storage: Storage,public photoViewer: PhotoViewer) {
+              public webservice: WebServicesProvider, public loader: CommonService,
+              public storage: Storage, public photoViewer: PhotoViewer) {
     this.dataFromPrevious = this.navParams.data.data;
     // console.log("this.dataFromPrevious ", JSON.stringify(this.dataFromPrevious));
 
@@ -56,7 +58,14 @@ S
 
     });
 
+    this.storage.get('isSkipLogin').then(isSkipLogin => {
+      console.log('this.isSkipLogin in storage' + isSkipLogin);
+      this.isSkipLogin = isSkipLogin;
+
+    });
+
   }
+
 
   backtoPreviousScreen() {
     this.navCtrl.pop();
@@ -69,7 +78,7 @@ S
   callGetProductDetailApi() {
     if (this.product_id != null) {
       this.loader.showLoader();
-      this.webservice.getProductDetailData(this.product_id,this.user_id)
+      this.webservice.getProductDetailData(this.product_id, this.user_id)
         .subscribe(responce => {
           this.loader.hideLoader();
           let resp: any = {};
@@ -162,14 +171,19 @@ S
 
   openMyChat() {
 
-    if (this.productDetailResponse.author_id != null) {
-      this.navCtrl.push('ChattingScreenPage', {recepientId: this.productDetailResponse.author_id});
-
+    if (this.isSkipLogin) {
+      this.loader.showToast('Please Login In to access this page');
     } else {
-      this.loader.showToast('Please try to connect on a call,this user is not available on chat!');
-    }
 
-    // this.navCtrl.setRoot('HomePage', {tab: 1, page: 'myChat'});
+      if (this.productDetailResponse.author_id != null) {
+        this.navCtrl.push('ChattingScreenPage', {recepientId: this.productDetailResponse.author_id});
+
+      } else {
+        this.loader.showToast('Please try to connect on a call,this user is not available on chat!');
+      }
+
+      // this.navCtrl.setRoot('HomePage', {tab: 1, page: 'myChat'});
+    }
   }
 
   shareViaWhatsApp() {

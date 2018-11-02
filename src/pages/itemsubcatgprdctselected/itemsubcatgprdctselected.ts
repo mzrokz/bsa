@@ -49,11 +49,14 @@ export class ItemsubcatgprdctselectedPage {
   }
 
   openProductDetailPage(data) {
-    if(this.isSkipLogin){
+   /* if(this.isSkipLogin){
       this.commonService.showToast('Please Login In to access this page');
     }else {
       this.navCtrl.push('ProductdetailscreenPage', { data: data })
-    }
+    } */
+
+      this.navCtrl.push('ProductdetailscreenPage', { data: data })
+
 
   }
 
