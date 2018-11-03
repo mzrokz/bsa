@@ -21,4 +21,31 @@ page-mychatpage {
         font-size: 6vw;
         color: #fff;
     }
+
+    .direct-chat-msg {
+    width: 100vw;
+    margin: 0 3vw;
+    }
+
+    .right .direct-chat-img {
+    float: right;
+    }
+
+    img.direct-chat-img {
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    }
+
+    .direct-chat-text {
+    display: block;
+    margin: 0 auto;
+    margin-right: 22vw;
+    padding: 0 3vw;
+    text-align: right;
+    line-height: 22vw;
+    font-size: 5vw;
+    font-weight: 500;
+    text-transform: capitalize;
+    }
 }
