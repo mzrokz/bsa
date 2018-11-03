@@ -23,29 +23,28 @@ page-mychatpage {
     }
 
     .direct-chat-msg {
-    width: 100vw;
-    margin: 0 3vw;
+        width: 100vw;
+        margin: 0 3vw;
     }
 
     .right .direct-chat-img {
-    float: right;
+        float: right;
     }
 
     img.direct-chat-img {
-    border-radius: 50%;
-    width: 7rem;
-    height: 7rem;
+        border-radius: 50%;
+        height: 20vw;
     }
 
     .direct-chat-text {
-    display: block;
-    margin: 0 auto;
-    margin-right: 22vw;
-    padding: 0 3vw;
-    text-align: right;
-    line-height: 22vw;
-    font-size: 5vw;
-    font-weight: 500;
-    text-transform: capitalize;
+        display: block;
+        margin: 0 auto;
+        margin-right: 22vw;
+        padding: 0 3vw;
+        text-align: right;
+        line-height: 22vw;
+        font-size: 5vw;
+        font-weight: 500;
+        text-transform: capitalize;
     }
 }
