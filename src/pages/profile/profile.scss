@@ -112,15 +112,28 @@ button.following-btn {
     color: dimgrey;
     font-size: 3vw;
     padding-left: 5vw;
+    margin-left: auto;
+    padding-right: 2vw;
   }
   .followHeader{
     color: dimgrey;
     font-size: 3vw;
     padding-left: 4vw;
+    padding-right: 2vw;
   }
   .nextBlackIcon{
     height: 3vw;
-    margin-left: auto;
+    margin-left: 1vw;
+  }
+
+  .nextBlackIcon2{
+    height: 3vw;
+    margin-right: auto;
+  }
+
+  .imginvert{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 }
 

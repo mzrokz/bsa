@@ -37,100 +37,93 @@
 
   <div class="settingsDiv" (click)="gotoSettings()">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/setting.png" style="height: 4vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
       <span class="titleHeader">
         Setting
       </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
+      <img class="nextBlackIcon" src="assets/imgs/setting.png" style="height: 4vw;">
     </ion-row>
   </div>
 
 
-  <div class="settingsDiv" (click)="gotoRecentPosts()">
+  <div class="settingsDiv" (click)="gotoRecentPosts()">   
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/Recently-Viewed.png" style="height: 2.5vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
       <span class="titleHeader">
         Recently Viewed
       </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
+      <img class="nextBlackIcon" src="assets/imgs/Recently-Viewed.png" style="height: 2.5vw;">
     </ion-row>
   </div>
-
 
   <div class="settingsDiv" (click)="gotoFavAds()">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/Favorite-ads.png" style="height: 3vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
       <span class="titleHeader">
         Favorite ads
       </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
+      <img class="nextBlackIcon" src="assets/imgs/Favorite-ads.png" style="height: 3vw;">
     </ion-row>
   </div>
-
 
   <div class="settingsDiv" (click)="gotoAds()">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/My-Ads.png" style="height: 3vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
       <span class="titleHeader">
         My Ads
       </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
+      <img class="nextBlackIcon" src="assets/imgs/My-Ads.png" style="height: 3vw;">
     </ion-row>
   </div>
 
-
-  <!-- 
   <div class="settingsDiv">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/My-Wallet.png" style="height: 3vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
       <span class="titleHeader">
         My Wallet
       </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
-    </ion-row>
-  </div> -->
-
-
-  <div class="settingsDiv" (click)="gotoAccount()">
-    <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/Account.png" style="height: 3vw;">
-      <span class="titleHeader">
-        Account
-      </span>
-      <img src="assets/imgs/next_grey.png" class="nextBlackIcon">
+      <img class="nextBlackIcon" src="assets/imgs/My-Wallet.png" style="height: 3vw;">
     </ion-row>
   </div>
 
+  <div class="settingsDiv" (click)="gotoAccount()">
+    <ion-row style="padding: 4vw;">
+      <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert">
+      <span class="titleHeader">
+        Account
+      </span>
+      <img class="nextBlackIcon" src="assets/imgs/Account.png" style="height: 3vw;">
+    </ion-row>
+  </div>
 
   <div class="settingsDiv" (click)="gotofollowers()">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/followers.png" style="height:  3vw;">
+      <div style="margin-right: auto;">
+        <ion-row>
+          <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert" style="height: 3vw;margin-top: 1vw;">
+          <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowerCount}}</div>
+        </ion-row>
+      </div>
       <span class="followHeader">
         Followers
       </span>
-      <div style="margin-left: auto;">
-        <ion-row>
-          <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowerCount}}</div>
-          <img src="assets/imgs/next_grey.png" style="height: 3vw;margin-top: 1vw;">
-        </ion-row>
-      </div>
+      <img class="nextBlackIcon" src="assets/imgs/followers.png" style="height: 3vw;">
     </ion-row>
   </div>
 
 
   <div class="settingsDiv" (click)="gotoFollowing()">
     <ion-row style="padding: 4vw;">
-      <img src="assets/imgs/Following.png" style="height:  3vw;">
-      <span class="followHeader">
-        Followings
-      </span>
-      <div style="margin-left: auto;">
-        <ion-row>
-          <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowingCount}}</div>
-          <img src="assets/imgs/next_grey.png" style="height: 3vw;margin-top: 1vw;">
-        </ion-row>
-      </div>
-    </ion-row>
+        <div style="margin-right: auto;">
+          <ion-row>
+            <img src="assets/imgs/next_grey.png" class="nextBlackIcon imginvert" style="height: 3vw;margin-top: 1vw;">
+            <div style="margin-right: 3vw;color: dimgrey">{{profile.FollowingCount}}</div>
+          </ion-row>
+        </div>
+        <span class="followHeader">
+            Followings
+        </span>
+        <img class="nextBlackIcon" src="assets/imgs/Following.png" style="height: 3vw;">
+      </ion-row>
   </div>
-
 </ion-content>
