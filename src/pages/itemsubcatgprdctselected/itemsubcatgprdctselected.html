@@ -116,17 +116,18 @@
                   </ion-row>-->
 
                   <ion-row style="margin-top: 1.5vw">
-                    <img *ngIf="data.user_image != undefined || data.user_image != '' " src="{{data.user_image}}"
-                         style="width: 4vw;height: 4vw;margin-left: 2vw" onerror="this.src='assets/imgs/default.jpg'; ">
-
-                    <div class="createdBynameText">{{data.created_by}}</div>
-
                     <div style="margin-left: auto;margin-right: 2vw;" *ngIf="data.contact_no && data.contact_no != '' ">
                       <a href="tel:{{data.contact_no}}">
                         <img src="assets/imgs/call_icon.png"
                              style="width: 4vw;height: 4vw;margin-left: 2vw;float: right;margin-top: 1%;">
                       </a>
                     </div>
+
+                    <div class="createdBynameText">{{data.created_by}}</div>
+                    <img *ngIf="data.user_image != undefined || data.user_image != '' " src="{{data.user_image}}"
+                         style="width: 4vw;height: 4vw;margin-right: 2vw" onerror="this.src='assets/imgs/default.jpg'; ">
+
+
                   </ion-row>
                 </div>
               </ion-card-content>

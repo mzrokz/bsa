@@ -39,58 +39,50 @@ page-itemsubcatgprdctselected {
     font-size: 4vw;
     //padding-top: 2vw;
     color: black;
-    margin-left: 2vw;
-    text-align: center;
+   // margin-left: 2vw;
+    text-align: right;
+    padding-right: 2vw;
   }
 
   .textInnerCard {
-    /* width: 100%;
-     padding: 2vw;
-     text-overflow: ellipsis;
-     white-space: nowrap;
-     height: 10vw;
-     font-size: 3.5vw;*/
-
     width: 100%;
     padding: 2vw;
-    /* text-overflow: ellipsis; */
-    /* white-space: nowrap; */
-    /* height: 10vw; */
-    overflow: hidden !important;
+     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
     font-size: 3.5vw;
+    text-align: right;
   }
 
   .subTextInnerCard {
     width: 100%;
-    // padding: 2vw;
-    margin-left: 2vw;
     font-size: 3vw;
     margin-bottom: 1vw;
-
+    padding-right: 2vw;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
+    text-align: right;
   }
 
   .priceText {
-    margin-left: 2vw;
+   // margin-left: 2vw;
+    width: 100%;
     font-size: 3vw;  
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-  }
+    text-align: right;
+    padding-right: 2vw;  }
 
   .createdBynameText {
-    // margin-top: 6%;
     font-size: 3vw;
-    // width: 100%;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-    margin-left: 2vw;
+    margin-right: 2vw;
     width: 60%;
+    text-align: right;
   }
 
   .sizeOfCard {
