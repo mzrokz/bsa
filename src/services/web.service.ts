@@ -29,7 +29,7 @@ export class WebServicesProvider {
   search = 'search-product.php';
   notificationList = 'get-notification.php';
   filter = 'filter-products.php';
-
+  categoriesWithSubCategory = 'categories.php';
 
   constructor(
     public http: HttpClient,
@@ -241,6 +241,14 @@ export class WebServicesProvider {
 
     return this.http.post(this.apiUrl + this.filter, body, options);
 
+  }
+
+  getCategoriesWithSubCategory(auth_token) {
+    let header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    header.append('auth_token', auth_token);
+    let options = {headers: header};
+    return this.http.get<any>(this.apiUrl + this.categoriesWithSubCategory, options);
   }
 
   getAllCategory() {

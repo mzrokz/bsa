@@ -52,7 +52,8 @@ export class MainpagePage {
   }
 
   ionViewDidLoad() {
-    this.callGetRootCategoryApi();
+    // this.callGetRootCategoryApi();
+    this.callGetCategoriesWithSubCategory();
   }
 
   backtoPreviousScreen() {
@@ -106,6 +107,28 @@ export class MainpagePage {
     });
   }
 
+  callGetCategoriesWithSubCategory() {
+    this.commonService.showLoader();
+    this.webservice.getCategoriesWithSubCategory(this.auth_token).subscribe(responce => {
+      this.commonService.hideLoader();
+      let resp: any = {};
+      resp = JSON.stringify(responce);
+      let data = JSON.parse(resp);
+      if (data.status === '200') {
+        let dataOnlyHere = JSON.stringify(data.data);
+        this.rootCategoryResponse = JSON.parse(dataOnlyHere);
+        console.log('rootCategoryResponse>>>>>>>>>>>>>>>>>>',JSON.stringify(this.rootCategoryResponse));
+      }
+      this.callGetSliderImageDataApi();
+    }, (err) => {
+      this.commonService.hideLoader();
+
+      let err1: any = err;
+      let error = JSON.parse(JSON.stringify(err1));
+      console.log('error with status', JSON.stringify(error));
+
+    });
+  }
 
   openSearchScreen() {
     this.navCtrl.push(SearchPage);
