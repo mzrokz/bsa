@@ -85,7 +85,7 @@ export class SubcategoryPage {
 
   callGetSliderImageDataApi() {
     this.commonService.showLoader();
-    this.webservice.getHomeSliderImages(this.auth_token).subscribe(responce => {
+    this.webservice.getCategorySliderImages(this.auth_token).subscribe(responce => {
       this.commonService.hideLoader();
       let resp: any = {};
       resp = JSON.stringify(responce);

@@ -30,6 +30,7 @@ export class WebServicesProvider {
   notificationList = 'get-notification.php';
   filter = 'filter-products.php';
   categoriesWithSubCategory = 'categories.php';
+  categorySlider = 'category-slider.php';
 
   constructor(
     public http: HttpClient,
@@ -191,6 +192,15 @@ export class WebServicesProvider {
     header.append('auazth_token', auth_token);
     let options = {headers: header};
     return this.http.get<any>(this.apiUrl + this.homeSlider, options);
+
+    //  return this.http.get(this.apiUrl + this.homeSlider );
+  }
+  getCategorySliderImages(auth_token) {
+    let header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    header.append('auazth_token', auth_token);
+    let options = {headers: header};
+    return this.http.get<any>(this.apiUrl + this.categorySlider, options);
 
     //  return this.http.get(this.apiUrl + this.homeSlider );
   }
