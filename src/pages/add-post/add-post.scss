@@ -60,11 +60,11 @@ page-add-post {
     }
 
     ion-item.item.item-block {
-    margin-bottom: 3%;
+        margin-bottom: 3%;
     }
 
     ion-item.item.item-block {
-    margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .container {
@@ -161,5 +161,13 @@ page-add-post {
 
     ::placeholder { /* Most modern browsers support this now. */
         color: black;
+    }
+
+    input {
+        direction: ltr;
+    }
+
+    .rtl{
+        direction: rtl;
     }
 }

@@ -18,13 +18,13 @@
     </div>
 
     <ion-list>
-        <ion-item>
+        <ion-item class="rtl">
             <ion-label>Select category</ion-label>
             <ion-select [(ngModel)]="post.categoryId" (ionChange)="onCategoryChange($event)">
                 <ion-option *ngFor="let category of allCategories" value="{{category.category_id}}">{{category.category_name}}</ion-option>
             </ion-select>
         </ion-item>
-        <ion-item>
+        <ion-item class="rtl">
             <ion-label>Select subcategory</ion-label>
             <ion-select [(ngModel)]="post.subcategoryId">
                 <ion-option *ngFor="let subcategory of subCategories" value="{{subcategory.category_id}}">{{subcategory.category_name}}</ion-option>
